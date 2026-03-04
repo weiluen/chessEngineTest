@@ -46,6 +46,9 @@ constexpr int RazorMargin = 200;
 constexpr int SEE_CAPTURE_THRESHOLD = 0;
 constexpr int DeltaMargin = 90;
 
+// Late Move Pruning thresholds by depth
+constexpr int LmpThresholds[7] = {0, 5, 8, 13, 20, 30, 42};
+
 }  // namespace
 
 void TimeManager::start(const SearchLimits& limits, Color side_to_move) {
@@ -139,7 +142,7 @@ Search::Search(TranspositionTable& tt) : tt_(tt) {
             }
         }
     }
-    pv_table_.fill(make_null_move());
+    pv_length_.fill(0);
 }
 
 void Search::decay_history() {
@@ -186,7 +189,7 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
     }
 
     for (int depth = 1; depth <= max_depth; ++depth) {
-        pv_table_.fill(make_null_move());
+        pv_length_.fill(0);
         if (stop_) {
             break;
         }
@@ -206,8 +209,9 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
             ++stats_.tt_hits;
             tt_move = entry.best_move;
         }
-        if (tt_move.is_null() && depth > 1 && !pv_table_[0].is_null()) {
-            tt_move = pv_table_[0];
+        // Use previous iteration's PV move as fallback
+        if (tt_move.is_null() && !result.pv.empty()) {
+            tt_move = result.pv[0];
         }
 
         std::vector<std::pair<int, Move>> ordered;
@@ -233,6 +237,7 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
             Move best_move = make_null_move();
             int best_score = -InfiniteScore;
             int local_alpha = alpha;
+            pv_length_[0] = 0;
 
             for (std::size_t i = 0; i < ordered.size(); ++i) {
                 if (stop_ || time_manager_.should_stop()) {
@@ -257,6 +262,12 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
                 }
                 if (score > local_alpha) {
                     local_alpha = score;
+                    // Update triangular PV at root
+                    pv_table_[0][0] = move;
+                    for (int j = 0; j < pv_length_[1]; ++j) {
+                        pv_table_[0][j + 1] = pv_table_[1][j];
+                    }
+                    pv_length_[0] = pv_length_[1] + 1;
                 }
                 if (local_alpha >= beta) {
                     break;
@@ -287,7 +298,11 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
                 result.best_move = best_move;
                 result.score = best_score;
                 result.depth_reached = depth;
-                pv_table_[0] = best_move;
+                // Copy PV from triangular table
+                result.pv.clear();
+                for (int j = 0; j < pv_length_[0]; ++j) {
+                    result.pv.push_back(pv_table_[0][j]);
+                }
             }
             break;
         }
@@ -505,6 +520,11 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         return alpha;
     }
 
+    // Init PV length for this ply
+    if (ply < MaxPly) {
+        pv_length_[ply] = 0;
+    }
+
     const Color us = pos.side_to_move();
     const bool in_check = pos.in_check(us);
 
@@ -532,9 +552,16 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
     tt_.prefetch(key);
     TTEntry entry{};
     Move tt_move = make_null_move();
+    int tt_score = 0;
+    int tt_depth = -1;
+    Bound tt_bound = Bound::None;
+    bool tt_hit = false;
     if (tt_.probe(key, entry)) {
         ++stats_.tt_hits;
-        int tt_score = from_tt_score(entry.score, ply);
+        tt_score = from_tt_score(entry.score, ply);
+        tt_depth = entry.depth;
+        tt_bound = entry.bound;
+        tt_hit = true;
         if (entry.depth >= depth && !time_manager_.should_stop()) {
             if (entry.bound == Bound::Exact) {
                 return tt_score;
@@ -552,10 +579,8 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
             tt_move = entry.best_move;
         }
     }
-    if (tt_move.is_null() && !pv_table_[ply].is_null()) {
-        tt_move = pv_table_[ply];
-    }
 
+    // IID: if no TT move at sufficient depth, do a reduced search
     if (depth >= 5 && tt_move.is_null()) {
         int iid_depth = depth - 2;
         if (iid_depth > 0) {
@@ -563,8 +588,10 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
             if (stop_) {
                 return alpha;
             }
-            if (!pv_table_[ply].is_null()) {
-                tt_move = pv_table_[ply];
+            // Re-probe TT after IID
+            TTEntry iid_entry{};
+            if (tt_.probe(key, iid_entry) && !iid_entry.best_move.is_null()) {
+                tt_move = iid_entry.best_move;
             }
             (void)iid_score;
         }
@@ -583,20 +610,58 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
                                  pos.pieces(us, Piece::Bishop) |
                                  pos.pieces(us, Piece::Rook) |
                                  pos.pieces(us, Piece::Queen);
+
+    // Null-move pruning with adaptive R
     if (allow_null && depth >= 3 && !in_check && non_pawn_material) {
+        int R = 3 + depth / 6;
+        R = std::min(R, depth - 1);
         if (pos.make_null_move()) {
-            int score = -negamax(pos, depth - 1 - 2, -beta, -beta + 1, ply + 1, false, make_null_move());
+            int score = -negamax(pos, depth - 1 - R, -beta, -beta + 1, ply + 1, false, make_null_move());
             pos.unmake_null_move();
             if (stop_) {
                 return alpha;
             }
             if (score >= beta) {
-                int verification = -negamax(pos, depth - 1 - 1, -beta, -beta + 1, ply + 1, false, make_null_move());
-                if (verification >= beta) {
+                // Verification search only at higher depths
+                if (depth >= 8) {
+                    int verification = -negamax(pos, depth - 1 - 1, -beta, -beta + 1, ply + 1, false, make_null_move());
+                    if (verification >= beta) {
+                        tt_.store(key, depth, to_tt_score(beta, ply), Bound::Lower, make_null_move());
+                        return beta;
+                    }
+                } else {
                     tt_.store(key, depth, to_tt_score(beta, ply), Bound::Lower, make_null_move());
                     return beta;
                 }
             }
+        }
+    }
+
+    // Singular extension: check if TT move is singular
+    bool tt_move_is_singular = false;
+    if (depth >= 6 && !tt_move.is_null() && tt_hit &&
+        tt_depth >= depth - 3 &&
+        (tt_bound == Bound::Lower || tt_bound == Bound::Exact) &&
+        std::abs(tt_score) < CheckmateThreshold) {
+        int singular_beta = tt_score - depth * 3;
+        int se_depth = (depth - 1) / 2;
+
+        // Search all non-TT moves at reduced depth with narrow window
+        std::vector<Move> se_moves = pos.generate_legal_moves();
+        bool any_beats_beta = false;
+        for (const Move& move : se_moves) {
+            if (same_move(move, tt_move)) continue;
+            if (!pos.make_move(move)) continue;
+            int se_score = -negamax(pos, se_depth, -singular_beta, -singular_beta + 1, ply + 1, false, move);
+            pos.unmake_move();
+            if (stop_) return alpha;
+            if (se_score >= singular_beta) {
+                any_beats_beta = true;
+                break;
+            }
+        }
+        if (!any_beats_beta) {
+            tt_move_is_singular = true;
         }
     }
 
@@ -632,10 +697,27 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         bool is_promo = (move.flags & MoveFlagPromotion) != 0;
         bool gives_check = (move.flags & MoveFlagCheck) != 0;
         bool is_quiet = !(move.flags & QuietMask);
+        bool is_tt_move = !tt_move.is_null() && same_move(move, tt_move);
 
         if (!is_capture && !is_promo && see(pos, move) < SEE_CAPTURE_THRESHOLD) {
             ++move_index;
             continue;
+        }
+
+        // Late Move Pruning: skip quiet moves beyond threshold
+        if (!in_check && is_quiet && !gives_check && !is_tt_move && depth <= 6 && depth >= 1 &&
+            move_index >= LmpThresholds[depth]) {
+            ++move_index;
+            continue;
+        }
+
+        // History pruning: skip quiet moves with very negative history at low depth
+        if (!in_check && is_quiet && !gives_check && !is_tt_move && depth <= 4) {
+            int hist = history_[static_cast<int>(us)][move.from][move.to];
+            if (hist < -2000) {
+                ++move_index;
+                continue;
+            }
         }
 
         if (!in_check && is_quiet && depth <= 2 && !gives_check) {
@@ -651,6 +733,12 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         }
 
         int new_depth = depth - 1;
+
+        // Singular extension: extend TT move if singular
+        if (is_tt_move && tt_move_is_singular) {
+            new_depth += 1;
+        }
+
         int reduction = 0;
         if (depth >= 3 && move_index >= 3 && !in_check && is_quiet) {
             int d = std::min(depth, 63);
@@ -702,7 +790,17 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
             alpha = score;
             best_move = move;
             found_pv = true;
-            pv_table_[ply] = move;
+
+            // Update triangular PV
+            if (ply < MaxPly) {
+                pv_table_[ply][0] = move;
+                int child_len = (ply + 1 < MaxPly) ? pv_length_[ply + 1] : 0;
+                for (int j = 0; j < child_len && j + 1 < MaxPly; ++j) {
+                    pv_table_[ply][j + 1] = pv_table_[ply + 1][j];
+                }
+                pv_length_[ply] = child_len + 1;
+            }
+
             if (alpha >= beta) {
                 if (is_quiet) {
                     update_killers(ply, move);
@@ -799,6 +897,87 @@ int Search::quiescence(Position& pos, int alpha, int beta, int ply) {
 
 void Search::stop() {
     stop_.store(true, std::memory_order_relaxed);
+}
+
+std::uint64_t Search::node_count() const noexcept {
+    return stats_.nodes + stats_.qnodes;
+}
+
+// --- SearchPool (Lazy SMP) ---
+
+SearchPool::SearchPool(TranspositionTable& tt, int num_threads)
+    : tt_(tt), num_threads_(std::max(1, num_threads)) {
+    workers_.reserve(static_cast<std::size_t>(num_threads_));
+    for (int i = 0; i < num_threads_; ++i) {
+        workers_.push_back(std::make_unique<Search>(tt_));
+    }
+}
+
+void SearchPool::set_threads(int num_threads) {
+    num_threads_ = std::max(1, num_threads);
+    workers_.clear();
+    workers_.reserve(static_cast<std::size_t>(num_threads_));
+    for (int i = 0; i < num_threads_; ++i) {
+        workers_.push_back(std::make_unique<Search>(tt_));
+    }
+}
+
+SearchResult SearchPool::search(Position& pos, const SearchLimits& limits) {
+    if (num_threads_ <= 1) {
+        return workers_[0]->iterative_deepening(pos, limits);
+    }
+
+    // Launch helper threads (1..N-1) with infinite search on position copies
+    std::vector<std::thread> helper_threads;
+    std::vector<Position> helper_positions;
+    helper_positions.reserve(static_cast<std::size_t>(num_threads_ - 1));
+
+    SearchLimits helper_limits = limits;
+    helper_limits.infinite = true;
+    helper_limits.time_ms = 0;
+    helper_limits.time_left[0] = 0;
+    helper_limits.time_left[1] = 0;
+    helper_limits.increment[0] = 0;
+    helper_limits.increment[1] = 0;
+
+    for (int i = 1; i < num_threads_; ++i) {
+        helper_positions.push_back(pos);  // copy
+    }
+
+    for (int i = 1; i < num_threads_; ++i) {
+        int idx = i;
+        helper_threads.emplace_back([this, idx, &helper_positions, &helper_limits]() {
+            workers_[idx]->iterative_deepening(helper_positions[idx - 1], helper_limits);
+        });
+    }
+
+    // Main thread runs actual search with time management
+    SearchResult result = workers_[0]->iterative_deepening(pos, limits);
+
+    // Stop all helpers
+    for (int i = 1; i < num_threads_; ++i) {
+        workers_[i]->stop();
+    }
+
+    // Join all helper threads
+    for (auto& t : helper_threads) {
+        if (t.joinable()) {
+            t.join();
+        }
+    }
+
+    // Aggregate node counts from all workers
+    for (int i = 1; i < num_threads_; ++i) {
+        result.stats.nodes += workers_[i]->node_count();
+    }
+
+    return result;
+}
+
+void SearchPool::stop() {
+    for (auto& worker : workers_) {
+        worker->stop();
+    }
 }
 
 }  // namespace chess

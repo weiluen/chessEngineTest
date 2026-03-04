@@ -11,6 +11,9 @@
 #include <atomic>
 #include <chrono>
 #include <cmath>
+#include <memory>
+#include <thread>
+#include <vector>
 
 namespace chess {
 
@@ -26,6 +29,7 @@ struct SearchResult {
     int score = DrawScore;
     SearchStatistics stats{};
     int depth_reached = 0;
+    std::vector<Move> pv;
 };
 
 class TimeManager {
@@ -49,6 +53,7 @@ public:
     SearchResult iterative_deepening(Position& pos, const SearchLimits& limits);
 
     void stop();
+    [[nodiscard]] std::uint64_t node_count() const noexcept;
 
 private:
     int negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move);
@@ -75,8 +80,23 @@ private:
     std::array<std::array<std::array<int, 64>, 64>, 2> history_{};
     std::array<std::array<std::array<int, 64>, 6>, 2> capture_history_{};
     std::array<std::array<Move, 64>, 2> counter_moves_{};
-    std::array<Move, MaxPly> pv_table_{};
+    std::array<std::array<Move, MaxPly>, MaxPly> pv_table_{};
+    std::array<int, MaxPly> pv_length_{};
     std::array<std::array<Move, 2>, MaxPly> killers_{};
+};
+
+class SearchPool {
+public:
+    explicit SearchPool(TranspositionTable& tt, int num_threads = 1);
+
+    void set_threads(int num_threads);
+    SearchResult search(Position& pos, const SearchLimits& limits);
+    void stop();
+
+private:
+    TranspositionTable& tt_;
+    std::vector<std::unique_ptr<Search>> workers_;
+    int num_threads_;
 };
 
 }  // namespace chess

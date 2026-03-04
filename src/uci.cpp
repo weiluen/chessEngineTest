@@ -37,7 +37,7 @@ public:
     Engine()
         : position_(),
           tt_(128),
-          search_(tt_) {}
+          search_pool_(tt_, 1) {}
 
     void run() {
         std::string line;
@@ -93,6 +93,7 @@ private:
         std::cout << "id name HyperSearch\n";
         std::cout << "id author Codex\n";
         std::cout << "option name Hash type spin default 128 min 1 max 4096\n";
+        std::cout << "option name Threads type spin default 1 min 1 max 256\n";
         std::cout << "uciok\n";
         std::cout.flush();
     }
@@ -209,6 +210,17 @@ private:
             } catch (...) {
                 std::cout << "info string invalid hash value\n";
             }
+        } else if (name == "threads") {
+            try {
+                int n = std::stoi(value);
+                n = std::clamp(n, 1, 256);
+                stop_search();
+                wait_for_search();
+                search_pool_.set_threads(n);
+                std::cout << "info string threads set to " << n << '\n';
+            } catch (...) {
+                std::cout << "info string invalid threads value\n";
+            }
         } else if (name == "clear hash") {
             stop_search();
             wait_for_search();
@@ -253,7 +265,7 @@ private:
         searching_.store(true, std::memory_order_relaxed);
         search_thread_ = std::thread([this, limits]() {
             auto start = std::chrono::steady_clock::now();
-            SearchResult result = search_.iterative_deepening(position_, limits);
+            SearchResult result = search_pool_.search(position_, limits);
             auto end = std::chrono::steady_clock::now();
             auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
             searching_.store(false, std::memory_order_relaxed);
@@ -264,7 +276,7 @@ private:
 
     void stop_search() {
         if (searching_.load(std::memory_order_relaxed)) {
-            search_.stop();
+            search_pool_.stop();
         }
     }
 
@@ -292,14 +304,22 @@ private:
         }
         std::cout << " time " << elapsed_ms
                   << " nodes " << nodes
-                  << " nps " << nps
-                  << '\n';
+                  << " nps " << nps;
+
+        // Output PV line
+        if (!result.pv.empty()) {
+            std::cout << " pv";
+            for (const Move& m : result.pv) {
+                std::cout << " " << to_uci(m);
+            }
+        }
+
+        std::cout << '\n';
         std::cout.flush();
     }
 
     void print_bestmove(const Move& move) {
-        std::string uci_move = to_uci(move);
-        std::cout << "bestmove " << uci_move << '\n';
+        std::cout << "bestmove " << to_uci(move) << '\n';
         std::cout.flush();
     }
 
@@ -316,7 +336,7 @@ private:
 
     Position position_{};
     TranspositionTable tt_;
-    Search search_;
+    SearchPool search_pool_;
     std::thread search_thread_;
     std::atomic<bool> searching_{false};
     bool quit_requested_ = false;

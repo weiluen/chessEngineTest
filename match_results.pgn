@@ -1,0 +1,2916 @@
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1/2-1/2"]
+
+1. Nc3 e6 2. Nf3 d5 3. e3 Nf6 4. d4 Bb4 5. Bd3 O-O 6. Bd2 Nbd7 7. O-O h6 8. a3 Be7 9. Qe2 c5 10. b3 Qb6 11. Rfe1 a6 12. g3 Qc7 13. e4 cxd4 14. Nxd4 Bc5 15. Bf4 e5 16. Nxd5 Nxd5 17. exd5 Bxd4 18. Qe4 Bxf2+ 19. Kxf2 Nf6 20. Qc4 Qxc4 21. bxc4 exf4 22. gxf4 Rd8 23. a4 Rd6 24. c3 Rb8 25. f5 Bd7 26. Kf3 Rc8 27. a5 Rc5 28. Reb1 Rc7 29. Rb6 Rxb6 30. axb6 Rc5 31. Rxa6 Bc8 32. Ra7 Nd7 33. Ke4 Nxb6 34. Kd4 Nd7 35. Ra4 h5 36. Rb4 Ra5 37. Bb1 h4 38. h3 b6 39. Be4 Ra2 40. Rb1 Rh2 41. Rh1 Rxh1 42. Bxh1 Nc5 43. Be4 Bb7 44. Bf3 Kf8 45. Bd1 Ke7 46. Ke5 f6+ 47. Kd4 Kd6 48. Bc2 Bc8 49. Bb1 Bb7 50. Bc2 Bc8 51. Bb1 Bd7 52. Bc2 1/2-1/2
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1/2-1/2"]
+
+1. d4 d5 2. Bf4 Nf6 3. e3 Nc6 4. Bb5 a6 5. Bxc6+ bxc6 6. Ne2 e6 7. O-O Bd6 8. Qe1 O-O 9. Qa5 Rb8 10. c4 Rxb2 11. Nbc3 dxc4 12. Rfb1 Rxb1+ 13. Rxb1 Bxf4 14. exf4 Nd5 15. Qc5 Nxc3 16. Nxc3 Qd6 17. Qxc4 Qxf4 18. Qc5 Bd7 19. Ne2 Qf5 20. Qxf5 exf5 21. Nf4 g5 22. Nh5 Be6 23. Rb7 Rd8 24. Rb1 Bxa2 25. Rb4 c5 26. Rb2 Be6 27. d5 Bxd5 28. Rd2 c6 29. Rd1 h6 30. Ra1 Bc4 31. Re1 Kh7 32. f4 Kg6 33. Ng3 gxf4 34. Nh1 h5 35. Nf2 Rd4 36. Re8 f6 37. Rc8 Bd5 38. Ra8 Bc4 39. h3 h4 40. Rb8 Bd5 41. Ra8 Bc4 42. Rb8 Bd5 43. Ra8 1/2-1/2
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+
+1. d4 d5 2. Nc3 e5 3. dxe5 Be6 4. e4 d4 5. Nb5 Nc6 6. Nf3 Bb4+ 7. c3 dxc3 8. bxc3 Qxd1+ 9. Kxd1 O-O-O+ 10. Kc2 Bc5 11. Be3 Bxe3 12. fxe3 Re8 13. Nbd4 Nge7 14. Nxe6 fxe6 15. Bb5 a6 16. Bxc6 Nxc6 17. Kb2 Rhf8 18. Rhe1 Nd8 19. Rad1 Nf7 20. h3 Kb8 21. a3 Rd8 22. Kb3 Rh8 23. g3 Rhe8 24. a4 h5 25. Rxd8+ Rxd8 26. Kc4 g5 27. g4 b5+ 28. axb5 hxg4 29. hxg4 Ka7 30. Ra1 Kb6 31. Rxa6+ Kb7 32. Rxe6 Rd1 33. Rf6 Rd7 34. Rf5 Kb6 35. Nxg5 Nxg5 36. Rxg5 Ka5 37. Rg6 c6 38. Rxc6 Ra7 39. e6 Ra8 40. e7 Ka4 41. e8=Q Ka3 42. Qxa8+ Kb2 43. Rf6 Kc1 44. Qa2 Kd1 45. Rf1# 1-0
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1/2-1/2"]
+
+1. d4 Nf6 2. Bf4 d5 3. e3 Nc6 4. Bb5 e6 5. Ne2 Bd6 6. Bxc6+ bxc6 7. O-O Bxf4 8. Nxf4 Ba6 9. Re1 g5 10. Nd3 O-O 11. Nc5 Bc8 12. Nc3 Rb8 13. Qc1 Qd6 14. e4 Nxe4 15. N5xe4 dxe4 16. Qxg5+ Kh8 17. Qf6+ Kg8 18. Qg5+ Kh8 19. Qf6+ Kg8 1/2-1/2
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1/2-1/2"]
+
+1. d4 d5 2. Nc3 e5 3. dxe5 Be6 4. e4 d4 5. Nb5 Nc6 6. Nf3 Bb4+ 7. c3 dxc3 8. bxc3 Qxd1+ 9. Kxd1 O-O-O+ 10. Kc2 Bc5 11. Be3 Bxe3 12. fxe3 Re8 13. Nbd4 Nge7 14. Nxe6 fxe6 15. Bb5 a6 16. Bxc6 Nxc6 17. Kb2 Rhf8 18. Rhe1 Nd8 19. a4 Nf7 20. c4 g5 21. h3 h5 22. g4 hxg4 23. hxg4 Nh6 24. Nxg5 Nxg4 25. Kc3 Rg8 26. Nh7 Rg6 27. Rg1 Rd8 28. Raf1 a5 29. Nf8 Rg8 30. Nxe6 Rde8 31. Rf4 Rxe6 32. Rgxg4 Rge8 33. Rf5 Kb8 34. Kd4 Rd8+ 35. Kc3 Rde8 36. Kd4 Rd8+ 37. Kc3 1/2-1/2
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "0-1"]
+
+1. d4 Nf6 2. Bf4 c5 3. Nc3 cxd4 4. Qxd4 Nc6 5. Qe3 d5 6. O-O-O e5 7. Bg5 d4 8. Qg3 Qb6 9. Bxf6 dxc3 10. Qxc3 gxf6 11. e3 Bb4 12. Qd3 Be6 13. Qe4 Bxa2 14. Qf5 Be7 15. Nf3 Be6 16. Qh5 Qa5 17. Kb1 Qa2+ 18. Kc1 Qa1+ 19. Kd2 Bb4+ 20. c3 Qxb2+ 21. Ke1 Bxc3+ 22. Nd2 Rd8 23. Be2 Bb3 24. Qf5 Bxd1 25. Kf1 Bxe2+ 26. Kg1 Qc1+ 27. Nf1 Qxf1# 0-1
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+
+1. d4 d5 2. Nc3 e5 3. dxe5 Be6 4. e4 d4 5. Nb5 Nc6 6. Nf3 Bb4+ 7. c3 dxc3 8. Qxd8+ Kxd8 9. bxc3 Be7 10. Bd3 Kc8 11. Nbd4 Nb4 12. cxb4 Bxb4+ 13. Bd2 Ba3 14. Nxe6 fxe6 15. Rb1 Nh6 16. Bc4 Re8 17. Nd4 Nf7 18. Bxe6+ Rxe6 19. Nxe6 Nxe5 20. Nxg7 Nd3+ 21. Ke2 Ne5 22. Bc3 Ng6 23. Rb3 Bd6 24. Nf5 Bc5 25. Kf3 a6 26. Rd1 Rb8 27. Rd5 Be7 28. Nxe7+ Nxe7 29. Rh5 Kd7 30. Rxh7 Ke6 31. Rh6+ Kd7 32. Rxa6 Nd5 33. exd5 b6 34. Be5 Rf8+ 35. Bf4 Kc8 36. Ra8+ Kd7 37. Rxf8 Ke7 38. Rc8 b5 39. Rxc7+ Kf6 40. Rxb5 Kf5 41. g4+ Kf6 42. Rb6# 1-0
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "0-1"]
+
+1. d4 Nf6 2. Bf4 c5 3. Nc3 cxd4 4. Qxd4 Nc6 5. Qe3 d5 6. O-O-O d4 7. Qg3 e5 8. Bxe5 Nh5 9. Qd3 Nxe5 10. Qb5+ Nd7 11. Rxd4 Nf6 12. Na4 Be7 13. Kb1 a6 14. Qf5 b5 15. Nc3 O-O 16. e4 g6 17. Qf4 Qb6 18. Nf3 Bc5 19. Rd1 Bxf2 20. Nd5 Nxd5 21. exd5 Be3 22. Qe4 Nf6 23. Qe7 Re8 24. Qb4 Rd8 25. d6 Bc5 26. Qh4 Rxd6 27. Be2 Bf5 28. Ng5 Re8 29. Bf3 Qc7 30. Qh6 Be3 31. Ka1 Rxd1+ 32. Rxd1 Bxc2 33. Re1 Re5 34. Qh3 Bxg5 35. Rxe5 Bf5 36. Re1 Bxh3 37. gxh3 Qxh2 38. Bb7 Qxh3 39. Bxa6 Bd2 40. Rb1 Qd7 41. Rd1 Ne4 42. Kb1 Qc6 43. Bxb5 Qxb5 44. Rxd2 Nxd2+ 45. Kc2 Ne4 46. a3 Qc4+ 47. Kd1 Qd3+ 48. Kc1 Qd2+ 49. Kb1 Qd1+ 50. Ka2 Nd2 51. b3 Qb1# 0-1
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+
+1. Nf3 d5 2. e3 Bg4 3. Nc3 e6 4. d4 Bb4 5. h3 Bxf3 6. Qxf3 Ne7 7. Bd3 Bxc3+ 8. bxc3 O-O 9. O-O Nd7 10. e4 Re8 11. exd5 exd5 12. Rb1 Rb8 13. Bf4 Nf8 14. Bb5 Nd7 15. Qg3 Rc8 16. Bxd7 Qxd7 17. Rxb7 Qa4 18. Bxc7 Nf5 19. Qd3 g6 20. g4 Ne3 21. fxe3 Qc6 22. Rxa7 Rxc7 23. Rxc7 Qxc7 24. Rf3 Rd8 25. a3 Qa5 26. c4 Qe1+ 27. Kg2 Ra8 28. cxd5 Qb1 29. e4 Qc1 30. Qc3 Qd1 31. Qd3 Qc1 32. Re3 Rxa3 33. Qxa3 Qd2+ 34. Kf3 Qh2 35. Qc3 Qxh3+ 36. Kf4 Qh6+ 37. Kf3 Qh3+ 38. Kf4 Qh2+ 39. Rg3 Qh6+ 40. g5 Qh4+ 41. Ke5 h5 42. d6 Kf8 43. Kd5 Qf4 44. Qc8+ Kg7 45. d7 Qf1 46. c4 Qf5+ 47. exf5 f6 48. gxf6+ Kh7 49. fxg6+ Kh6 50. Qf8# 1-0
+
+[Event "Engine Match"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1/2-1/2"]
+
+1. d4 Nf6 2. Bf4 Nc6 3. e3 e6 4. Bc4 d5 5. Bb5 Bd6 6. Bxc6+ bxc6 7. Ne2 Rb8 8. Bxd6 Qxd6 9. Qc1 Qb4+ 10. Nd2 Qxb2 11. Qxb2 Rxb2 12. O-O-O Rxa2 13. Nb3 Ne4 14. Nc5 Nxf2 15. Kb1 Ra5 16. Nb3 Rb5 17. Rde1 Nxh1 18. Rxh1 O-O 19. Ka2 f5 20. Nc5 g6 21. Rg1 Rd8 22. Rd1 Bd7 23. Rd3 Ra5+ 24. Ra3 Rxa3+ 25. Kxa3 Kf7 26. Nf4 Kf6 27. Nb7 Rb8 28. Nc5 Rd8 29. Nb7 Rb8 30. Nc5 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:41:58.730 EST"]
+[GameStartTime "2026-03-04T02:41:57.081 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.29/12 0.34s} d5 {-0.30/6 0.14s} 2. Bf4 {+0.16/12 0.32s}
+e6 {-0.18/6 0.16s} 3. Nc3 {0.00/12 0.22s}
+Bb4 {+0.02/6 0.14s, White makes an illegal move: g8f6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:00.476 EST"]
+[GameStartTime "2026-03-04T02:41:58.732 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.45/12 0.23s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.14/12 0.33s} 3. e3 {+0.21/6 0.21s} e6 {-0.01/12 0.28s}
+4. Bc4 {+0.34/6 0.29s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:42:02.547 EST"]
+[GameStartTime "2026-03-04T02:42:00.476 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.16/12 0.33s} e6 {-0.11/6 0.041s} 2. Nf3 {+0.04/12 0.32s}
+d5 {-0.04/6 0.11s} 3. e3 {+0.11/12 0.25s} c6 {+0.01/6 0.24s}
+4. d4 {+0.28/12 0.24s} Bb4 {-0.16/6 0.23s, White makes an illegal move: g8f6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:04.126 EST"]
+[GameStartTime "2026-03-04T02:42:02.547 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} d5 {-0.39/13 0.29s} 2. Bf4 {+0.07/6 0.15s}
+Nf6 {-0.36/12 0.21s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.23/11 0.32s}
+4. Bb5 {+0.53/6 0.20s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:07"]
+[GameEndTime "2026-03-04T02:42:11.530 EST"]
+[GameStartTime "2026-03-04T02:42:04.126 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "38"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.39/12 0.25s} e6 {-0.11/6 0.042s} 2. e4 {+0.52/13 0.26s}
+Nf6 {-0.16/6 0.14s} 3. e5 {+0.36/12 0.24s} Ng8 {-0.81/6 0.064s}
+4. Nf3 {+0.66/12 0.31s} d5 {-0.35/6 0.11s} 5. d4 {+0.72/11 0.30s}
+Be7 {-0.65/6 0.16s} 6. Bf4 {+0.66/11 0.29s} Bb4 {-0.73/6 0.17s}
+7. Ke2 {+0.29/12 0.27s} Bxc3 {+0.52/6 0.11s} 8. bxc3 {+0.12/12 0.22s}
+Ne7 {+0.73/6 0.026s} 9. Ke1 {+0.16/11 0.19s} O-O {+0.78/6 0.063s}
+10. g4 {-0.02/10 0.27s} Nd7 {+1.11/6 0.11s} 11. c4 {-0.10/11 0.19s}
+b6 {+0.96/6 0.12s} 12. Bd3 {+0.30/10 0.25s} dxc4 {+0.71/6 0.10s}
+13. Bxc4 {+0.26/12 0.19s} Bb7 {+0.75/6 0.14s} 14. a4 {+0.36/10 0.24s}
+Nd5 {+1.17/6 0.28s} 15. Bd2 {+0.15/11 0.17s} c5 {+0.96/6 0.32s}
+16. a5 {0.00/10 0.15s} Ne7 {+1.23/6 0.34s} 17. axb6 {+0.51/10 0.21s}
+Nxb6 {+1.49/6 0.080s} 18. Bd3 {+0.28/10 0.23s} cxd4 {+1.47/6 0.21s}
+19. Nxd4 {+0.31/11 0.16s}
+Qxd4 {+4.48/6 0.14s, White makes an illegal move: d8d7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:42:13.656 EST"]
+[GameStartTime "2026-03-04T02:42:11.531 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "11"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.39/13 0.28s} 2. Bf4 {+0.28/6 0.10s}
+d6 {-0.37/12 0.20s} 3. e3 {+0.20/6 0.17s} Nd5 {+0.01/11 0.32s}
+4. Bg5 {+0.43/6 0.065s} h6 {-0.02/11 0.31s} 5. Qh5 {+0.52/6 0.087s}
+Rg8 {+0.26/10 0.19s} 6. Bc4 {+0.97/6 0.14s, Black makes an illegal move: g5h4}
+1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:14.997 EST"]
+[GameStartTime "2026-03-04T02:42:13.656 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.28/12 0.33s} e6 {-0.11/6 0.045s} 2. d4 {+0.14/13 0.28s}
+Nf6 {-0.18/6 0.11s} 3. e4 {+0.22/12 0.20s}
+Bb4 {-0.12/6 0.038s, White makes an illegal move: d7d5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:16.639 EST"]
+[GameStartTime "2026-03-04T02:42:14.997 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.31/13 0.29s} 2. Bf4 {+0.28/6 0.10s}
+d6 {-0.25/12 0.32s} 3. e3 {+0.20/6 0.16s} Nc6 {+0.06/12 0.25s}
+4. Bb5 {+0.41/6 0.28s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:17.966 EST"]
+[GameStartTime "2026-03-04T02:42:16.640 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.38/12 0.24s} e6 {-0.11/6 0.041s} 2. e4 {+0.57/12 0.33s}
+Nf6 {-0.16/6 0.14s} 3. d4 {+0.54/11 0.32s}
+Bb4 {-0.12/6 0.039s, White makes an illegal move: d7d5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:19.638 EST"]
+[GameStartTime "2026-03-04T02:42:17.966 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.42/13 0.30s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.31/12 0.32s} 3. e3 {+0.20/6 0.16s} Nc6 {-0.10/12 0.26s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:21.492 EST"]
+[GameStartTime "2026-03-04T02:42:19.638 EST"]
+[Opening "Queen's pawn"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Chigorin variation"]
+
+1. d4 {+0.30/12 0.33s} d5 {-0.30/6 0.043s} 2. Nc3 {+0.41/12 0.32s}
+e5 {-0.07/6 0.10s} 3. dxe5 {+1.04/12 0.24s} Be6 {0.00/6 0.11s}
+4. Nf3 {+1.45/12 0.28s} Bb4 {-0.03/6 0.20s, White makes an illegal move: d8d7}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:23.092 EST"]
+[GameStartTime "2026-03-04T02:42:21.492 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.39/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+d6 {-0.23/12 0.29s} 3. e3 {+0.20/6 0.16s} Rg8 {-0.12/11 0.31s}
+4. Bb5+ {+0.72/6 0.16s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:04"]
+[GameEndTime "2026-03-04T02:42:27.585 EST"]
+[GameStartTime "2026-03-04T02:42:23.092 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "26"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.39/12 0.25s} d5 {-0.18/6 0.034s} 2. exd5 {+0.46/12 0.33s}
+Qd6 {-0.23/6 0.092s} 3. Nc3 {+0.52/11 0.23s} Nf6 {-0.34/6 0.13s}
+4. Nb5 {+0.42/11 0.20s} Qe5+ {-0.49/6 0.051s} 5. Qe2 {+0.70/12 0.30s}
+Qxe2+ {-0.94/6 0.018s} 6. Nxe2 {+0.68/14 0.30s} Kd8 {-1.04/6 0.051s}
+7. Nf4 {+0.67/12 0.29s} g5 {-0.88/6 0.14s} 8. Nd3 {+0.26/12 0.18s}
+Nbd7 {-0.90/6 0.14s} 9. Nc3 {+0.80/12 0.17s} e6 {-0.59/6 0.062s}
+10. dxe6 {+0.92/13 0.26s} fxe6 {-0.87/6 0.026s} 11. f4 {+1.21/12 0.21s}
+Bd6 {-0.83/6 0.068s} 12. fxg5 {+1.41/13 0.26s} Ng4 {-0.85/6 0.054s}
+13. Nf4 {+1.73/11 0.25s}
+Bxf4 {+0.89/6 0.039s, White makes an illegal move: e6e5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:42:29.969 EST"]
+[GameStartTime "2026-03-04T02:42:27.585 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "9"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.39/12 0.33s} 2. Bf4 {+0.07/6 0.15s}
+Bf5 {-0.58/12 0.25s} 3. e3 {+0.01/6 0.25s} e6 {-0.58/12 0.25s}
+4. Nd2 {-0.12/6 0.30s} Nc6 {-0.41/11 0.31s}
+5. Bb5 {+0.51/6 0.21s, Black makes an illegal move: g2g4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:31.754 EST"]
+[GameStartTime "2026-03-04T02:42:29.970 EST"]
+[Opening "Queen's pawn"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Chigorin variation"]
+
+1. d4 {+0.33/12 0.27s} d5 {-0.30/6 0.040s} 2. Nc3 {+0.22/12 0.23s}
+e5 {-0.07/6 0.10s} 3. dxe5 {+0.97/12 0.27s} Be6 {0.00/6 0.10s}
+4. Nf3 {+1.49/12 0.27s} Bb4 {-0.03/6 0.21s, White makes an illegal move: g8e7}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:33.379 EST"]
+[GameStartTime "2026-03-04T02:42:31.754 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} d5 {-0.45/12 0.33s} 2. Bf4 {+0.07/6 0.15s}
+Nf6 {-0.42/12 0.21s} 3. e3 {+0.17/6 0.15s} e6 {-0.24/12 0.29s}
+4. Bb5+ {+0.29/6 0.16s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A09"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:34.901 EST"]
+[GameStartTime "2026-03-04T02:42:33.379 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.38/12 0.33s} d5 {-0.05/6 0.025s} 2. c4 {+0.32/12 0.32s}
+Nc6 {+0.05/6 0.15s} 3. cxd5 {+1.47/12 0.31s}
+Qxd5 {-0.12/6 0.050s, White makes an illegal move: c6b4} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:36.665 EST"]
+[GameStartTime "2026-03-04T02:42:34.901 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.58/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+e6 {-0.49/11 0.32s} 3. e3 {-0.05/6 0.13s} Nc6 {-0.12/12 0.22s}
+4. Bc4 {+0.34/6 0.30s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:04"]
+[GameEndTime "2026-03-04T02:42:41.020 EST"]
+[GameStartTime "2026-03-04T02:42:36.665 EST"]
+[Opening "Reti Opening"]
+[PlyCount "20"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.29/12 0.24s} d5 {-0.05/6 0.025s} 2. d4 {0.00/12 0.33s}
+Bf5 {-0.18/6 0.11s} 3. c4 {+0.25/12 0.32s} e6 {-0.01/6 0.19s}
+4. Nc3 {+0.83/11 0.20s} Nd7 {-0.01/6 0.23s} 5. Qb3 {+1.28/11 0.30s}
+Rb8 {-0.10/6 0.30s} 6. cxd5 {+1.46/11 0.29s} Ngf6 {-0.67/6 0.14s}
+7. e4 {+1.70/11 0.20s} Nxe4 {-0.80/6 0.13s} 8. g4 {+2.09/12 0.20s}
+Nxc3 {+0.92/6 0.19s} 9. gxf5 {+2.09/10 0.27s} Nxd5 {+0.99/6 0.11s}
+10. Ng5 {+0.10/10 0.27s} Bb4+ {+2.33/6 0.10s, White makes an illegal move: d8f6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:42.551 EST"]
+[GameStartTime "2026-03-04T02:42:41.021 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.21/13 0.27s} 2. Bf4 {+0.28/6 0.10s}
+e6 {-0.40/12 0.25s} 3. e3 {-0.05/6 0.13s} Be7 {-0.16/12 0.24s}
+4. Bd3 {+0.23/6 0.18s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:43.975 EST"]
+[GameStartTime "2026-03-04T02:42:42.552 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.31/12 0.33s} e6 {-0.11/6 0.041s} 2. d4 {+0.20/12 0.25s}
+Nf6 {-0.18/6 0.10s} 3. e4 {+0.22/11 0.32s}
+Bb4 {-0.12/6 0.037s, White makes an illegal move: f8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:45.616 EST"]
+[GameStartTime "2026-03-04T02:42:43.975 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} d5 {-0.31/13 0.32s} 2. Bf4 {+0.07/6 0.15s}
+Nf6 {-0.35/12 0.32s} 3. e3 {+0.17/6 0.15s} e6 {-0.42/12 0.23s}
+4. Bb5+ {+0.29/6 0.17s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:47.058 EST"]
+[GameStartTime "2026-03-04T02:42:45.616 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.38/12 0.33s} e6 {-0.11/6 0.045s} 2. e4 {+0.44/13 0.32s}
+Nf6 {-0.16/6 0.14s} 3. d4 {+0.39/12 0.22s}
+Bb4 {-0.12/6 0.039s, White makes an illegal move: f8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:48.705 EST"]
+[GameStartTime "2026-03-04T02:42:47.058 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.32/13 0.30s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.56/12 0.25s} 3. e3 {+0.20/6 0.16s} h6 {-0.16/12 0.30s}
+4. Bd3 {+0.66/6 0.17s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D02"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:50.638 EST"]
+[GameStartTime "2026-03-04T02:42:48.705 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.17/12 0.21s} d5 {-0.30/6 0.042s} 2. Nf3 {+0.15/12 0.33s}
+Bf5 {-0.18/6 0.11s} 3. Nc3 {+0.01/11 0.32s} Nc6 {-0.15/6 0.22s}
+4. Nxd5 {+0.82/12 0.31s}
+Qxd5 {+2.07/6 0.059s, White makes an illegal move: f5e4} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:42:52.296 EST"]
+[GameStartTime "2026-03-04T02:42:50.639 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.78/12 0.24s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.67/12 0.25s} 3. e3 {+0.21/6 0.20s} e6 {-0.03/12 0.22s}
+4. Bc4 {+0.34/6 0.29s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:04"]
+[GameEndTime "2026-03-04T02:42:56.630 EST"]
+[GameStartTime "2026-03-04T02:42:52.297 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "20"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.21/12 0.33s} d5 {-0.18/6 0.032s} 2. exd5 {-0.01/12 0.32s}
+Qd6 {-0.23/6 0.091s} 3. d4 {+0.35/11 0.31s} Bf5 {-0.15/6 0.23s}
+4. c4 {+1.31/11 0.19s} Nd7 {-0.34/6 0.22s} 5. Nc3 {+1.65/11 0.28s}
+h5 {-0.27/6 0.22s} 6. Nb5 {+3.59/11 0.29s} Qb6 {-2.38/6 0.058s}
+7. Bf4 {+3.50/11 0.28s} e5 {-1.34/6 0.13s} 8. c5 {+3.90/10 0.21s}
+Nxc5 {-1.46/6 0.092s} 9. Bxe5 {+3.90/10 0.27s} Qa5+ {-0.36/6 0.087s}
+10. Qd2 {+5.69/12 0.24s}
+Qxd2+ {-1.58/6 0.13s, White makes an illegal move: c5b3} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A41"]
+[GameDuration "00:00:04"]
+[GameEndTime "2026-03-04T02:43:01.360 EST"]
+[GameStartTime "2026-03-04T02:42:56.630 EST"]
+[Opening "Queen's Pawn"]
+[PlyCount "21"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} d6 {-0.27/12 0.33s} 2. e4 {+0.35/6 0.061s}
+Nf6 {-0.72/12 0.32s} 3. Nc3 {+0.72/6 0.20s} Nbd7 {-0.56/12 0.30s}
+4. Bg5 {+0.77/6 0.21s} h6 {-0.35/11 0.30s} 5. Be3 {+0.68/6 0.16s}
+e5 {-0.35/12 0.26s} 6. d5 {+0.42/6 0.23s} Be7 {+0.07/11 0.20s}
+7. Kd2 {+0.25/6 0.41s} Nc5 {+0.44/11 0.21s} 8. Bxc5 {+0.31/6 0.057s}
+dxc5 {+0.22/11 0.20s} 9. Kc1 {+0.17/6 0.11s} O-O {-0.02/11 0.17s}
+10. Be2 {+0.03/6 0.23s} b5 {+1.20/12 0.27s}
+11. Bxb5 {+0.82/6 0.17s, Black makes an illegal move: c3b5} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:03.008 EST"]
+[GameStartTime "2026-03-04T02:43:01.361 EST"]
+[Opening "Queen's pawn"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Chigorin variation"]
+
+1. d4 {+0.30/12 0.26s} d5 {-0.30/6 0.044s} 2. Nc3 {+0.05/12 0.22s}
+e5 {-0.07/6 0.096s} 3. dxe5 {+0.96/12 0.30s} Be6 {0.00/6 0.11s}
+4. Nxd5 {+1.70/12 0.24s}
+Qxd5 {+1.73/6 0.038s, White makes an illegal move: b8c6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "3"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:04.539 EST"]
+[GameStartTime "2026-03-04T02:43:03.008 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.35/12 0.33s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.28/12 0.25s} 3. e3 {+0.20/6 0.17s} Nbd7 {-0.12/12 0.29s}
+4. Bc4 {+0.20/6 0.15s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A09"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:06.058 EST"]
+[GameStartTime "2026-03-04T02:43:04.539 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.21/12 0.33s} d5 {-0.05/6 0.025s} 2. c4 {+0.06/12 0.32s}
+Nc6 {+0.05/6 0.14s} 3. cxd5 {+1.36/12 0.31s}
+Qxd5 {-0.12/6 0.050s, White makes an illegal move: c6b4} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:07.766 EST"]
+[GameStartTime "2026-03-04T02:43:06.058 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.42/12 0.33s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.44/12 0.22s} 3. e3 {+0.20/6 0.17s} Nc6 {-0.03/12 0.26s}
+4. Bb5 {+0.41/6 0.26s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:09.239 EST"]
+[GameStartTime "2026-03-04T02:43:07.767 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.22/12 0.33s} d5 {-0.05/6 0.026s} 2. Nc3 {+0.09/12 0.32s}
+d4 {+0.05/6 0.15s} 3. Nxd4 {+0.65/13 0.26s}
+Qxd4 {+1.26/6 0.030s, White makes an illegal move: e7e5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:10.749 EST"]
+[GameStartTime "2026-03-04T02:43:09.240 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.61/13 0.30s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.31/12 0.31s} 3. e3 {+0.20/6 0.16s} Bf5 {-0.08/11 0.20s}
+4. Bd3 {+0.60/6 0.20s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:12.065 EST"]
+[GameStartTime "2026-03-04T02:43:10.749 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.40/12 0.33s} d5 {-0.05/6 0.026s} 2. Nc3 {+0.40/12 0.22s}
+d4 {+0.05/6 0.15s} 3. Nxd4 {+0.80/13 0.29s}
+Qxd4 {+1.26/6 0.030s, White makes an illegal move: e7e5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:13.843 EST"]
+[GameStartTime "2026-03-04T02:43:12.066 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} d5 {-0.68/12 0.33s} 2. Bf4 {+0.07/6 0.16s}
+Nf6 {-0.67/12 0.26s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.27/12 0.32s}
+4. Bb5 {+0.53/6 0.21s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:15.374 EST"]
+[GameStartTime "2026-03-04T02:43:13.843 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.40/12 0.33s} e6 {-0.11/6 0.040s} 2. e4 {+0.55/12 0.32s}
+Nf6 {-0.16/6 0.15s} 3. d4 {+0.36/11 0.31s}
+Bb4 {-0.12/6 0.038s, White makes an illegal move: d7d5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:17.003 EST"]
+[GameStartTime "2026-03-04T02:43:15.374 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.024s} Nf6 {-0.34/13 0.31s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.36/12 0.26s} 3. e3 {+0.21/6 0.21s} d6 {+0.07/12 0.23s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:18.286 EST"]
+[GameStartTime "2026-03-04T02:43:17.004 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.16/12 0.22s} e6 {-0.11/6 0.041s} 2. e4 {+0.04/12 0.33s}
+Nf6 {-0.16/6 0.14s} 3. d4 {+0.09/12 0.25s}
+Bb4 {-0.12/6 0.038s, White makes an illegal move: d7d5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "4"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:19.965 EST"]
+[GameStartTime "2026-03-04T02:43:18.287 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.34/13 0.30s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.24/12 0.25s} 3. e3 {+0.21/6 0.21s} d6 {0.00/12 0.28s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:21.283 EST"]
+[GameStartTime "2026-03-04T02:43:19.966 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.43/12 0.33s} e6 {-0.11/6 0.043s} 2. e4 {+0.43/12 0.22s}
+Nf6 {-0.16/6 0.14s} 3. d4 {+0.31/11 0.32s}
+Bb4 {-0.12/6 0.038s, White makes an illegal move: f8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:23.026 EST"]
+[GameStartTime "2026-03-04T02:43:21.283 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.43/13 0.33s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.37/12 0.23s} 3. e3 {+0.20/6 0.17s} Nc6 {+0.04/11 0.32s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:24.905 EST"]
+[GameStartTime "2026-03-04T02:43:23.026 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.27/12 0.33s} e6 {-0.11/6 0.042s} 2. e4 {+0.32/13 0.30s}
+Nf6 {-0.16/6 0.14s} 3. Nf3 {+0.21/11 0.31s} d5 {-0.10/6 0.077s}
+4. d3 {+0.15/12 0.20s} Bb4 {+0.22/6 0.14s, White makes an illegal move: b8c6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:26.562 EST"]
+[GameStartTime "2026-03-04T02:43:24.905 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.25/12 0.33s} 2. Bf4 {+0.07/6 0.16s}
+Nf6 {-0.49/12 0.22s} 3. e3 {+0.17/6 0.15s} e6 {-0.25/12 0.27s}
+4. Bb5+ {+0.29/6 0.17s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:28.001 EST"]
+[GameStartTime "2026-03-04T02:43:26.563 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.33/12 0.27s} e6 {-0.11/6 0.043s} 2. e4 {+0.61/13 0.30s}
+Nf6 {-0.16/6 0.14s} 3. d4 {+0.53/12 0.31s}
+Bb4 {-0.12/6 0.039s, White makes an illegal move: f8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:29.677 EST"]
+[GameStartTime "2026-03-04T02:43:28.002 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.41/13 0.27s} 2. Bf4 {+0.28/6 0.11s}
+Nc6 {-0.43/12 0.24s} 3. e3 {+0.21/6 0.20s} d6 {-0.16/12 0.28s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:31.042 EST"]
+[GameStartTime "2026-03-04T02:43:29.677 EST"]
+[Opening "Queen's pawn"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Chigorin variation"]
+
+1. d4 {+0.09/12 0.33s} d5 {-0.30/6 0.041s} 2. Nc3 {+0.03/12 0.32s}
+e5 {-0.07/6 0.10s} 3. Nxd5 {+0.68/11 0.20s}
+Qxd5 {+2.07/6 0.035s, White makes an illegal move: g8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:32.701 EST"]
+[GameStartTime "2026-03-04T02:43:31.042 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} d5 {-0.23/12 0.29s} 2. Bf4 {+0.07/6 0.16s}
+e6 {-0.52/12 0.28s} 3. e3 {+0.21/6 0.13s} Nf6 {-0.21/11 0.32s}
+4. Bb5+ {+0.29/6 0.16s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:05"]
+[GameEndTime "2026-03-04T02:43:38.643 EST"]
+[GameStartTime "2026-03-04T02:43:32.701 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "34"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.38/12 0.25s} d5 {-0.18/6 0.030s} 2. exd5 {+0.38/12 0.33s}
+Qd6 {-0.23/6 0.092s} 3. Nc3 {+0.25/11 0.20s} Nf6 {-0.34/6 0.13s}
+4. Nb5 {+0.55/11 0.31s} Qe5+ {-0.49/6 0.050s} 5. Ne2 {+0.89/12 0.30s}
+Nxd5 {-0.38/6 0.22s} 6. c4 {+1.03/12 0.20s} Bd7 {-0.16/6 0.12s}
+7. Qb3 {+2.80/12 0.22s} a6 {-0.04/6 0.076s} 8. f4 {+2.08/11 0.23s}
+Qf6 {+0.03/6 0.045s} 9. Nec3 {+0.99/10 0.19s} c5 {-0.11/6 0.15s}
+10. Nxd5 {+7.37/12 0.20s} Qe6+ {-4.33/6 0.11s} 11. Kf2 {+8.44/12 0.17s}
+Kd8 {-4.26/6 0.16s} 12. Nbc7 {+8.72/13 0.23s} Qd6 {-7.18/6 0.071s}
+13. Nxa8 {+8.70/12 0.16s} e6 {-7.22/6 0.080s} 14. Ne3 {+8.31/11 0.25s}
+b5 {-7.19/6 0.11s} 15. cxb5 {+8.70/11 0.20s} axb5 {-7.72/6 0.093s}
+16. Bxb5 {+8.82/12 0.24s} Nc6 {-8.05/6 0.11s} 17. Nc4 {+8.78/11 0.24s}
+Qxf4+ {-7.51/6 0.026s, White makes an illegal move: d6d4} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "5"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:40.324 EST"]
+[GameStartTime "2026-03-04T02:43:38.643 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.024s} d5 {-0.48/12 0.26s} 2. Bf4 {+0.07/6 0.15s}
+Nf6 {-0.38/11 0.33s} 3. e3 {+0.17/6 0.15s} e6 {-0.37/12 0.27s}
+4. Bb5+ {+0.29/6 0.17s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:03"]
+[GameEndTime "2026-03-04T02:43:43.612 EST"]
+[GameStartTime "2026-03-04T02:43:40.325 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "14"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.32/12 0.22s} d5 {-0.18/6 0.033s} 2. exd5 {+0.42/12 0.33s}
+Qd6 {-0.23/6 0.092s} 3. d4 {+0.39/11 0.26s} Bf5 {-0.15/6 0.22s}
+4. Nc3 {+1.40/11 0.31s} Kd8 {-0.43/6 0.25s} 5. Nf3 {+2.36/11 0.30s}
+Kc8 {-0.50/6 0.21s} 6. Ne5 {+4.04/11 0.27s} Nd7 {-0.83/6 0.17s}
+7. Nxf7 {+4.54/12 0.22s} Qb4 {-5.06/6 0.068s, White makes an illegal move: d6f6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:45.503 EST"]
+[GameStartTime "2026-03-04T02:43:43.612 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.20/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.30/12 0.32s} 3. e3 {+0.21/6 0.21s} d6 {+0.02/12 0.31s}
+4. Bb5 {+0.41/6 0.26s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:03"]
+[GameEndTime "2026-03-04T02:43:48.544 EST"]
+[GameStartTime "2026-03-04T02:43:45.504 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "14"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.42/12 0.24s} e6 {-0.11/6 0.040s} 2. e4 {+0.31/12 0.21s}
+Nf6 {-0.16/6 0.14s} 3. e5 {+0.78/11 0.32s} Ng8 {-0.81/6 0.064s}
+4. Nf3 {+0.84/12 0.25s} d5 {-0.35/6 0.11s} 5. g3 {+0.86/11 0.30s}
+Nd7 {-0.09/6 0.21s} 6. d4 {+1.16/11 0.29s} Rb8 {-0.19/6 0.19s}
+7. Bd3 {+1.41/12 0.28s} Bb4 {-0.65/6 0.14s, White makes an illegal move: f8e7}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:50.333 EST"]
+[GameStartTime "2026-03-04T02:43:48.545 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.48/12 0.33s} 2. Bf4 {+0.28/6 0.11s}
+Nc6 {-0.49/12 0.24s} 3. e3 {+0.21/6 0.20s} e6 {-0.05/12 0.28s}
+4. Bc4 {+0.34/6 0.28s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:52.098 EST"]
+[GameStartTime "2026-03-04T02:43:50.333 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.25/13 0.31s} e6 {-0.11/6 0.041s} 2. e4 {0.00/12 0.22s}
+Nf6 {-0.16/6 0.14s} 3. Nf3 {+0.02/12 0.30s} d5 {-0.10/6 0.074s}
+4. d3 {+0.19/12 0.23s} Bb4 {+0.22/6 0.15s, White makes an illegal move: f8e7}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:43:54.835 EST"]
+[GameStartTime "2026-03-04T02:43:52.099 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "13"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.30/13 0.25s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.21/12 0.23s} 3. e3 {+0.20/6 0.16s} Nd5 {-0.07/11 0.32s}
+4. Bg5 {+0.43/6 0.067s} f6 {-0.20/11 0.31s} 5. e4 {+0.91/6 0.067s}
+Nb6 {-0.30/11 0.30s} 6. Be3 {+0.79/6 0.063s} Nc6 {-0.45/11 0.29s}
+7. Bb5 {+1.13/6 0.21s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:43:57.035 EST"]
+[GameStartTime "2026-03-04T02:43:54.836 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "10"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.38/12 0.22s} d5 {-0.18/6 0.033s} 2. exd5 {+0.58/13 0.28s}
+Qd6 {-0.23/6 0.092s} 3. d4 {+0.68/11 0.32s} Bf5 {-0.15/6 0.23s}
+4. c4 {+1.31/11 0.20s} Nd7 {-0.34/6 0.21s} 5. Bd3 {+1.53/10 0.20s}
+Bxd3 {-0.21/6 0.078s, White makes an illegal move: d6f6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:43:58.555 EST"]
+[GameStartTime "2026-03-04T02:43:57.036 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.51/13 0.28s} 2. Bf4 {+0.28/6 0.10s}
+d5 {-0.52/12 0.23s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.31/12 0.32s}
+4. Bb5 {+0.53/6 0.20s, Black makes an illegal move: f1e2} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:00.042 EST"]
+[GameStartTime "2026-03-04T02:43:58.556 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.40/12 0.33s} e6 {-0.11/6 0.041s} 2. d4 {+0.27/12 0.32s}
+Nf6 {-0.18/6 0.11s} 3. Bf4 {+0.08/11 0.31s}
+Bb4 {+0.31/6 0.027s, White makes an illegal move: d7d6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "6"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:02.372 EST"]
+[GameStartTime "2026-03-04T02:44:00.042 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "11"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.18/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+d6 {-0.17/11 0.32s} 3. e3 {+0.20/6 0.17s} Nd5 {+0.07/11 0.31s}
+4. Bg5 {+0.43/6 0.064s} h6 {-0.10/12 0.29s} 5. Qh5 {+0.52/6 0.090s}
+Nd7 {+0.35/10 0.19s} 6. Bc4 {+0.52/6 0.18s, Black makes an illegal move: g1f3}
+1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:04.063 EST"]
+[GameStartTime "2026-03-04T02:44:02.372 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.27/12 0.33s} e6 {-0.11/6 0.040s} 2. Nf3 {+0.10/12 0.32s}
+d5 {-0.04/6 0.11s} 3. d3 {+0.15/12 0.31s}
+Bc5 {+0.20/6 0.24s, White makes an illegal move: b8c6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:05.729 EST"]
+[GameStartTime "2026-03-04T02:44:04.063 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} d5 {-0.39/12 0.33s} 2. Bf4 {+0.07/6 0.16s}
+Nf6 {-0.53/12 0.27s} 3. e3 {+0.17/6 0.15s} e6 {-0.25/12 0.26s}
+4. Bb5+ {+0.29/6 0.17s, Black makes an illegal move: g2g4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:08.720 EST"]
+[GameStartTime "2026-03-04T02:44:05.729 EST"]
+[Opening "Reti Opening"]
+[PlyCount "14"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.38/12 0.33s} d5 {-0.05/6 0.024s} 2. d4 {+0.23/12 0.23s}
+Bf5 {-0.18/6 0.12s} 3. c4 {+0.53/12 0.28s} e6 {-0.01/6 0.19s}
+4. Nc3 {+1.08/12 0.22s} Nd7 {-0.01/6 0.23s} 5. cxd5 {+1.40/12 0.27s}
+exd5 {-0.10/6 0.071s} 6. Bf4 {+1.21/12 0.27s} Ngf6 {-0.09/6 0.25s}
+7. Qd3 {+1.08/11 0.19s} Bxd3 {+6.57/6 0.039s, White makes an illegal move: f5e4}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:10.319 EST"]
+[GameStartTime "2026-03-04T02:44:08.721 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.50/13 0.27s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.20/12 0.24s} 3. e3 {+0.21/6 0.21s} d6 {+0.20/12 0.23s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:11.861 EST"]
+[GameStartTime "2026-03-04T02:44:10.319 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.30/12 0.33s} e6 {-0.11/6 0.044s} 2. Nf3 {+0.10/12 0.21s}
+d5 {-0.04/6 0.11s} 3. d3 {+0.17/12 0.32s}
+Bc5 {+0.20/6 0.24s, White makes an illegal move: f8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:13.478 EST"]
+[GameStartTime "2026-03-04T02:44:11.862 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} d5 {-0.39/12 0.33s} 2. Bf4 {+0.07/6 0.15s}
+Nf6 {-0.50/12 0.23s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.23/12 0.32s}
+4. Bb5 {+0.53/6 0.19s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:14.904 EST"]
+[GameStartTime "2026-03-04T02:44:13.479 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.44/12 0.26s} e6 {-0.11/6 0.042s} 2. d4 {+0.45/13 0.32s}
+Nf6 {-0.18/6 0.10s} 3. e4 {+0.42/12 0.32s}
+Bb4 {-0.12/6 0.039s, White makes an illegal move: d7d5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:17.214 EST"]
+[GameStartTime "2026-03-04T02:44:14.905 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "11"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.23/12 0.33s} 2. Bf4 {+0.28/6 0.099s}
+d6 {-0.45/12 0.31s} 3. e3 {+0.20/6 0.16s} Nd5 {-0.14/11 0.31s}
+4. Bg5 {+0.43/6 0.065s} h6 {+0.03/12 0.25s} 5. Qh5 {+0.52/6 0.094s}
+Rg8 {+0.31/10 0.20s} 6. Bc4 {+0.97/6 0.13s, Black makes an illegal move: g5h4}
+1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:18.793 EST"]
+[GameStartTime "2026-03-04T02:44:17.214 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.24/13 0.30s} e6 {-0.11/6 0.041s} 2. Nf3 {+0.19/12 0.32s}
+d5 {-0.04/6 0.11s} 3. d3 {+0.23/12 0.31s}
+Bc5 {+0.20/6 0.23s, White makes an illegal move: f8d6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "7"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:21.623 EST"]
+[GameStartTime "2026-03-04T02:44:18.793 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "15"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.50/12 0.21s} 2. Bf4 {+0.28/6 0.10s}
+h6 {-0.26/11 0.33s} 3. Nd2 {+0.39/6 0.13s} Nc6 {0.00/12 0.21s}
+4. e4 {+0.39/6 0.15s} Nxd4 {+0.55/12 0.21s} 5. Be5 {+0.45/6 0.16s}
+Nc6 {+0.96/12 0.31s} 6. Bxf6 {+0.07/6 0.035s} gxf6 {+0.89/12 0.22s}
+7. Qh5 {+1.14/6 0.063s} d6 {+0.97/12 0.23s}
+8. Bb5 {+1.23/6 0.10s, Black makes an illegal move: e1c1} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:23.987 EST"]
+[GameStartTime "2026-03-04T02:44:21.623 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "12"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.48/12 0.33s} e6 {-0.11/6 0.041s} 2. e4 {+0.26/12 0.23s}
+Nf6 {-0.16/6 0.14s} 3. e5 {+0.41/12 0.29s} Ng8 {-0.81/6 0.064s}
+4. Nf3 {+0.65/12 0.21s} d5 {-0.35/6 0.11s} 5. Be2 {+0.81/12 0.22s}
+d4 {-0.40/6 0.15s} 6. Nxd4 {+1.45/12 0.30s}
+Qxd4 {+1.15/6 0.051s, White makes an illegal move: g8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:25.540 EST"]
+[GameStartTime "2026-03-04T02:44:23.987 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.38/13 0.27s} 2. Bf4 {+0.28/6 0.10s}
+d5 {-0.51/12 0.25s} 3. e3 {+0.17/6 0.16s} Nc6 {-0.16/12 0.21s}
+4. Bb5 {+0.53/6 0.21s, Black makes an illegal move: f1e2} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:27.745 EST"]
+[GameStartTime "2026-03-04T02:44:25.540 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "10"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.31/12 0.33s} d5 {-0.18/6 0.032s} 2. exd5 {+0.14/12 0.20s}
+Qd6 {-0.23/6 0.093s} 3. Nf3 {+0.41/11 0.23s} Bf5 {-0.02/6 0.14s}
+4. c4 {+1.17/11 0.31s} Nd7 {+0.05/6 0.26s} 5. Bd3 {+1.39/11 0.20s}
+Bxd3 {+3.94/6 0.070s, White makes an illegal move: f5g6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:29.450 EST"]
+[GameStartTime "2026-03-04T02:44:27.746 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.49/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+d5 {-0.55/12 0.32s} 3. e3 {+0.17/6 0.15s} e6 {-0.12/12 0.28s}
+4. Bb5+ {+0.29/6 0.17s, Black makes an illegal move: g2g4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:30.677 EST"]
+[GameStartTime "2026-03-04T02:44:29.450 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.42/13 0.30s} d5 {-0.05/6 0.026s} 2. Nc3 {+0.08/12 0.24s}
+d4 {+0.05/6 0.15s} 3. Nxd4 {+0.65/13 0.26s}
+Qxd4 {+1.26/6 0.030s, White makes an illegal move: e7e5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:32.373 EST"]
+[GameStartTime "2026-03-04T02:44:30.678 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.45/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+d6 {-0.38/12 0.26s} 3. e3 {+0.20/6 0.18s} Nbd7 {-0.19/11 0.32s}
+4. Bc4 {+0.20/6 0.15s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:34.017 EST"]
+[GameStartTime "2026-03-04T02:44:32.373 EST"]
+[Opening "Reti"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Old Indian attack"]
+
+1. Nf3 {+0.22/12 0.33s} d5 {-0.05/6 0.026s} 2. d3 {+0.01/12 0.25s}
+Qd6 {+0.01/6 0.12s} 3. Nc3 {+0.42/11 0.32s}
+Bg4 {0.00/6 0.27s, White makes an illegal move: e7e5} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:35.809 EST"]
+[GameStartTime "2026-03-04T02:44:34.018 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.46/12 0.33s} 2. Bf4 {+0.07/6 0.15s}
+Nf6 {-0.52/12 0.32s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.21/12 0.27s}
+4. Bb5 {+0.53/6 0.20s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:37.246 EST"]
+[GameStartTime "2026-03-04T02:44:35.809 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.43/12 0.33s} e6 {-0.11/6 0.041s} 2. Nf3 {+0.17/12 0.23s}
+d5 {-0.04/6 0.11s} 3. d3 {+0.19/12 0.23s}
+Bc5 {+0.20/6 0.23s, White makes an illegal move: g8f6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "8"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:38.918 EST"]
+[GameStartTime "2026-03-04T02:44:37.247 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.32/12 0.33s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.38/12 0.26s} 3. e3 {+0.20/6 0.17s} Nc6 {-0.04/12 0.26s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A09"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:40.249 EST"]
+[GameStartTime "2026-03-04T02:44:38.919 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.35/12 0.23s} d5 {-0.05/6 0.025s} 2. c4 {+0.33/12 0.25s}
+Nc6 {+0.05/6 0.14s} 3. cxd5 {+0.88/13 0.30s}
+Qxd5 {-0.12/6 0.052s, White makes an illegal move: c6b4} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:42.082 EST"]
+[GameStartTime "2026-03-04T02:44:40.250 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.020s} Nf6 {-0.64/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+d6 {-0.43/12 0.30s} 3. e3 {+0.20/6 0.17s} Nc6 {+0.16/11 0.31s}
+4. Bb5 {+0.41/6 0.28s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:43.897 EST"]
+[GameStartTime "2026-03-04T02:44:42.082 EST"]
+[Opening "Reti Opening"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.27/13 0.33s} d5 {-0.05/6 0.024s} 2. d4 {+0.06/12 0.25s}
+Bf5 {-0.18/6 0.12s} 3. Nc3 {+0.04/11 0.32s} Nc6 {-0.15/6 0.21s}
+4. Nxd5 {+0.70/12 0.29s}
+Qxd5 {+2.07/6 0.059s, White makes an illegal move: g8f6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:45.663 EST"]
+[GameStartTime "2026-03-04T02:44:43.897 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.60/13 0.31s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.57/12 0.25s} 3. e3 {+0.21/6 0.21s} e6 {-0.13/12 0.27s}
+4. Bc4 {+0.34/6 0.28s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:47.652 EST"]
+[GameStartTime "2026-03-04T02:44:45.663 EST"]
+[Opening "Queen's pawn"]
+[PlyCount "10"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Chigorin variation"]
+
+1. d4 {+0.31/12 0.21s} d5 {-0.30/6 0.041s} 2. Nc3 {+0.21/12 0.24s}
+e5 {-0.07/6 0.099s} 3. dxe5 {+0.92/11 0.32s} Be6 {0.00/6 0.11s}
+4. e4 {+1.55/12 0.20s} d4 {+0.06/6 0.074s} 5. Qxd4 {+1.59/11 0.31s}
+Qxd4 {+7.50/6 0.035s, White makes an illegal move: b8c6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:49.979 EST"]
+[GameStartTime "2026-03-04T02:44:47.653 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "9"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.34/12 0.33s} 2. Bf4 {+0.07/6 0.14s}
+Bf5 {-0.44/12 0.23s} 3. e3 {+0.01/6 0.24s} e6 {-0.72/11 0.32s}
+4. Nd2 {-0.12/6 0.31s} Nc6 {-0.40/11 0.20s}
+5. Bb5 {+0.51/6 0.21s, Black makes an illegal move: g2g4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:02"]
+[GameEndTime "2026-03-04T02:44:52.215 EST"]
+[GameStartTime "2026-03-04T02:44:49.980 EST"]
+[Opening "Reti Opening"]
+[PlyCount "10"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.42/12 0.23s} d5 {-0.05/6 0.026s} 2. d4 {+0.29/12 0.24s}
+Bf5 {-0.18/6 0.12s} 3. c4 {+0.42/12 0.25s} e6 {-0.01/6 0.18s}
+4. Nc3 {+1.02/12 0.27s} Nd7 {-0.01/6 0.23s} 5. Nh4 {+1.33/11 0.31s}
+Qxh4 {+2.78/6 0.042s, White makes an illegal move: g8e7} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:53.905 EST"]
+[GameStartTime "2026-03-04T02:44:52.215 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.44/13 0.30s} 2. Bf4 {+0.28/6 0.11s}
+e6 {-0.26/12 0.32s} 3. e3 {-0.05/6 0.13s} Nc6 {0.00/12 0.23s}
+4. Bc4 {+0.34/6 0.30s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:55.211 EST"]
+[GameStartTime "2026-03-04T02:44:53.905 EST"]
+[Opening "Reti"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Old Indian attack"]
+
+1. Nf3 {+0.18/12 0.28s} d5 {-0.05/6 0.026s} 2. d3 {-0.01/12 0.20s}
+Qd6 {+0.01/6 0.13s} 3. Bf4 {+0.55/12 0.28s}
+Qxf4 {+3.00/6 0.042s, White makes an illegal move: d6b6} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "9"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:56.937 EST"]
+[GameStartTime "2026-03-04T02:44:55.212 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.55/12 0.33s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.34/12 0.32s} 3. e3 {+0.20/6 0.16s} h6 {+0.05/12 0.30s}
+4. Bd3 {+0.66/6 0.16s, Black makes an illegal move: h2h4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A09"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:44:58.325 EST"]
+[GameStartTime "2026-03-04T02:44:56.937 EST"]
+[Opening "Reti Opening"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.13/12 0.33s} d5 {-0.05/6 0.024s} 2. c4 {0.00/12 0.27s}
+Nc6 {+0.05/6 0.15s} 3. cxd5 {+0.71/12 0.31s}
+Qxd5 {-0.12/6 0.049s, White makes an illegal move: c6b8} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A41"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:00.096 EST"]
+[GameStartTime "2026-03-04T02:44:58.326 EST"]
+[Opening "Queen's Pawn"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.024s} d6 {-0.36/12 0.33s} 2. e4 {+0.35/6 0.060s}
+Nf6 {-0.69/12 0.32s} 3. Nc3 {+0.72/6 0.19s} e5 {-0.57/12 0.24s}
+4. Bc4 {+0.42/6 0.27s, Black makes an illegal move: d4e5} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:05"]
+[GameEndTime "2026-03-04T02:45:05.759 EST"]
+[GameStartTime "2026-03-04T02:45:00.097 EST"]
+[Opening "Mieses Opening"]
+[PlyCount "26"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d3 {+0.18/12 0.33s} e5 {-0.18/6 0.023s} 2. Nf3 {-0.04/12 0.32s}
+d6 {-0.01/6 0.13s} 3. e4 {+0.03/12 0.31s} Ne7 {-0.13/6 0.24s}
+4. Be2 {+0.49/12 0.21s} f5 {-0.45/6 0.18s} 5. Nc3 {+0.75/12 0.30s}
+Qd7 {-0.70/6 0.27s} 6. g3 {+0.72/11 0.18s} c5 {-0.31/6 0.22s}
+7. O-O {+0.92/11 0.28s} Kf7 {-0.35/6 0.24s} 8. Qd2 {+1.12/10 0.20s}
+Kg8 {+0.05/6 0.042s} 9. b3 {+0.65/11 0.24s} Nbc6 {+0.65/6 0.13s}
+10. Ba3 {+0.54/11 0.25s} a6 {+1.23/6 0.22s} 11. Nd1 {+0.22/10 0.22s}
+f4 {+1.08/6 0.20s} 12. Bb2 {+0.09/10 0.25s} Qe8 {+0.78/6 0.10s}
+13. Nc3 {+0.40/11 0.22s} Bh3 {+1.53/6 0.047s, White makes an illegal move: e8g6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:07.462 EST"]
+[GameStartTime "2026-03-04T02:45:05.759 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.47/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+d5 {-0.50/12 0.32s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.32/12 0.29s}
+4. Bb5 {+0.53/6 0.20s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "B01"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:09.393 EST"]
+[GameStartTime "2026-03-04T02:45:07.462 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.46/12 0.33s} d5 {-0.18/6 0.030s} 2. exd5 {+0.55/12 0.20s}
+Qd6 {-0.23/6 0.097s} 3. c4 {+0.68/11 0.27s} Nd7 {-0.09/6 0.22s}
+4. d4 {+1.27/12 0.27s} Qb4+ {-0.50/6 0.18s, White makes an illegal move: g8f6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:11.169 EST"]
+[GameStartTime "2026-03-04T02:45:09.394 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.021s} Nf6 {-0.44/12 0.33s} 2. Bf4 {+0.28/6 0.10s}
+Nc6 {-0.38/12 0.20s} 3. e3 {+0.21/6 0.20s} d6 {+0.12/12 0.32s}
+4. Bb5 {+0.41/6 0.27s, Black makes an illegal move: b1c3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "D08"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:12.539 EST"]
+[GameStartTime "2026-03-04T02:45:11.169 EST"]
+[Opening "Queen's Gambit declined"]
+[PlyCount "6"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+[Variation "Albin counter-gambit"]
+
+1. d4 {+0.46/12 0.23s} d5 {-0.30/6 0.040s} 2. c4 {+0.44/12 0.29s}
+e5 {+0.05/6 0.12s} 3. dxe5 {+1.25/12 0.24s}
+Bb4+ {-0.08/6 0.12s, White makes an illegal move: d5c4} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:14.259 EST"]
+[GameStartTime "2026-03-04T02:45:12.539 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.37/12 0.33s} 2. Bf4 {+0.07/6 0.15s}
+Bf5 {-0.65/12 0.30s} 3. e3 {+0.01/6 0.24s} Nf6 {-0.60/12 0.22s}
+4. Bd3 {+0.11/6 0.24s, Black makes an illegal move: c2c4} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A06"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:16.064 EST"]
+[GameStartTime "2026-03-04T02:45:14.259 EST"]
+[Opening "Reti Opening"]
+[PlyCount "8"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.53/12 0.33s} d5 {-0.05/6 0.026s} 2. d4 {+0.26/12 0.27s}
+Bf5 {-0.18/6 0.11s} 3. c4 {+0.59/12 0.29s} e6 {-0.01/6 0.19s}
+4. cxd5 {+0.83/11 0.20s} Bb4+ {+0.25/6 0.12s, White makes an illegal move: g8f6}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "10"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-03-04T02:45:17.651 EST"]
+[GameStartTime "2026-03-04T02:45:16.064 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "7"]
+[Termination "illegal move"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.67/13 0.33s} 2. Bf4 {+0.28/6 0.098s}
+e6 {-0.49/12 0.28s} 3. e3 {-0.05/6 0.14s} Be7 {-0.11/12 0.21s}
+4. Bd3 {+0.23/6 0.18s, Black makes an illegal move: g1f3} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:13"]
+[GameEndTime "2026-03-04T03:10:17.120 EST"]
+[GameStartTime "2026-03-04T03:10:03.373 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "106"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.32/12 0.33s} e6 {-0.11/6 0.087s} 2. e4 {+0.05/12 0.26s}
+Nf6 {-0.16/6 0.16s} 3. e5 {+0.15/11 0.20s} Ng8 {-0.81/6 0.067s}
+4. Nf3 {+0.80/11 0.31s} d5 {-0.35/6 0.11s} 5. d4 {+0.97/12 0.21s}
+Be7 {-0.65/6 0.17s} 6. Bd3 {+0.96/11 0.30s} Bb4 {-1.14/6 0.26s}
+7. Bg5 {+1.32/10 0.20s} Bxc3+ {-0.47/6 0.032s} 8. bxc3 {+1.15/13 0.20s}
+Ne7 {-0.65/6 0.034s} 9. Rb1 {+1.26/11 0.22s} O-O {-0.36/6 0.11s}
+10. O-O {+0.85/11 0.17s} Nd7 {-0.57/6 0.086s} 11. Qe2 {+1.19/10 0.17s}
+f6 {-0.39/6 0.068s} 12. Bh4 {+1.09/10 0.21s} c5 {-0.11/6 0.15s}
+13. c4 {+1.11/9 0.25s} dxc4 {-0.27/6 0.10s} 14. Bxc4 {+1.50/8 0.25s}
+Nd5 {-0.89/6 0.13s} 15. Bxd5 {+1.27/9 0.20s} exd5 {-0.98/6 0.15s}
+16. e6 {+1.37/10 0.18s} Qe7 {-0.92/6 0.12s} 17. Bg3 {+0.80/9 0.16s}
+Re8 {+0.07/6 0.077s} 18. Rb5 {+0.15/9 0.15s} Qxe6 {+0.60/6 0.081s}
+19. Qxe6+ {-0.43/11 0.21s} Rxe6 {+0.25/6 0.015s} 20. dxc5 {-0.31/10 0.23s}
+a6 {+0.25/6 0.10s} 21. Rbb1 {-0.29/12 0.14s} Nxc5 {+0.25/6 0.084s}
+22. Nd4 {-0.61/11 0.14s} Re4 {+0.15/6 0.019s} 23. Rfd1 {-0.65/12 0.13s}
+Ne6 {+0.30/6 0.13s} 24. Nf5 {-0.22/11 0.14s} Nf4 {+0.15/6 0.12s}
+25. f3 {-0.56/10 0.16s} Ne2+ {+1.50/6 0.020s} 26. Kf2 {-0.39/12 0.21s}
+Nxg3 {+1.23/6 0.050s} 27. hxg3 {-0.69/11 0.13s} Ra4 {+1.82/6 0.042s}
+28. Ne7+ {-0.90/11 0.20s} Kf8 {+1.27/6 0.013s} 29. Nxd5 {-0.10/11 0.14s}
+Rxa2 {+0.70/6 0.074s} 30. Rd2 {-0.11/10 0.12s} Kf7 {+1.07/6 0.13s}
+31. Nc3 {-0.38/9 0.13s} Ra5 {+1.10/6 0.033s} 32. Ne4 {-0.53/10 0.20s}
+Re5 {+1.09/6 0.14s} 33. Rd8 {-0.42/10 0.16s} Ke7 {+1.13/6 0.050s}
+34. Rbd1 {-0.72/10 0.13s} f5 {+1.92/6 0.068s} 35. Nc3 {-1.46/11 0.14s}
+Rc5 {+2.12/6 0.062s} 36. Ne2 {-1.46/11 0.18s} Rxc2 {+2.46/6 0.066s}
+37. Ke3 {-1.86/11 0.13s} h6 {+2.71/6 0.12s} 38. R1d4 {-1.88/10 0.18s}
+a5 {+2.93/6 0.10s} 39. R4d5 {-2.35/10 0.18s} Ra6 {+3.06/6 0.090s}
+40. Nd4 {-1.85/11 0.13s} Rc3+ {+2.75/6 0.047s} 41. Kd2 {-1.98/13 0.14s}
+Rc7 {+2.17/6 0.032s} 42. Rg8 {-2.04/10 0.17s} Kf7 {+2.27/6 0.059s}
+43. Rgd8 {-2.02/12 0.12s} Ke7 {+2.90/6 0.072s} 44. Rg8 {0.00/13 0.11s}
+Kf7 {+2.27/6 0.059s} 45. Rgd8 {0.00/14 0.13s} Be6 {+2.55/6 0.095s}
+46. Rb5 {-2.31/10 0.097s} a4 {+3.32/6 0.036s} 47. Rb8 {-2.64/10 0.14s}
+Rd6 {+4.22/6 0.040s} 48. Rb4 {-3.95/10 0.11s} Bd7 {+3.83/6 0.083s}
+49. Ke3 {-2.17/11 0.15s} a3 {+3.43/6 0.094s} 50. Ra8 {-3.31/10 0.11s}
+b5 {+3.40/6 0.12s} 51. Rxa3 {-0.91/10 0.16s} Rc5 {+1.74/6 0.085s}
+52. Ra5 {-1.06/10 0.15s} Rc4 {+2.15/6 0.036s} 53. Rxc4 {+0.07/11 0.093s}
+bxc4 {+2.20/6 0.009s, White disconnects} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:12"]
+[GameEndTime "2026-03-04T03:10:29.622 EST"]
+[GameStartTime "2026-03-04T03:10:17.370 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "72"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.36/12 0.24s} 2. Bf4 {+0.07/6 0.16s}
+Nf6 {-0.37/12 0.27s} 3. e3 {+0.17/6 0.15s} Nc6 {-0.23/11 0.32s}
+4. Bb5 {+0.53/6 0.21s} a6 {-0.17/11 0.29s} 5. Bxc6+ {+1.05/6 0.047s}
+bxc6 {-0.10/13 0.30s} 6. Ne2 {+0.83/6 0.099s} Rb8 {+0.14/10 0.29s}
+7. O-O {+0.62/6 0.21s} Rxb2 {+0.08/11 0.18s} 8. Qd3 {+0.67/6 0.23s}
+Nh5 {+0.46/11 0.20s} 9. Nd2 {+0.58/6 0.088s} Nxf4 {+0.20/11 0.23s}
+10. Nxf4 {+0.46/6 0.079s} Rb6 {+0.15/11 0.23s} 11. Rfb1 {+0.57/6 0.20s}
+g5 {+0.66/11 0.24s} 12. Ne2 {+0.34/6 0.057s} e6 {+0.59/10 0.25s}
+13. Nb3 {+0.49/6 0.10s} Bd6 {+0.58/10 0.19s} 14. c4 {+0.56/6 0.22s}
+Rb4 {+0.84/9 0.24s} 15. c5 {+1.06/6 0.049s} Be7 {+0.05/11 0.17s}
+16. Qc3 {+1.02/6 0.26s} Rb8 {+0.24/12 0.19s} 17. e4 {+0.93/6 0.23s}
+O-O {+0.55/10 0.17s} 18. e5 {+1.03/6 0.15s} f6 {+0.94/11 0.20s}
+19. Qe3 {+0.93/6 0.19s} fxe5 {+1.42/11 0.15s} 20. dxe5 {+0.77/6 0.10s}
+Qe8 {+1.57/11 0.18s} 21. Ned4 {+0.80/6 0.20s} Bd7 {+1.68/11 0.21s}
+22. Rd1 {+0.83/6 0.30s} Rf4 {+1.61/10 0.21s} 23. Qd2 {+0.84/6 0.50s}
+Qc8 {+1.60/9 0.15s} 24. Qa5 {+1.00/6 0.29s} Qb7 {+1.91/10 0.15s}
+25. Re1 {+0.94/6 0.27s} Qb4 {+2.08/10 0.20s} 26. Qxb4 {-0.36/6 0.067s}
+Rxb4 {+2.52/12 0.16s} 27. Rad1 {+0.13/6 0.047s} Rc4 {+1.90/10 0.19s}
+28. Re2 {+0.08/6 0.11s} Bxc5 {+3.15/11 0.16s} 29. Nxc5 {-0.22/6 0.032s}
+Rfxd4 {+6.10/13 0.18s} 30. Rb1 {-3.53/6 0.013s} Rxc5 {+6.17/13 0.11s}
+31. Rb8+ {-3.93/6 0.031s} Kf7 {+6.57/14 0.17s} 32. Re1 {-4.39/6 0.029s}
+Re4 {+6.66/12 0.13s} 33. Rd1 {-4.20/6 0.025s} Ra5 {+6.57/11 0.18s}
+34. Rh8 {-4.14/6 0.13s} Rxe5 {+6.76/11 0.17s} 35. Rxh7+ {-1.77/6 0.017s}
+Ke8 {+6.75/14 0.17s} 36. Rd4 {-3.94/6 0.10s} Re1# {0.00/17 0.13s, Black mates}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+[ECO "B01"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-03-04T03:10:46.207 EST"]
+[GameStartTime "2026-03-04T03:10:29.623 EST"]
+[Opening "Scandinavian (centre counter) defense"]
+[PlyCount "77"]
+[Termination "time forfeit"]
+[TimeControl "5+0.1"]
+
+1. e4 {+0.05/12 0.29s} d5 {-0.18/6 0.035s} 2. exd5 {-0.27/11 0.32s}
+Qd6 {-0.23/6 0.10s} 3. d4 {+0.47/10 0.22s} Bf5 {-0.15/6 0.24s}
+4. Qf3 {+0.65/10 0.24s} Bd7 {-0.59/6 0.34s} 5. Nc3 {+1.33/11 0.26s}
+a6 {-0.79/6 0.32s} 6. Bf4 {+2.05/11 0.24s} Qb6 {-1.41/6 0.19s}
+7. O-O-O {+2.05/10 0.29s} Nf6 {-2.15/6 0.51s} 8. Qg3 {+2.46/10 0.28s}
+Nh5 {-0.56/6 0.18s} 9. Qe3 {+0.96/10 0.27s} Nxf4 {-0.94/6 0.23s}
+10. Qxf4 {+1.10/11 0.26s} Qd6 {-0.93/6 0.17s} 11. Qe4 {+1.19/11 0.18s}
+Kd8 {-0.46/6 0.35s} 12. Nf3 {+1.87/10 0.25s} Kc8 {-0.72/6 0.19s}
+13. Ne5 {+2.45/11 0.20s} Qh6+ {-1.18/6 0.15s} 14. Rd2 {+2.74/12 0.24s}
+f5 {-1.23/6 0.15s} 15. Qf3 {+2.52/11 0.23s} Qf6 {-1.48/6 0.13s}
+16. Bc4 {+2.13/10 0.17s} g6 {-1.28/6 0.15s} 17. Qe3 {+1.53/9 0.17s}
+f4 {-1.34/6 0.41s} 18. Qe2 {+2.08/10 0.22s} f3 {-0.47/6 0.085s}
+19. gxf3 {+1.78/10 0.15s} Bh6 {+0.06/6 0.036s} 20. Ne4 {+1.87/10 0.21s}
+Bxd2+ {-0.01/6 0.097s} 21. Qxd2 {+2.07/11 0.21s} Qf8 {-0.14/6 0.12s}
+22. Re1 {+1.95/9 0.20s} Bf5 {-0.19/6 0.23s} 23. Kb1 {+1.47/9 0.13s}
+Nd7 {-0.01/6 0.22s} 24. Bd3 {+1.41/9 0.14s} Nb6 {+0.21/6 0.22s}
+25. c4 {+1.46/10 0.16s} a5 {+0.45/6 0.37s} 26. Bc2 {+1.68/9 0.18s}
+Kb8 {+0.71/6 0.33s} 27. Ng5 {+1.65/9 0.18s} Bxc2+ {+0.61/6 0.14s}
+28. Kxc2 {+1.17/10 0.18s} Qf5+ {+0.78/6 0.20s} 29. Kc1 {+1.39/12 0.17s}
+Rc8 {+0.68/6 0.33s} 30. f4 {+1.57/9 0.18s} Rd8 {+0.58/6 0.17s}
+31. Ne6 {+2.14/9 0.17s} Rh8 {+0.04/6 0.22s} 32. Qe3 {+2.36/10 0.15s}
+Ra6 {-0.06/6 0.23s} 33. Nc5 {+2.74/9 0.11s} Ra8 {+0.14/6 0.072s}
+34. b3 {+1.76/9 0.13s} Rg8 {+0.45/6 0.20s} 35. Nf3 {+1.67/9 0.11s}
+Rh8 {+0.75/6 0.53s} 36. Rg1 {+1.74/8 0.17s} Rd8 {+0.83/6 0.48s}
+37. Ne6 {+2.16/8 0.11s} Rd6 {+0.30/6 0.18s} 38. Kb2 {+2.14/9 0.11s}
+a4 {+1.04/6 0.28s} 39. Neg5 {+1.08/9 0.16s, Black loses on time} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "0-1"]
+[ECO "A45"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-03-04T03:10:57.883 EST"]
+[GameStartTime "2026-03-04T03:10:46.207 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "78"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.36/12 0.27s} 2. Bf4 {+0.28/6 0.11s}
+d6 {-0.31/11 0.33s} 3. e3 {+0.20/6 0.17s} h6 {-0.10/11 0.27s}
+4. Bd3 {+0.60/6 0.18s} Nc6 {+0.08/11 0.31s} 5. Bb5 {+0.26/6 0.35s}
+Bd7 {+0.40/10 0.30s} 6. Ne2 {+0.06/6 0.36s} g5 {+0.49/10 0.20s}
+7. Bg3 {+0.07/6 0.11s} a6 {+0.44/10 0.28s} 8. Bxc6 {+0.42/6 0.10s}
+Bxc6 {+0.48/12 0.19s} 9. O-O {+0.24/6 0.059s} e6 {+0.47/11 0.27s}
+10. c4 {+0.45/6 0.18s} h5 {+0.65/11 0.20s} 11. f3 {+0.56/6 0.16s}
+h4 {+0.67/11 0.18s} 12. Be1 {+0.22/6 0.059s} d5 {+0.71/11 0.21s}
+13. Bc3 {+0.48/6 0.23s} dxc4 {+1.23/10 0.25s} 14. e4 {+0.30/6 0.18s}
+h3 {+0.84/10 0.24s} 15. Nd2 {+0.08/6 0.081s} b5 {+1.30/10 0.23s}
+16. a3 {+0.08/6 0.16s} hxg2 {+1.21/9 0.23s} 17. Kxg2 {-0.11/6 0.10s}
+Bd6 {+1.55/9 0.22s} 18. Rh1 {+0.02/6 0.33s} Kf8 {+1.70/9 0.22s}
+19. Qc1 {+0.14/6 0.53s} g4 {+1.28/9 0.14s} 20. h4 {-0.24/6 0.12s}
+gxf3+ {+2.80/9 0.15s} 21. Kxf3 {-0.84/6 0.051s} Nxe4 {+2.80/10 0.21s}
+22. Nxe4 {-1.22/6 0.035s} Rxh4 {+3.66/10 0.20s} 23. Rxh4 {+0.42/6 0.064s}
+Qxh4 {+3.69/10 0.20s} 24. d5 {-0.66/6 0.049s} Bxd5 {+4.69/10 0.19s}
+25. Nf4 {-3.03/6 0.084s} Bxe4+ {+4.69/10 0.19s} 26. Kxe4 {-3.11/6 0.007s}
+f5+ {+4.71/11 0.12s} 27. Kf3 {-3.37/6 0.005s} Qg4+ {+4.71/11 0.11s}
+28. Kf2 {-3.57/6 0.006s} Bc5+ {+8.37/11 0.15s} 29. Ke1 {-4.25/6 0.012s}
+Qg1+ {+8.37/11 0.18s} 30. Ke2 {-4.53/6 0.004s} Qf2+ {+6.46/10 0.11s}
+31. Kd1 {-4.83/6 0.005s} Rd8+ {+6.86/11 0.14s} 32. Qd2 {-8.26/6 0.012s}
+Rxd2+ {+7.67/9 0.15s} 33. Bxd2 {-6.96/6 0.009s} Be3 {+7.52/10 0.10s}
+34. Bxe3 {-5.99/6 0.018s} Qxe3 {+8.08/11 0.15s} 35. Ng2 {-7.18/6 0.018s}
+Qf3+ {+11.84/11 0.17s} 36. Kd2 {-8.71/6 0.005s} Qxg2+ {+13.87/11 0.17s}
+37. Kc3 {-9.98/6 0.003s} Qd5 {+19.48/11 0.16s} 38. Kb4 {-9.87/6 0.016s}
+Qd2+ {+M1/15 0.12s} 39. Kc5 {-M2/6 0.001s} Qd6# {0.00/16 0.14s, Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+[ECO "A06"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-03-04T03:11:09.529 EST"]
+[GameStartTime "2026-03-04T03:10:57.883 EST"]
+[Opening "Reti Opening"]
+[PlyCount "71"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.03/12 0.27s} d5 {-0.05/6 0.026s} 2. e3 {-0.07/12 0.32s}
+Bg4 {+0.03/6 0.057s} 3. c4 {+0.33/11 0.28s} Nd7 {+0.23/6 0.18s}
+4. Nc3 {+0.57/11 0.25s} e6 {+0.21/6 0.10s} 5. cxd5 {+0.92/11 0.24s}
+exd5 {-0.10/6 0.090s} 6. h3 {+0.92/11 0.19s} Be6 {-0.09/6 0.15s}
+7. d4 {+0.47/10 0.29s} Bb4 {+0.06/6 0.38s} 8. Qb3 {+0.88/11 0.26s}
+Qe7 {+0.12/6 0.22s} 9. a3 {+0.95/10 0.27s} Bxc3+ {+0.02/6 0.071s}
+10. bxc3 {+0.65/12 0.18s} Rb8 {-0.15/6 0.17s} 11. Qa4 {+0.99/11 0.23s}
+Nf6 {-0.06/6 0.21s} 12. Rb1 {+0.94/10 0.25s} Bf5 {+0.24/6 0.28s}
+13. Rb2 {+1.00/10 0.25s} a6 {+0.29/6 0.53s} 14. Bxa6 {+1.63/10 0.18s}
+O-O {-0.39/6 0.41s} 15. Rxb7 {+1.58/10 0.24s} Qd6 {-0.19/6 0.18s}
+16. g4 {+1.41/10 0.17s} Bc2 {+0.77/6 0.11s} 17. Qxc2 {+1.69/11 0.18s}
+Qxa6 {-1.49/6 0.042s} 18. Rb2 {+1.58/11 0.19s} Ne4 {-0.42/6 0.16s}
+19. Rxb8 {+1.56/11 0.22s} Rxb8 {-0.57/6 0.040s} 20. Nd2 {+1.59/12 0.17s}
+Nxd2 {-0.74/6 0.21s} 21. Kxd2 {+1.73/11 0.21s} Qc4 {-0.70/6 0.22s}
+22. f3 {+1.85/11 0.20s} Nb6 {-0.42/6 0.13s} 23. e4 {+1.66/11 0.19s}
+Kh8 {-0.51/6 0.14s} 24. Re1 {+2.00/10 0.13s} Na4 {-0.63/6 0.19s}
+25. exd5 {+2.26/11 0.12s} Rd8 {-0.99/6 0.057s} 26. Re5 {+2.47/10 0.14s}
+Nb6 {-1.11/6 0.10s} 27. Qe4 {+2.77/10 0.12s} Qa2+ {-1.07/6 0.13s}
+28. Ke1 {+3.41/11 0.15s} Rg8 {-2.20/6 0.12s} 29. Rh5 {+4.47/10 0.12s}
+g6 {-2.09/6 0.044s} 30. Qe5+ {+M7/14 0.16s} Rg7 {-3.90/6 0.003s}
+31. Bh6 {+M5/14 0.11s} Qa1+ {-2.85/6 0.011s} 32. Kf2 {+M3/15 0.18s}
+gxh5 {-2.87/6 0.011s} 33. Qe8+ {0.00/13 0.18s} Rg8 {-M6/6 0.001s}
+34. Qe5+ {0.00/64 0s} f6 {-M4/6 0.001s} 35. Qxf6+ {0.00/64 0s}
+Rg7 {-M2/6 0.001s} 36. Qxg7# {0.00/13 0.18s, White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:12"]
+[GameEndTime "2026-03-04T03:11:21.747 EST"]
+[GameStartTime "2026-03-04T03:11:09.530 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "89"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} Nf6 {-0.34/12 0.28s} 2. Bf4 {+0.28/6 0.11s}
+e6 {-0.28/11 0.32s} 3. e3 {-0.05/6 0.14s} d5 {-0.33/11 0.21s}
+4. Bb5+ {+0.29/6 0.17s} c6 {-0.19/12 0.23s} 5. Be2 {+0.25/6 0.14s}
+c5 {-0.39/11 0.29s} 6. Nf3 {+0.51/6 0.24s} Nc6 {-0.52/10 0.20s}
+7. Ne5 {+0.68/6 0.23s} Qb6 {+0.30/10 0.29s} 8. Qc1 {+0.51/6 0.27s}
+cxd4 {+0.72/10 0.20s} 9. exd4 {+0.18/6 0.21s} Nxd4 {+1.38/11 0.24s}
+10. Bd3 {-0.06/6 0.24s} Bd6 {+1.64/10 0.20s} 11. O-O {-0.32/6 0.18s}
+Qc7 {+1.39/10 0.26s} 12. c3 {-0.83/6 0.21s} Nc6 {+1.85/11 0.21s}
+13. Na3 {-2.29/6 0.072s} a6 {+3.95/10 0.19s} 14. Bb5 {-1.78/6 0.14s}
+Bxe5 {+3.76/9 0.25s} 15. Bxe5 {-2.78/6 0.042s} Qxe5 {+4.16/11 0.24s}
+16. Nc4 {-3.17/6 0.074s} dxc4 {+6.89/10 0.15s} 17. Bxc4 {-5.61/6 0.092s}
+Ng4 {+7.28/11 0.22s} 18. g3 {-7.42/6 0.25s} Qh5 {+7.28/10 0.16s}
+19. h4 {-7.69/6 0.16s} Nge5 {+7.27/10 0.22s} 20. Qf4 {-7.40/6 0.095s}
+Na5 {+9.85/10 0.22s} 21. Rfd1 {-7.29/6 0.21s} Naxc4 {+11.27/10 0.21s}
+22. Rab1 {-9.76/6 0.27s} h6 {+12.29/10 0.16s} 23. b3 {-9.54/6 0.19s}
+Nb6 {+10.42/10 0.15s} 24. g4 {-8.59/6 0.26s} Qxg4+ {+10.44/11 0.13s}
+25. Qxg4 {-9.78/6 0.006s} Nxg4 {+10.66/13 0.20s} 26. Rd4 {-9.77/6 0.086s}
+Ne5 {+11.33/12 0.14s} 27. Re4 {-10.07/6 0.087s} Nf3+ {+12.66/12 0.19s}
+28. Kh1 {-11.03/6 0.013s} Nd2 {+13.13/13 0.12s} 29. Ree1 {-12.74/6 0.019s}
+Nxb1 {+13.51/12 0.19s} 30. Rxb1 {-12.69/6 0.012s} Bd7 {+13.50/12 0.18s}
+31. Kg1 {-12.76/6 0.026s} O-O-O {+13.82/11 0.11s} 32. Re1 {-12.77/6 0.033s}
+Bc6 {+14.36/12 0.14s} 33. a4 {-13.10/6 0.058s} Rd3 {+14.98/12 0.15s}
+34. Kh2 {-13.74/6 0.046s} Rxc3 {+15.41/12 0.13s} 35. Rg1 {-13.99/6 0.031s}
+Rxb3 {+16.21/13 0.13s} 36. Rxg7 {-14.08/6 0.013s} Rb1 {+17.10/12 0.11s}
+37. Rxf7 {-14.01/6 0.008s} Rh1+ {+M5/13 0.12s} 38. Kg3 {-14.52/6 0.004s}
+Rg8+ {+M3/14 0.10s} 39. Kf4 {-19.42/6 0.005s} Nc4 {+M1/14 0.11s}
+40. Rf8+ {-M6/6 0.008s} Rxf8+ {0.00/26 0.12s} 41. Kg4 {+9200.05/6 0.006s}
+Rg1+ {0.00/53 0.11s} 42. Kh3 {-M4/6 0.002s} Rg2 {0.00/64 0.003s}
+43. f4 {-20.30/6 0.002s} Rxf4 {0.00/64 0.001s} 44. h5 {-M4/6 0.002s}
+Kc7 {0.00/64 0s} 45. a5 {-M4/6 0.001s, Black disconnects} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+[ECO "A00"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-03-04T03:11:36.603 EST"]
+[GameStartTime "2026-03-04T03:11:21.999 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "101"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.32/12 0.33s} e6 {-0.11/6 0.044s} 2. Nf3 {+0.19/12 0.24s}
+d5 {-0.04/6 0.11s} 3. d4 {+0.12/12 0.30s} Bb4 {+0.01/6 0.27s}
+4. Bf4 {+0.26/11 0.27s} Bxc3+ {+0.26/6 0.16s} 5. bxc3 {+0.24/14 0.23s}
+Ne7 {+0.48/6 0.066s} 6. c4 {+0.23/11 0.19s} O-O {+0.31/6 0.10s}
+7. cxd5 {+0.14/10 0.29s} exd5 {+0.48/6 0.090s} 8. e3 {+0.20/11 0.27s}
+Ng6 {+0.48/6 0.15s} 9. Bg3 {+0.37/12 0.23s} Bf5 {+0.21/6 0.17s}
+10. c4 {+0.65/11 0.18s} Nc6 {+0.75/6 0.23s} 11. Qb3 {+0.85/11 0.23s}
+dxc4 {+0.56/6 0.23s} 12. Bxc4 {+1.07/11 0.26s} Na5 {+0.42/6 0.17s}
+13. Qb5 {+0.18/11 0.22s} Nxc4 {+0.35/6 0.15s} 14. Qxc4 {+0.28/11 0.23s}
+Rc8 {+0.26/6 0.28s} 15. Rc1 {+0.42/10 0.24s} c5 {+0.24/6 0.22s}
+16. O-O {+0.27/10 0.18s} cxd4 {+0.08/6 0.30s} 17. Qxd4 {+0.31/11 0.23s}
+Ne7 {-0.02/6 0.21s} 18. Qxa7 {+0.88/10 0.14s} Bd3 {-0.09/6 0.18s}
+19. Rcd1 {+0.79/10 0.22s} Nf5 {-0.52/6 0.33s} 20. Qa3 {+3.31/11 0.19s}
+Bxf1 {-0.34/6 0.053s} 21. Rxd8 {+3.22/11 0.13s} Rfxd8 {-0.25/6 0.012s}
+22. Kxf1 {+3.21/11 0.21s} Rc2 {-0.90/6 0.066s} 23. Be5 {+3.62/11 0.15s}
+Kh8 {-2.26/6 0.23s} 24. Qa5 {+5.15/10 0.20s} Rc1+ {-2.85/6 0.14s}
+25. Ne1 {+4.60/13 0.13s} Rcc8 {-3.03/6 0.14s} 26. Bf4 {+4.65/10 0.19s}
+Nd6 {-2.72/6 0.077s} 27. Qd5 {+4.49/11 0.14s} Rc6 {-3.21/6 0.11s}
+28. Nd3 {+4.55/11 0.12s} Rb6 {-3.20/6 0.26s} 29. Qd4 {+5.50/11 0.17s}
+Rb1+ {-3.25/6 0.081s} 30. Ke2 {+6.97/13 0.15s} Ra8 {-5.10/6 0.037s}
+31. Qxd6 {+7.30/11 0.13s} Rxa2+ {-5.15/6 0.044s} 32. Kf3 {+7.47/14 0.17s}
+Ra8 {-5.58/6 0.031s} 33. Nb4 {+7.47/12 0.18s} Kg8 {-5.13/6 0.17s}
+34. Qe7 {+7.54/11 0.15s} Rb2 {-4.91/6 0.060s} 35. h3 {+7.99/11 0.13s}
+h6 {-5.15/6 0.10s} 36. Be5 {+7.87/11 0.14s} Rd2 {-5.68/6 0.049s}
+37. Bd4 {+7.93/11 0.11s} Ra5 {-5.46/6 0.099s} 38. Qd8+ {+13.95/12 0.17s}
+Kh7 {-11.14/6 0.003s} 39. Qxa5 {+14.94/13 0.16s} b5 {-11.29/6 0.054s}
+40. Qxb5 {+16.45/11 0.15s} Rd1 {-12.21/6 0.021s} 41. Qf5+ {+20.02/11 0.16s}
+Kg8 {-16.44/6 0.003s} 42. Qc8+ {+M13/12 0.12s} Kh7 {-16.76/6 0.002s}
+43. Nd5 {+M7/13 0.14s} Rg1 {-13.44/6 0.047s} 44. Ne7 {+M3/13 0.096s}
+h5 {-14.11/6 0.010s} 45. Qg8+ {+M1/13 0.15s} Kh6 {-M2/6 0.001s}
+46. Nf5+ {0.00/14 0.12s} Kg6 {-M6/6 0.003s} 47. Qxg7+ {0.00/12 0.12s}
+Kxf5 {-M2/6 0.002s} 48. Qxf7+ {0.00/13 0.12s} Kg5 {+9200.05/6 0.003s}
+49. Qf4+ {0.00/13 0.11s} Kg6 {-M4/6 0.002s} 50. Qf6+ {0.00/13 0.15s}
+Kh7 {-M2/6 0.002s} 51. Qg7# {0.00/15 0.14s, White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "A45"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-03-04T03:11:48.125 EST"]
+[GameStartTime "2026-03-04T03:11:36.604 EST"]
+[Opening "Queen's pawn game"]
+[PlyCount "99"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} Nf6 {-0.32/12 0.24s} 2. Bf4 {+0.28/6 0.11s}
+Nc6 {-0.25/11 0.33s} 3. e3 {+0.21/6 0.21s} d6 {+0.04/11 0.32s}
+4. Bb5 {+0.41/6 0.27s} Nd5 {+0.23/10 0.31s} 5. Bg5 {+0.85/6 0.056s}
+h6 {+0.21/11 0.23s} 6. e4 {+1.00/6 0.080s} hxg5 {+0.49/11 0.29s}
+7. exd5 {+0.72/6 0.052s} a6 {+0.26/12 0.28s} 8. dxc6 {+0.68/6 0.084s}
+axb5 {+1.02/12 0.18s} 9. Nd2 {+0.56/6 0.11s} bxc6 {+1.31/11 0.26s}
+10. Qf3 {+0.40/6 0.16s} d5 {+1.48/10 0.26s} 11. Qd3 {+0.26/6 0.25s}
+g4 {+1.84/11 0.21s} 12. Ne2 {+0.25/6 0.18s} e6 {+1.82/11 0.19s}
+13. a3 {+0.16/6 0.35s} Bd6 {+1.94/10 0.15s} 14. O-O-O {-0.04/6 0.32s}
+b4 {+2.43/10 0.24s} 15. axb4 {-0.17/6 0.11s} Ra1+ {+5.56/11 0.14s}
+16. Nb1 {-1.03/6 0.009s} Ba6 {+5.73/12 0.15s} 17. Qe3 {-1.03/6 0.078s}
+Bxe2 {+5.73/11 0.23s} 18. Qxe2 {-2.74/6 0.051s} Bf4+ {0.00/64 0s}
+19. Rd2 {-2.25/6 0.003s} Qg5 {+4.59/11 0.20s} 20. b3 {-3.20/6 0.020s}
+Bxd2+ {+4.84/11 0.17s} 21. Kb2 {-3.35/6 0.008s} Rxb1+ {+4.80/12 0.19s}
+22. Kxb1 {-3.27/6 0.022s} Bxb4 {+4.80/12 0.22s} 23. Qd3 {-3.45/6 0.10s}
+Qf5 {+5.06/11 0.19s} 24. Qxf5 {-3.39/6 0.036s} exf5 {+4.64/12 0.13s}
+25. Kb2 {-3.64/6 0.016s} Kd7 {+4.71/13 0.14s} 26. c3 {-3.52/6 0.023s}
+Bd6 {+4.94/13 0.20s} 27. b4 {-3.84/6 0.026s} Re8 {+5.56/13 0.12s}
+28. Kb3 {-3.67/6 0.039s} Re2 {+5.42/14 0.17s} 29. c4 {-3.82/6 0.017s}
+Rxf2 {+7.70/11 0.20s} 30. c5 {-4.48/6 0.012s} Bf4 {+6.46/13 0.14s}
+31. g3 {-4.09/6 0.004s} Be3 {+6.96/14 0.12s} 32. Kc3 {-4.65/6 0.008s}
+Rg2 {+7.17/13 0.13s} 33. Kd3 {-4.48/6 0.013s} Rg1 {+9.94/15 0.15s}
+34. Rxg1 {-4.96/6 0.001s} Bxg1 {+11.15/16 0.16s} 35. Ke2 {-5.47/6 0.002s}
+Bxh2 {+13.28/16 0.16s} 36. Kf2 {-6.28/6 0.001s} f4 {+13.28/16 0.18s}
+37. gxf4 {-6.30/6 0.001s} g3+ {+20.87/13 0.18s} 38. Kg2 {-5.22/6 0.001s}
+Ke6 {0.00/18 0.12s} 39. f5+ {-6.26/6 0.001s} Kf6 {+M9/18 0.12s}
+40. Kh3 {-7.39/6 0.001s} Kxf5 {0.00/19 0.16s} 41. Kg2 {-7.56/6 0.001s}
+Ke4 {0.00/17 0.098s} 42. Kh3 {-8.13/6 0.001s} Kf3 {0.00/36 0.13s}
+43. Kh4 {-15.13/6 0.001s} g2 {0.00/48 0.11s} 44. b5 {-M6/6 0.001s}
+Bg3+ {0.00/22 0.10s} 45. Kh5 {-17.32/6 0.001s} cxb5 {0.00/22 0.12s}
+46. c6 {-M6/6 0.001s} g1=R {0.00/31 0.13s} 47. Kg5 {-M4/6 0.001s}
+Bd6+ {0.00/28 0.11s} 48. Kf5 {-M4/6 0.001s} Rh1 {0.00/29 0.11s}
+49. Kg5 {-M4/6 0.001s} b4 {0.00/31 0.12s}
+50. Kf5 {-M2/6 0.001s, Black disconnects} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:13"]
+[GameEndTime "2026-03-04T03:12:02.309 EST"]
+[GameStartTime "2026-03-04T03:11:48.374 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "90"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.32/12 0.33s} e6 {-0.11/6 0.042s} 2. e4 {+0.17/12 0.24s}
+Nf6 {-0.16/6 0.15s} 3. Nge2 {+0.13/11 0.24s} d5 {-0.09/6 0.085s}
+4. e5 {-0.16/11 0.31s} Nfd7 {+0.17/6 0.087s} 5. d4 {-0.36/12 0.30s}
+Bb4 {-0.02/6 0.10s} 6. Ng3 {+0.16/10 0.20s} O-O {+0.61/6 0.12s}
+7. Bb5 {-0.16/10 0.22s} a6 {+0.99/6 0.099s} 8. Bd3 {-0.19/11 0.26s}
+c5 {+0.45/6 0.20s} 9. O-O {-0.45/9 0.27s} cxd4 {+0.15/6 0.25s}
+10. a3 {-1.26/10 0.20s} dxc3 {+1.05/6 0.056s} 11. axb4 {-0.57/11 0.26s}
+Nxe5 {+0.70/6 0.18s} 12. bxc3 {-0.58/11 0.25s} Qh4 {+1.17/6 0.36s}
+13. Be3 {-0.41/10 0.15s} Nbd7 {+1.16/6 0.53s} 14. Qe2 {-0.26/10 0.22s}
+Rd8 {+1.56/6 0.39s} 15. Bd4 {-0.12/10 0.15s} Ng4 {+1.40/6 0.18s}
+16. h3 {+0.85/10 0.23s} Ngf6 {+1.02/6 0.19s} 17. Qd2 {+0.51/10 0.20s}
+Ne8 {+1.27/6 0.33s} 18. Be3 {+0.86/9 0.22s} h6 {+1.15/6 0.28s}
+19. Rfd1 {+0.10/10 0.15s} b6 {+1.13/6 0.45s} 20. c4 {+0.24/9 0.21s}
+dxc4 {+1.39/6 0.062s} 21. Be4 {+0.02/10 0.21s} Rb8 {-0.20/6 0.18s}
+22. Bf4 {+0.50/10 0.20s} Rb7 {-0.42/6 0.18s} 23. Rxa6 {+1.51/10 0.15s}
+c3 {+0.21/6 0.12s} 24. Qe3 {+1.13/10 0.13s} e5 {+0.05/6 0.12s}
+25. Nf5 {+1.36/9 0.12s} Nc5 {-0.07/6 0.11s} 26. Rxd8 {+1.24/8 0.14s}
+Qxd8 {-0.18/6 0.043s} 27. bxc5 {+1.24/9 0.19s} exf4 {-0.28/6 0.068s}
+28. Qxf4 {+1.10/10 0.12s} Qd1+ {-0.83/6 0.093s} 29. Kh2 {+2.37/12 0.19s}
+Rd7 {-1.51/6 0.14s} 30. Ra8 {+3.73/10 0.12s} Rd8 {-1.93/6 0.13s}
+31. Rxc8 {+4.22/10 0.18s} Rxc8 {-3.29/6 0.045s} 32. Ne7+ {+4.23/11 0.18s}
+Kh8 {-4.16/6 0.012s} 33. Qf5 {+M5/14 0.11s} g6 {-6.13/6 0.11s}
+34. Qxf7 {+M3/14 0.13s} Ng7 {-11.88/6 0.068s} 35. Qxg6 {+M1/14 0.11s}
+Qd6+ {-M6/6 0.084s} 36. cxd6 {+M1/17 0.12s} Nf5 {-M4/6 0.007s}
+37. Qf6+ {0.00/22 0.13s} Kh7 {-M2/6 0.002s} 38. Qxf5+ {0.00/26 0.17s}
+Kg7 {-M4/6 0.002s} 39. Nxc8 {0.00/36 0.10s} h5 {-M6/6 0.004s}
+40. Qf4 {0.00/28 0.11s} b5 {-M6/6 0.003s} 41. d7 {0.00/32 0.10s}
+h4 {-M4/6 0.002s} 42. d8=Q {0.00/29 0.10s} b4 {+9200.05/6 0.005s}
+43. Qfxh4 {0.00/32 0.11s} Kf7 {+9200.05/6 0.011s} 44. Qde7+ {0.00/29 0.12s}
+Kg8 {+9200.05/6 0.005s} 45. Qxb4 {0.00/24 0.11s}
+Kf7 {+9200.05/6 0.006s, White disconnects} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "1"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:15"]
+[GameEndTime "2026-03-04T03:12:18.199 EST"]
+[GameStartTime "2026-03-04T03:12:02.566 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "93"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.024s} d5 {-0.36/12 0.25s} 2. Bf4 {+0.07/6 0.16s}
+Nf6 {-0.37/12 0.28s} 3. e3 {+0.17/6 0.16s} Nc6 {-0.23/11 0.32s}
+4. Bb5 {+0.53/6 0.21s} Bg4 {-0.11/10 0.31s} 5. Ne2 {+0.89/6 0.089s}
+g5 {-0.48/10 0.27s} 6. Bxg5 {+1.82/6 0.035s} Ne4 {-1.04/10 0.21s}
+7. Bf4 {+1.46/6 0.045s} Nd6 {-1.57/10 0.22s} 8. Bxc6+ {+1.88/6 0.044s}
+bxc6 {-1.59/13 0.24s} 9. O-O {+1.91/6 0.14s} Bg7 {-1.34/10 0.20s}
+10. Nbc3 {+1.98/6 0.17s} O-O {-1.51/10 0.25s} 11. Qd3 {+1.96/6 0.30s}
+Bf5 {-0.95/10 0.21s} 12. Qa6 {+1.89/6 0.11s} Qd7 {-0.99/10 0.16s}
+13. Rad1 {+2.14/6 0.48s} Nc4 {-0.09/9 0.25s} 14. e4 {+2.39/6 0.24s}
+Bg6 {-0.71/10 0.25s} 15. Na4 {+2.40/6 0.55s} Bxe4 {-0.78/10 0.23s}
+16. Nc5 {+2.05/6 0.26s} Qf5 {-0.66/11 0.20s} 17. b3 {+1.44/6 0.79s}
+e5 {-0.65/10 0.17s} 18. Bh6 {+1.93/6 0.25s} Bxh6 {-0.50/9 0.20s}
+19. Ng3 {+1.45/6 0.13s} Qg6 {+0.37/10 0.17s} 20. Ngxe4 {+1.39/6 0.30s}
+Nb6 {+0.26/10 0.22s} 21. Rd3 {+0.93/6 0.23s} Bf4 {+1.90/10 0.18s}
+22. Nc3 {+0.95/6 0.19s} exd4 {+1.16/9 0.21s} 23. Ne2 {+0.79/6 0.20s}
+Qd6 {-0.09/10 0.15s} 24. Nxf4 {+1.88/6 0.11s} Qxc5 {-0.43/10 0.17s}
+25. Rg3+ {+1.45/6 0.19s} Kh8 {-0.15/13 0.20s} 26. Qd3 {+1.21/6 0.18s}
+Rae8 {-0.25/12 0.17s} 27. Rh3 {+1.85/6 0.14s} f5 {+0.18/11 0.15s}
+28. Ng6+ {+3.20/6 0.099s} Kg7 {-3.36/11 0.11s} 29. Nxf8 {+3.60/6 0.084s}
+Qxf8 {-3.36/10 0.18s} 30. Rg3+ {+3.97/6 0.092s} Kh6 {-3.03/11 0.15s}
+31. Rh3+ {+4.52/6 0.016s} Kg7 {0.00/16 0.17s} 32. Rg3+ {+3.97/6 0.092s}
+Kh6 {0.00/14 0.18s} 33. Qd2+ {+3.89/6 0.13s} f4 {-2.94/12 0.10s}
+34. Rg4 {+3.81/6 0.069s} Re4 {-3.25/11 0.13s} 35. f3 {+3.65/6 0.12s}
+Kh5 {-3.07/11 0.15s} 36. fxe4 {+4.13/6 0.094s} Kxg4 {-3.20/11 0.11s}
+37. Qd1+ {+4.75/6 0.057s} Kg5 {-3.01/12 0.17s} 38. e5 {+3.52/6 0.062s}
+Qc8 {-3.12/10 0.10s} 39. Qd2 {+4.92/6 0.070s} Qg4 {-3.12/12 0.15s}
+40. g3 {+4.40/6 0.10s} Kg6 {-4.39/9 0.13s} 41. Rxf4 {+5.26/6 0.025s}
+Qc8 {-4.79/10 0.16s} 42. Qd3+ {+6.06/6 0.022s} Kg7 {-4.82/13 0.14s}
+43. Rf5 {+5.14/6 0.12s} Qe6 {-3.52/10 0.16s} 44. Rg5+ {+4.71/6 0.044s}
+Kh6 {-4.91/13 0.094s} 45. Qd2 {+6.13/6 0.040s} c5 {-3.15/9 0.15s}
+46. Rg8+ {+M3/6 0.003s} Kh5 {-M2/20 0.10s} 47. Qg5# {+M1/6 0.004s, White mates}
+1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+[ECO "A06"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-03-04T03:12:32.478 EST"]
+[GameStartTime "2026-03-04T03:12:18.201 EST"]
+[Opening "Reti Opening"]
+[PlyCount "57"]
+[Termination "time forfeit"]
+[TimeControl "5+0.1"]
+
+1. Nf3 {+0.09/12 0.27s} d5 {-0.05/6 0.027s} 2. e3 {+0.10/12 0.21s}
+Bg4 {+0.03/6 0.057s} 3. c4 {+0.30/11 0.31s} Nd7 {+0.23/6 0.18s}
+4. Nc3 {+0.75/11 0.26s} e6 {+0.21/6 0.10s} 5. cxd5 {+1.08/12 0.29s}
+exd5 {-0.10/6 0.090s} 6. h3 {+0.81/11 0.23s} Be6 {-0.09/6 0.15s}
+7. d4 {+0.48/11 0.28s} Bb4 {+0.06/6 0.37s} 8. Qb3 {+0.91/11 0.25s}
+Qe7 {+0.12/6 0.21s} 9. a3 {+0.92/10 0.21s} Bxc3+ {+0.02/6 0.068s}
+10. bxc3 {+0.87/12 0.20s} Rb8 {-0.15/6 0.16s} 11. Qa4 {+1.15/11 0.19s}
+Nf6 {-0.06/6 0.20s} 12. Rb1 {+0.95/11 0.20s} Bf5 {+0.24/6 0.27s}
+13. Rb4 {+0.66/11 0.21s} c5 {+0.55/6 0.38s} 14. Rb2 {+0.78/10 0.25s}
+a5 {+0.20/6 0.55s} 15. g4 {+1.03/9 0.24s} Be4 {+0.79/6 0.13s}
+16. Bg2 {-0.08/9 0.16s} O-O {+0.89/6 0.31s} 17. O-O {+0.17/9 0.16s}
+Rfe8 {+0.84/6 0.81s} 18. Ng5 {+0.22/8 0.15s} Bxg2 {+1.47/6 0.095s}
+19. Kxg2 {-0.03/10 0.23s} h6 {+1.27/6 0.27s} 20. Nf3 {-0.04/10 0.22s}
+Ne4 {+1.00/6 0.56s} 21. c4 {+0.01/9 0.21s} dxc4 {+1.24/6 0.30s}
+22. Qxc4 {-0.20/10 0.21s} h5 {+1.04/6 0.47s} 23. Rd1 {-0.16/9 0.16s}
+cxd4 {+1.51/6 0.23s} 24. Qxd4 {-0.19/9 0.20s} hxg4 {+1.75/6 0.13s}
+25. hxg4 {-0.56/9 0.14s} Ndc5 {+1.30/6 0.23s} 26. Qc4 {-0.60/9 0.17s}
+b5 {+1.86/6 0.59s} 27. Qc2 {-1.75/9 0.13s} Qe6 {+1.97/6 0.40s}
+28. Kf1 {-2.04/9 0.14s} Qxg4 {+2.35/6 0.48s}
+29. Nd4 {-1.76/10 0.19s, Black loses on time} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-03-04T03:12:46.800 EST"]
+[GameStartTime "2026-03-04T03:12:32.478 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "103"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.024s} d5 {-0.38/12 0.33s} 2. Bf4 {+0.07/6 0.16s}
+e6 {-0.54/11 0.32s} 3. e3 {+0.21/6 0.14s} Nc6 {-0.40/10 0.31s}
+4. Nd2 {+0.11/6 0.34s} Nf6 {-0.01/10 0.30s} 5. Bb5 {+0.56/6 0.28s}
+Bd6 {+0.09/11 0.27s} 6. Ne2 {+0.99/6 0.068s} O-O {+0.10/10 0.28s}
+7. Bxc6 {+0.87/6 0.043s} bxc6 {+0.46/11 0.28s} 8. Qb1 {+0.51/6 0.079s}
+Ba6 {+0.78/12 0.25s} 9. Bxd6 {+0.17/6 0.081s} Qxd6 {+0.85/12 0.26s}
+10. c4 {+0.11/6 0.11s} c5 {+0.89/10 0.25s} 11. Qc2 {-0.02/6 0.20s}
+Rfb8 {+1.03/10 0.18s} 12. a4 {-0.31/6 0.53s} Rb4 {+1.35/10 0.24s}
+13. Qc3 {-0.41/6 0.70s} cxd4 {+1.67/9 0.24s} 14. Nxd4 {-0.69/6 0.11s}
+dxc4 {+1.61/10 0.20s} 15. e4 {-0.34/6 0.42s} Rd8 {+2.44/9 0.14s}
+16. Nc6 {-0.55/6 0.17s} Rxa4 {+1.35/10 0.22s} 17. Rxa4 {-0.05/6 0.055s}
+Qxc6 {+1.25/10 0.22s} 18. Ra1 {+0.09/6 0.17s} Nxe4 {+1.41/9 0.16s}
+19. Nxe4 {-1.64/6 0.085s} Qxe4+ {+1.56/11 0.20s} 20. Qe3 {-3.91/6 0.011s}
+Qb7 {+2.62/11 0.14s} 21. O-O {-1.65/6 0.11s} Rd6 {+0.85/10 0.20s}
+22. Rfe1 {-0.11/6 0.17s} g6 {+0.91/9 0.13s} 23. Qc3 {+0.06/6 0.22s}
+Bb5 {+0.90/10 0.20s} 24. Ra2 {+0.02/6 0.29s} Rd8 {+1.36/10 0.19s}
+25. Qe5 {+0.07/6 0.17s} Qb6 {+1.34/10 0.16s} 26. Qf6 {+0.06/6 0.15s}
+Rd3 {+1.71/10 0.18s} 27. Qe7 {-0.04/6 0.18s} a6 {+2.05/10 0.14s}
+28. Qg5 {-0.26/6 0.15s} Qd4 {+2.41/11 0.16s} 29. Qe5 {-0.62/6 0.082s}
+Qxe5 {+13.05/12 0.11s} 30. Rea1 {-10.77/6 0.055s} Qe2 {+14.34/12 0.16s}
+31. h4 {-11.15/6 0.057s} Rd1+ {+14.59/12 0.14s} 32. Rxd1 {-11.61/6 0.001s}
+Qxd1+ {+15.43/14 0.15s} 33. Kh2 {-11.91/6 0.004s} Qc2 {+15.55/14 0.12s}
+34. f3 {-11.45/6 0.014s} c3 {+17.51/14 0.10s} 35. Ra1 {-14.79/6 0.016s}
+cxb2 {+19.05/13 0.10s} 36. Rg1 {-16.20/6 0.009s} Be2 {+21.60/13 0.15s}
+37. Rh1 {-16.37/6 0.008s} Bxf3 {+M9/14 0.11s} 38. Rg1 {-19.42/6 0.015s}
+b1=Q {+M1/13 0.16s} 39. Kg3 {-M6/6 0.005s} Qxg1 {0.00/27 0.10s}
+40. h5 {-M4/6 0.010s} Bxh5 {0.00/26 0.10s} 41. Kf4 {-M4/6 0.006s}
+Qd4+ {0.00/40 0.096s} 42. Kg3 {+9200.05/6 0.004s} Bd1 {0.00/34 0.12s}
+43. Kh3 {-M4/6 0.004s} Qf4 {0.00/64 0.025s} 44. g3 {-M2/6 0.005s}
+Qg5 {0.00/64 0s} 45. g4 {+9200.05/6 0.003s} a5 {0.00/35 0.13s}
+46. Kg3 {+9200.05/6 0.005s} Qh6 {0.00/64 0s} 47. g5 {+9200.05/6 0.002s}
+Qh4+ {0.00/23 0.14s} 48. Kxh4 {-M2/6 0.001s} e5 {0.00/22 0.13s}
+49. Kh3 {-20.14/6 0.004s} Qe2 {0.00/22 0.12s} 50. Kg3 {-19.80/6 0.001s}
+h5 {0.00/22 0.11s} 51. Kh3 {-M6/6 0.004s} Ba4 {0.00/23 0.13s}
+52. Kg3 {-M4/6 0.002s, Black disconnects} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "0-1"]
+[ECO "A00"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-03-04T03:13:01.638 EST"]
+[GameStartTime "2026-03-04T03:12:47.047 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "106"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {+0.32/12 0.33s} e6 {-0.11/6 0.042s} 2. e4 {+0.18/12 0.27s}
+Nf6 {-0.16/6 0.15s} 3. e5 {+0.18/11 0.31s} Ng8 {-0.81/6 0.066s}
+4. d4 {+0.79/11 0.30s} d5 {-0.79/6 0.13s} 5. Nf3 {+1.09/11 0.29s}
+Be7 {-0.65/6 0.17s} 6. Be2 {+0.93/11 0.18s} Bb4 {-0.89/6 0.14s}
+7. O-O {+1.07/10 0.28s} Bxc3 {-0.67/6 0.086s} 8. bxc3 {+1.49/11 0.27s}
+Ne7 {-0.57/6 0.023s} 9. Rb1 {+1.46/11 0.19s} O-O {-0.40/6 0.091s}
+10. c4 {+1.29/11 0.26s} Qd7 {-0.49/6 0.27s} 11. Bf4 {+1.14/10 0.25s}
+Qa4 {-0.28/6 0.11s} 12. Qd2 {+1.05/10 0.25s} dxc4 {-0.04/6 0.25s}
+13. Rb4 {+1.04/11 0.15s} Qa3 {-0.05/6 0.085s} 14. Bxc4 {+1.02/11 0.23s}
+Nd5 {-0.02/6 0.19s} 15. Bxd5 {+1.19/11 0.18s} exd5 {-0.37/6 0.084s}
+16. Rb5 {+1.30/11 0.23s} a6 {-0.14/6 0.35s} 17. Ra5 {+0.98/11 0.22s}
+Qe7 {-0.69/6 0.097s} 18. Rxd5 {+1.58/10 0.21s} h6 {-0.80/6 0.32s}
+19. Rc5 {+1.16/11 0.21s} Be6 {-0.92/6 0.17s} 20. Qc3 {+1.57/10 0.20s}
+Rc8 {-0.95/6 0.36s} 21. d5 {+3.16/10 0.20s} b6 {-1.71/6 0.095s}
+22. d6 {+2.93/10 0.20s} Qe8 {-2.70/6 0.040s} 23. Rxc7 {+2.97/11 0.13s}
+Nd7 {-2.67/6 0.058s} 24. Nd4 {+2.72/10 0.15s} Bxa2 {-2.55/6 0.11s}
+25. Ra1 {+2.88/10 0.13s} Bd5 {-2.26/6 0.099s} 26. Nf5 {+3.13/10 0.14s}
+Rxc7 {-2.16/6 0.11s} 27. dxc7 {+2.35/9 0.15s} Nc5 {-2.86/6 0.48s}
+28. Qg3 {+2.46/9 0.18s} Qf8 {-3.04/6 0.27s} 29. Nxh6+ {+2.82/7 0.18s}
+Kh8 {-3.33/6 0.041s} 30. Qh4 {+3.40/10 0.16s} gxh6 {-3.25/6 0.053s}
+31. Rd1 {+2.65/9 0.12s} Kh7 {-3.33/6 0.11s} 32. Rxd5 {+3.02/10 0.15s}
+Ne6 {-4.53/6 0.090s} 33. Rd7 {+3.33/9 0.17s} Rc8 {-4.07/6 0.073s}
+34. Qf6 {+6.04/11 0.16s} Kg8 {-3.83/6 0.044s} 35. Bxh6 {+6.79/10 0.11s}
+Qe8 {-6.38/6 0.026s} 36. Re7 {+6.77/12 0.13s} Qxe7 {-6.63/6 0.020s}
+37. Qxe7 {+6.77/13 0.16s} Rxc7 {-6.73/6 0.012s} 38. Qe8+ {+7.35/13 0.099s}
+Kh7 {-6.91/6 0.007s} 39. Be3 {+7.35/14 0.11s} Rxc2 {-6.41/6 0.032s}
+40. Qxf7+ {+10.74/12 0.15s} Ng7 {-8.75/6 0.019s} 41. Qb3 {+10.74/14 0.14s}
+Rc6 {-9.02/6 0.011s} 42. Qd3+ {+10.74/13 0.11s} Kh8 {-9.42/6 0.011s}
+43. Qxa6 {+11.43/13 0.13s} Re6 {-9.42/6 0.021s} 44. f4 {+11.80/12 0.15s}
+Kg8 {-9.95/6 0.030s} 45. g4 {+12.03/11 0.15s} Kf7 {-10.09/6 0.023s}
+46. Bxb6 {+12.29/11 0.15s} Rg6 {-10.51/6 0.025s} 47. Qc4+ {+16.38/11 0.094s}
+Re6 {-10.89/6 0.009s} 48. f5 {+18.23/13 0.13s} Ke7 {-14.21/6 0.004s}
+49. f6+ {+26.88/11 0.082s} Rxf6 {-15.52/6 0.006s} 50. Bc5+ {+27.13/13 0.11s}
+Kd7 {-15.25/6 0.006s} 51. Qd5+ {+27.38/12 0.14s} Kc7 {-16.33/6 0.003s}
+52. exf6 {0.00/12 0.099s} Ne8 {-20.17/6 0.007s} 53. f7 {0.00/13 0.089s}
+Nf6 {-24.67/6 0.003s, White disconnects} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "0-1"]
+[ECO "D00"]
+[GameDuration "00:00:07"]
+[GameEndTime "2026-03-04T03:13:09.728 EST"]
+[GameStartTime "2026-03-04T03:13:01.901 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "50"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.023s} d5 {-0.36/12 0.25s} 2. Bf4 {+0.07/6 0.17s}
+Nf6 {-0.37/12 0.28s} 3. e3 {+0.17/6 0.16s} Nc6 {-0.23/11 0.32s}
+4. Bb5 {+0.53/6 0.21s} h6 {-0.18/10 0.31s} 5. Ne2 {+1.10/6 0.16s}
+e6 {+0.06/10 0.20s} 6. O-O {+1.34/6 0.14s} Bd7 {-0.07/10 0.21s}
+7. Qc1 {+1.22/6 0.36s} g5 {+0.26/11 0.24s} 8. Bxc6 {+1.00/6 0.029s}
+Bxc6 {+0.40/11 0.28s} 9. Be5 {+0.89/6 0.052s} Rg8 {+0.31/11 0.27s}
+10. Nd2 {+0.65/6 0.16s} Nd7 {+0.67/11 0.21s} 11. Re1 {+0.47/6 0.11s}
+h5 {+0.79/11 0.20s} 12. h3 {+0.25/6 0.096s} Nxe5 {+0.90/12 0.26s}
+13. dxe5 {-0.09/6 0.038s} g4 {+0.80/12 0.17s} 14. hxg4 {+0.20/6 0.020s}
+Qg5 {+0.80/11 0.24s} 15. Rb1 {-0.32/6 0.22s} Qxg4 {+1.43/11 0.17s}
+16. Nf4 {-0.90/6 0.068s} Bh6 {+1.36/10 0.14s} 17. Qd1 {-0.73/6 0.055s}
+d4 {+1.67/11 0.17s} 18. Ne4 {+0.02/6 0.049s} Bxe4 {+4.78/10 0.15s}
+19. Qxg4 {-4.86/6 0.095s} Rxg4 {+4.76/11 0.20s} 20. Nxh5 {-3.91/6 0.023s}
+O-O-O {+4.80/11 0.22s} 21. exd4 {-4.31/6 0.050s} Rxd4 {+5.09/12 0.19s}
+22. Nf6 {-3.26/6 0.048s} Rxg2+ {+5.95/14 0.18s} 23. Kf1 {-4.60/6 0.008s}
+Bf3 {+M3/16 0.20s} 24. a3 {-5.78/6 0.056s} Rh4 {+M1/16 0.15s}
+25. Re4 {-M2/6 0.038s} Rh1# {0.00/16 0.12s, Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "HyperSearch"]
+[Black "FollyChess"]
+[Result "1-0"]
+[ECO "A00"]
+[GameDuration "00:00:06"]
+[GameEndTime "2026-03-04T03:13:16.726 EST"]
+[GameStartTime "2026-03-04T03:13:09.728 EST"]
+[Opening "Dunst (Sleipner, Heinrichsen) Opening"]
+[PlyCount "55"]
+[TimeControl "5+0.1"]
+
+1. Nc3 {-0.05/12 0.29s} e6 {-0.11/6 0.042s} 2. e4 {+0.03/12 0.21s}
+Nf6 {-0.16/6 0.15s} 3. d4 {+0.08/11 0.32s} Bb4 {-0.12/6 0.039s}
+4. Bd3 {+0.14/11 0.29s} c5 {-0.08/6 0.090s} 5. a3 {+0.27/9 0.30s}
+Bxc3+ {+0.15/6 0.021s} 6. bxc3 {+0.39/13 0.29s} O-O {+0.02/6 0.12s}
+7. Bg5 {+0.24/10 0.19s} Nc6 {-0.09/6 0.096s} 8. e5 {+0.31/10 0.28s}
+Qa5 {-0.78/6 0.062s} 9. exf6 {+1.35/10 0.25s} Qxc3+ {-1.56/6 0.044s}
+10. Kf1 {+2.33/11 0.26s} Nxd4 {-1.91/6 0.093s} 11. Qc1 {+3.61/10 0.20s}
+d5 {-1.55/6 0.095s} 12. fxg7 {+7.26/12 0.23s} Kxg7 {-5.54/6 0.017s}
+13. Bd2 {+7.96/12 0.19s} Qxa1 {-5.86/6 0.028s} 14. Bh6+ {+7.56/12 0.15s}
+Kg8 {-5.86/6 0.005s} 15. Qxa1 {+8.02/13 0.19s} Rd8 {-7.03/6 0.041s}
+16. Nf3 {+8.49/12 0.17s} e5 {-7.06/6 0.044s} 17. Nxe5 {+7.34/11 0.21s}
+Re8 {-6.12/6 0.11s} 18. Nf3 {+8.68/12 0.17s} Re6 {-7.06/6 0.045s}
+19. Bf4 {+9.55/11 0.22s} Nxf3 {-5.60/6 0.028s} 20. gxf3 {+9.53/12 0.17s}
+Rb6 {-5.99/6 0.048s} 21. Rg1+ {+10.53/10 0.21s} Rg6 {-7.04/6 0.005s}
+22. Bxg6 {+8.73/11 0.16s} Bh3+ {-7.43/6 0.010s} 23. Ke2 {+9.01/12 0.17s}
+hxg6 {-7.84/6 0.016s} 24. Qf6 {+12.28/11 0.15s} Rf8 {-9.40/6 0.035s}
+25. Rxg6+ {0.00/23 0.13s} fxg6 {-M6/6 0.003s} 26. Qxg6+ {0.00/30 0.13s}
+Kh8 {-M4/6 0.002s} 27. Be5+ {0.00/64 0s} Rf6 {-M2/6 0.001s}
+28. Bxf6# {0.00/13 0.13s, White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.03.04"]
+[Round "2"]
+[White "FollyChess"]
+[Black "HyperSearch"]
+[Result "1-0"]
+[ECO "D00"]
+[GameDuration "00:00:12"]
+[GameEndTime "2026-03-04T03:13:29.570 EST"]
+[GameStartTime "2026-03-04T03:13:16.727 EST"]
+[Opening "Queen's pawn, Mason variation"]
+[PlyCount "91"]
+[Termination "abandoned"]
+[TimeControl "5+0.1"]
+
+1. d4 {+0.05/6 0.022s} d5 {-0.40/12 0.29s} 2. Bf4 {+0.07/6 0.16s}
+e6 {-0.57/11 0.20s} 3. e3 {+0.21/6 0.13s} Nc6 {-0.29/11 0.27s}
+4. Nd2 {+0.11/6 0.33s} g5 {-0.01/11 0.21s} 5. Bg3 {+0.30/6 0.15s}
+Nf6 {-0.02/11 0.31s} 6. a3 {+0.49/6 0.20s} Be7 {+0.01/10 0.30s}
+7. Be2 {+0.49/6 0.32s} O-O {-0.02/11 0.28s} 8. Ngf3 {+0.34/6 0.24s}
+Nh5 {+0.51/11 0.22s} 9. Bd3 {-0.09/6 0.12s} f5 {+0.86/10 0.20s}
+10. Ne5 {-0.10/6 0.16s} Nxg3 {+0.96/12 0.24s} 11. Nxc6 {-0.25/6 0.11s}
+bxc6 {+0.96/12 0.24s} 12. hxg3 {-0.20/6 0.085s} c5 {+0.95/12 0.21s}
+13. Qh5 {-0.07/6 0.086s} Rf7 {+0.75/11 0.25s} 14. O-O-O {+0.08/6 0.087s}
+cxd4 {+1.42/10 0.20s} 15. exd4 {-0.22/6 0.12s} c5 {+1.03/10 0.15s}
+16. f4 {+0.02/6 0.47s} gxf4 {+1.47/9 0.24s} 17. g4 {+0.22/6 0.20s}
+c4 {+1.54/10 0.14s} 18. g5 {-0.56/6 0.036s} cxd3 {+4.10/11 0.20s}
+19. g6 {-1.59/6 0.024s} Rg7 {+4.09/11 0.20s} 20. gxh7+ {-1.62/6 0.067s}
+Kh8 {+4.08/13 0.18s} 21. Nf3 {-1.78/6 0.099s} Ba6 {+4.08/11 0.21s}
+22. Rd2 {-1.21/6 0.14s} Bd6 {+3.98/10 0.13s} 23. Qh2 {-1.39/6 0.28s}
+Rb8 {+4.62/10 0.14s} 24. Qh6 {-1.57/6 0.24s} Qe7 {+4.42/10 0.17s}
+25. Nh4 {-1.39/6 0.19s} Qf7 {+4.94/9 0.15s} 26. Nf3 {-2.14/6 0.10s}
+Rb7 {+4.60/9 0.20s} 27. Ng5 {-1.21/6 0.17s} Qg6 {+3.30/10 0.14s}
+28. Nxe6 {-1.53/6 0.071s} f3 {+3.49/10 0.20s} 29. Nxg7 {-0.32/6 0.059s}
+fxg2 {+7.09/10 0.19s} 30. Rxg2 {-0.26/6 0.020s} Qxg2 {+M3/13 0.14s}
+31. cxd3 {-10.12/6 0.15s} Rxb2 {+M1/13 0.18s} 32. Rh2 {-9.79/6 0.059s}
+Bxh2 {+M3/13 0.15s} 33. Qxh2 {-M4/6 0.030s} Qxh2 {+M1/14 0.15s}
+34. Nxf5 {-M2/6 0.006s} Rb1+ {0.00/16 0.12s} 35. Kxb1 {-13.03/6 0.001s}
+Bxd3+ {0.00/28 0.17s} 36. Ka1 {-M4/6 0.001s} Bxf5 {0.00/61 0.12s}
+37. a4 {-14.60/6 0.001s} Qd2 {0.00/64 0s} 38. a5 {+9200.05/6 0.002s}
+Bd3 {0.00/64 0s} 39. a6 {+9200.05/6 0.001s} Bxa6 {0.00/39 0.12s}
+40. Kb1 {+9200.05/6 0.001s} Bc4 {0.00/40 0.12s} 41. Ka1 {+9200.05/6 0.001s}
+a5 {0.00/32 0.14s} 42. Kb1 {+9200.05/6 0.002s} Qa2+ {0.00/31 0.13s}
+43. Kc1 {+9200.05/6 0.001s} Bf1 {0.00/29 0.14s} 44. Kd1 {+9200.05/6 0.001s}
+Kxh7 {0.00/27 0.10s} 45. Kc1 {+9200.05/6 0.001s} Kg6 {0.00/31 0.11s}
+46. Kd1 {-M4/6 0.001s, Black disconnects} 1-0
+

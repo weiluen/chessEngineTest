@@ -175,6 +175,19 @@ struct EvalWeights {
     int rook_semi_open_file_eg = 8;
     int rook_seventh_mg = 15;
     int rook_seventh_eg = 25;
+    int knight_outpost_mg = 25;
+    int knight_outpost_eg = 20;
+    int bishop_outpost_mg = 12;
+    int bishop_outpost_eg = 10;
+    int outpost_pawn_support_mg = 10;
+    int outpost_pawn_support_eg = 8;
+    int passed_king_proximity_eg = 5;
+    int passed_blocker_mg = 10;
+    int passed_blocker_eg = 15;
+    int passed_free_path_mg = 8;
+    int passed_free_path_eg = 12;
+    int passed_protected_mg = 8;
+    int passed_protected_eg = 12;
 };
 
 constexpr int PassedBonusMG[8] = {0, 5, 12, 25, 45, 70, 110, 0};
@@ -274,7 +287,7 @@ std::array<Bitboard, 8> AdjacentFileMasks{};
 std::array<std::array<Bitboard, 64>, 2> PassedMasks{};
 std::array<std::array<Bitboard, 64>, 2> FrontSpans{};
 
-PawnTable g_pawn_table;
+thread_local PawnTable g_pawn_table;
 bool eval_initialised = false;
 
 inline void accumulate_piece(EvalState& state, Color color, Piece piece, Square sq, int multiplier) {
@@ -401,6 +414,17 @@ Bitboard pawn_storm_mask(Color color, Square king_sq) {
     return mask;
 }
 
+inline int chebyshev_distance(Square a, Square b) {
+    int af = file_of(a), ar = rank_of(a);
+    int bf = file_of(b), br = rank_of(b);
+    return std::max(std::abs(af - bf), std::abs(ar - br));
+}
+
+inline bool is_outpost(Color us, Square sq, Bitboard enemy_pawns) {
+    int file = file_of(sq);
+    return (enemy_pawns & PassedMasks[static_cast<int>(us)][static_cast<int>(sq)] & AdjacentFileMasks[file]) == 0;
+}
+
 void update_pawn_eval(const Position& pos, EvalState& state) {
     std::array<int, 2> mg{};
     std::array<int, 2> eg{};
@@ -522,12 +546,33 @@ void update_mobility(const Position& pos, EvalState& state) {
         while (knights_iter) {
             Square sq = pop_lsb(knights_iter);
             evaluate_piece(side, Piece::Knight, knight_attacks(sq));
+            // Outpost detection for knights
+            int rel_rank = (side == Color::White) ? rank_of(sq) : 7 - rank_of(sq);
+            if (rel_rank >= 3 && rel_rank <= 5 && is_outpost(side, sq, enemy_pawns)) {
+                mg[color] += Weights.knight_outpost_mg;
+                eg[color] += Weights.knight_outpost_eg;
+                // Extra bonus if supported by own pawn
+                if (pawn_attacks(them, sq) & own_pawns) {
+                    mg[color] += Weights.outpost_pawn_support_mg;
+                    eg[color] += Weights.outpost_pawn_support_eg;
+                }
+            }
         }
 
         Bitboard bishops_iter = bishops;
         while (bishops_iter) {
             Square sq = pop_lsb(bishops_iter);
             evaluate_piece(side, Piece::Bishop, bishop_attacks(sq, occ_all));
+            // Outpost detection for bishops
+            int rel_rank_b = (side == Color::White) ? rank_of(sq) : 7 - rank_of(sq);
+            if (rel_rank_b >= 3 && rel_rank_b <= 5 && is_outpost(side, sq, enemy_pawns)) {
+                mg[color] += Weights.bishop_outpost_mg;
+                eg[color] += Weights.bishop_outpost_eg;
+                if (pawn_attacks(them, sq) & own_pawns) {
+                    mg[color] += Weights.outpost_pawn_support_mg;
+                    eg[color] += Weights.outpost_pawn_support_eg;
+                }
+            }
         }
 
         // Bishop pair bonus
@@ -593,6 +638,71 @@ void update_mobility(const Position& pos, EvalState& state) {
     state.mobility_mg = mg;
     state.mobility_eg = eg;
     state.mobility_dirty = false;
+}
+
+struct PassedPawnExtras {
+    int mg_adj = 0;
+    int eg_adj = 0;
+};
+
+PassedPawnExtras compute_passed_pawn_extras(const Position& pos) {
+    PassedPawnExtras result{};
+    Bitboard white_pawns = pos.pieces(Color::White, Piece::Pawn);
+    Bitboard black_pawns = pos.pieces(Color::Black, Piece::Pawn);
+
+    // Find king squares
+    Bitboard wk_bb = pos.pieces(Color::White, Piece::King);
+    Bitboard bk_bb = pos.pieces(Color::Black, Piece::King);
+    Square wk_sq = wk_bb ? static_cast<Square>(lsb(wk_bb)) : SquareNone;
+    Square bk_sq = bk_bb ? static_cast<Square>(lsb(bk_bb)) : SquareNone;
+
+    auto evaluate_side = [&](Color color) {
+        Bitboard pawns = (color == Color::White) ? white_pawns : black_pawns;
+        Bitboard enemy_pawns_side = (color == Color::White) ? black_pawns : white_pawns;
+        Square own_king = (color == Color::White) ? wk_sq : bk_sq;
+        Square enemy_king = (color == Color::White) ? bk_sq : wk_sq;
+        Bitboard enemy_occ = pos.occupancy(opposite(color));
+        Bitboard all_occ = pos.occupancy();
+        int sign = (color == Color::White) ? 1 : -1;
+
+        Bitboard pawns_iter = pawns;
+        while (pawns_iter) {
+            Square sq = pop_lsb(pawns_iter);
+            if (!is_passed(color, sq, enemy_pawns_side)) continue;
+
+            // Protected passed pawn: supported by own pawn
+            if (pawn_attacks(opposite(color), sq) & pawns) {
+                result.mg_adj += sign * Weights.passed_protected_mg;
+                result.eg_adj += sign * Weights.passed_protected_eg;
+            }
+
+            // Blocker: square directly ahead is occupied
+            int ahead_sq = static_cast<int>(sq) + (color == Color::White ? 8 : -8);
+            if (ahead_sq >= 0 && ahead_sq < 64) {
+                if (all_occ & (Bitboard(1) << ahead_sq)) {
+                    result.mg_adj -= sign * Weights.passed_blocker_mg;
+                    result.eg_adj -= sign * Weights.passed_blocker_eg;
+                }
+            }
+
+            // Free path: no enemy pieces on front span
+            if ((FrontSpans[static_cast<int>(color)][static_cast<int>(sq)] & enemy_occ) == 0) {
+                result.mg_adj += sign * Weights.passed_free_path_mg;
+                result.eg_adj += sign * Weights.passed_free_path_eg;
+            }
+
+            // King proximity (EG only)
+            if (own_king != SquareNone && enemy_king != SquareNone) {
+                int dist_own = chebyshev_distance(sq, own_king);
+                int dist_enemy = chebyshev_distance(sq, enemy_king);
+                result.eg_adj += sign * (dist_enemy - dist_own) * Weights.passed_king_proximity_eg;
+            }
+        }
+    };
+
+    evaluate_side(Color::White);
+    evaluate_side(Color::Black);
+    return result;
 }
 
 void update_king_safety_terms(const Position& pos, EvalState& state) {
@@ -731,16 +841,21 @@ int evaluate(const Position& pos, EvalState& state) {
         update_king_safety_terms(pos, state);
     }
 
+    // Passed pawn position-dependent extras (not cached in pawn hash)
+    PassedPawnExtras pp_extras = compute_passed_pawn_extras(pos);
+
     int mg_score = (state.material_mg[0] - state.material_mg[1]) +
                    (state.psq_mg[0] - state.psq_mg[1]) +
                    (state.pawn_mg[0] - state.pawn_mg[1]) +
                    (state.mobility_mg[0] - state.mobility_mg[1]) +
-                   (state.king_safety[0] - state.king_safety[1]);
+                   (state.king_safety[0] - state.king_safety[1]) +
+                   pp_extras.mg_adj;
 
     int eg_score = (state.material_eg[0] - state.material_eg[1]) +
                    (state.psq_eg[0] - state.psq_eg[1]) +
                    (state.pawn_eg[0] - state.pawn_eg[1]) +
-                   (state.mobility_eg[0] - state.mobility_eg[1]);
+                   (state.mobility_eg[0] - state.mobility_eg[1]) +
+                   pp_extras.eg_adj;
 
     int phase = std::clamp(state.phase, 0, PhaseTotal);
     int blended = (mg_score * phase + eg_score * (PhaseTotal - phase)) / PhaseTotal;
