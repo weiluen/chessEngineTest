@@ -506,7 +506,7 @@ void Search::update_capture_history(Color side, Piece piece, Square to, int delt
     entry = std::clamp(entry + delta, -40000, 40000);
 }
 
-int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move) {
+int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move, Move excluded_move) {
     if (stop_) {
         return alpha;
     }
@@ -562,7 +562,7 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         tt_depth = entry.depth;
         tt_bound = entry.bound;
         tt_hit = true;
-        if (entry.depth >= depth && !time_manager_.should_stop()) {
+        if (entry.depth >= depth && !time_manager_.should_stop() && excluded_move.is_null()) {
             if (entry.bound == Bound::Exact) {
                 return tt_score;
             }
@@ -612,7 +612,7 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
                                  pos.pieces(us, Piece::Queen);
 
     // Null-move pruning with adaptive R
-    if (allow_null && depth >= 3 && !in_check && non_pawn_material) {
+    if (allow_null && depth >= 3 && !in_check && non_pawn_material && excluded_move.is_null()) {
         int R = 3 + depth / 6;
         R = std::min(R, depth - 1);
         if (pos.make_null_move()) {
@@ -638,29 +638,19 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
     }
 
     // Singular extension: check if TT move is singular
+    // Uses excluded_move parameter to avoid searching the TT move in the verification search
     bool tt_move_is_singular = false;
-    if (depth >= 6 && !tt_move.is_null() && tt_hit &&
+    if (depth >= 8 && !tt_move.is_null() && tt_hit &&
+        excluded_move.is_null() &&
         tt_depth >= depth - 3 &&
         (tt_bound == Bound::Lower || tt_bound == Bound::Exact) &&
         std::abs(tt_score) < CheckmateThreshold) {
         int singular_beta = tt_score - depth * 3;
         int se_depth = (depth - 1) / 2;
 
-        // Search all non-TT moves at reduced depth with narrow window
-        std::vector<Move> se_moves = pos.generate_legal_moves();
-        bool any_beats_beta = false;
-        for (const Move& move : se_moves) {
-            if (same_move(move, tt_move)) continue;
-            if (!pos.make_move(move)) continue;
-            int se_score = -negamax(pos, se_depth, -singular_beta, -singular_beta + 1, ply + 1, false, move);
-            pos.unmake_move();
-            if (stop_) return alpha;
-            if (se_score >= singular_beta) {
-                any_beats_beta = true;
-                break;
-            }
-        }
-        if (!any_beats_beta) {
+        // Single search of the position excluding the TT move
+        int se_score = negamax(pos, se_depth, singular_beta - 1, singular_beta, ply, false, prev_move, tt_move);
+        if (se_score < singular_beta) {
             tt_move_is_singular = true;
         }
     }
@@ -693,6 +683,12 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         }
 
         Move move = entry_move.second;
+
+        // Skip excluded move (used by singular extension verification search)
+        if (!excluded_move.is_null() && same_move(move, excluded_move)) {
+            continue;
+        }
+
         bool is_capture = (move.flags & MoveFlagCapture) != 0;
         bool is_promo = (move.flags & MoveFlagPromotion) != 0;
         bool gives_check = (move.flags & MoveFlagCheck) != 0;

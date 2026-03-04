@@ -56,7 +56,7 @@ public:
     [[nodiscard]] std::uint64_t node_count() const noexcept;
 
 private:
-    int negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move);
+    int negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move, Move excluded_move = {});
     int quiescence(Position& pos, int alpha, int beta, int ply);
     int see(const Position& pos, Move move) const;
     int score_move(const Position& pos, const Move& move, const Move& tt_move, int ply, Color side, Move prev_move) const;
