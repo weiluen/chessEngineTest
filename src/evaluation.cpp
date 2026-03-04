@@ -167,6 +167,14 @@ struct EvalWeights {
     int open_file_king_penalty = 6;
     int mobility_mg[6] = {0, 4, 5, 2, 1, 0};
     int mobility_eg[6] = {0, 7, 7, 4, 2, 0};
+    int bishop_pair_mg = 30;
+    int bishop_pair_eg = 50;
+    int rook_open_file_mg = 20;
+    int rook_open_file_eg = 10;
+    int rook_semi_open_file_mg = 12;
+    int rook_semi_open_file_eg = 8;
+    int rook_seventh_mg = 15;
+    int rook_seventh_eg = 25;
 };
 
 constexpr int PassedBonusMG[8] = {0, 5, 12, 25, 45, 70, 110, 0};
@@ -496,12 +504,19 @@ void update_mobility(const Position& pos, EvalState& state) {
         eg[c] += count * mobility_weight(piece, true);
     };
 
+    Bitboard white_pawns = pos.pieces(Color::White, Piece::Pawn);
+    Bitboard black_pawns = pos.pieces(Color::Black, Piece::Pawn);
+    Bitboard all_pawns = white_pawns | black_pawns;
+
     for (int color = 0; color < 2; ++color) {
         Color side = static_cast<Color>(color);
+        Color them = opposite(side);
         Bitboard knights = pos.pieces(side, Piece::Knight);
         Bitboard bishops = pos.pieces(side, Piece::Bishop);
         Bitboard rooks = pos.pieces(side, Piece::Rook);
         Bitboard queens = pos.pieces(side, Piece::Queen);
+        Bitboard own_pawns = (side == Color::White) ? white_pawns : black_pawns;
+        Bitboard enemy_pawns = (side == Color::White) ? black_pawns : white_pawns;
 
         Bitboard knights_iter = knights;
         while (knights_iter) {
@@ -515,10 +530,56 @@ void update_mobility(const Position& pos, EvalState& state) {
             evaluate_piece(side, Piece::Bishop, bishop_attacks(sq, occ_all));
         }
 
+        // Bishop pair bonus
+        if (popcount(bishops) >= 2) {
+            mg[color] += Weights.bishop_pair_mg;
+            eg[color] += Weights.bishop_pair_eg;
+        }
+
+        // Rook bonuses: open/semi-open files, 7th rank
         Bitboard rooks_iter = rooks;
         while (rooks_iter) {
             Square sq = pop_lsb(rooks_iter);
             evaluate_piece(side, Piece::Rook, rook_attacks(sq, occ_all));
+
+            int file = file_of(sq);
+            Bitboard file_mask = FileMasks[file];
+            bool own_pawns_on_file = (own_pawns & file_mask) != 0;
+            bool enemy_pawns_on_file = (enemy_pawns & file_mask) != 0;
+
+            if (!own_pawns_on_file && !enemy_pawns_on_file) {
+                // Open file
+                mg[color] += Weights.rook_open_file_mg;
+                eg[color] += Weights.rook_open_file_eg;
+            } else if (!own_pawns_on_file && enemy_pawns_on_file) {
+                // Semi-open file
+                mg[color] += Weights.rook_semi_open_file_mg;
+                eg[color] += Weights.rook_semi_open_file_eg;
+            }
+
+            // Rook on 7th rank
+            int rel_rank = (side == Color::White) ? rank_of(sq) : 7 - rank_of(sq);
+            if (rel_rank == 6) {
+                // Check if enemy king on 8th rank or enemy pawns on 7th
+                Bitboard enemy_king = pos.pieces(them, Piece::King);
+                int enemy_king_rel_rank = -1;
+                if (enemy_king) {
+                    Square ksq = static_cast<Square>(lsb(enemy_king));
+                    enemy_king_rel_rank = (side == Color::White) ? rank_of(ksq) : 7 - rank_of(ksq);
+                }
+                // Check enemy pawns on 7th (relative rank 6 for them = our rank 1, but we mean their pawns on relative 7th from our perspective = rank 6)
+                // Actually: rook on 7th means rank 6 (0-indexed) for white. Enemy king on 8th = rank 7. Enemy pawns on 7th = rank 6.
+                Bitboard seventh_rank_mask = (side == Color::White) ?
+                    (Bitboard(0xFF) << 48) : // rank 7 (0-indexed 6)
+                    (Bitboard(0xFF) << 8);   // rank 2 (0-indexed 1)
+                Bitboard eighth_rank_mask = (side == Color::White) ?
+                    (Bitboard(0xFF) << 56) : // rank 8
+                    Bitboard(0xFF);           // rank 1
+                if ((enemy_king & eighth_rank_mask) || (enemy_pawns & seventh_rank_mask)) {
+                    mg[color] += Weights.rook_seventh_mg;
+                    eg[color] += Weights.rook_seventh_eg;
+                }
+            }
         }
 
         Bitboard queens_iter = queens;
@@ -537,6 +598,10 @@ void update_mobility(const Position& pos, EvalState& state) {
 void update_king_safety_terms(const Position& pos, EvalState& state) {
     std::array<int, 2> mg{};
     Bitboard occ = pos.occupancy();
+
+    // Attacker weights for quadratic king danger
+    constexpr int AttackerWeight[6] = {0, 2, 2, 3, 5, 0}; // P, N, B, R, Q, K
+
     for (int color = 0; color < 2; ++color) {
         Color us = static_cast<Color>(color);
         Bitboard king_bb = pos.pieces(us, Piece::King);
@@ -544,42 +609,42 @@ void update_king_safety_terms(const Position& pos, EvalState& state) {
         Square king_sq = static_cast<Square>(lsb(king_bb));
         Color them = opposite(us);
 
-        Bitboard attacks = 0;
-        Bitboard pieces = pos.pieces(them, Piece::Pawn);
-        Bitboard it = pieces;
+        Bitboard king_zone = king_attacks(king_sq) | square_bb(king_sq);
+        int weight_sum = 0;
+
+        // Count weighted attackers per piece type
+        Bitboard it = pos.pieces(them, Piece::Knight);
         while (it) {
             Square sq = pop_lsb(it);
-            attacks |= pawn_attacks(them, sq);
-        }
-        it = pos.pieces(them, Piece::Knight);
-        while (it) {
-            Square sq = pop_lsb(it);
-            attacks |= knight_attacks(sq);
+            if (knight_attacks(sq) & king_zone) {
+                weight_sum += AttackerWeight[static_cast<int>(Piece::Knight)];
+            }
         }
         it = pos.pieces(them, Piece::Bishop);
         while (it) {
             Square sq = pop_lsb(it);
-            attacks |= bishop_attacks(sq, occ);
+            if (bishop_attacks(sq, occ) & king_zone) {
+                weight_sum += AttackerWeight[static_cast<int>(Piece::Bishop)];
+            }
         }
         it = pos.pieces(them, Piece::Rook);
         while (it) {
             Square sq = pop_lsb(it);
-            attacks |= rook_attacks(sq, occ);
+            if (rook_attacks(sq, occ) & king_zone) {
+                weight_sum += AttackerWeight[static_cast<int>(Piece::Rook)];
+            }
         }
         it = pos.pieces(them, Piece::Queen);
         while (it) {
             Square sq = pop_lsb(it);
-            attacks |= bishop_attacks(sq, occ) | rook_attacks(sq, occ);
-        }
-        it = pos.pieces(them, Piece::King);
-        while (it) {
-            Square sq = pop_lsb(it);
-            attacks |= king_attacks(sq);
+            if ((bishop_attacks(sq, occ) | rook_attacks(sq, occ)) & king_zone) {
+                weight_sum += AttackerWeight[static_cast<int>(Piece::Queen)];
+            }
         }
 
-        Bitboard king_zone = king_attacks(king_sq) | square_bb(king_sq);
-        int attack_count = popcount(attacks & king_zone);
-        mg[color] -= attack_count * Weights.king_attack_penalty;
+        // Quadratic scaling: danger = weight^2 / 4, capped at 1000
+        int danger = std::min(1000, weight_sum * weight_sum / 4);
+        mg[color] -= danger;
 
         Bitboard pawns = pos.pieces(us, Piece::Pawn);
         int file = file_of(king_sq);

@@ -10,6 +10,7 @@
 #include <array>
 #include <atomic>
 #include <chrono>
+#include <cmath>
 
 namespace chess {
 
@@ -61,6 +62,10 @@ private:
 
     void increment_nodes() noexcept { ++stats_.nodes; }
     void increment_qnodes() noexcept { ++stats_.qnodes; }
+
+    static int lmr_table_[64][64];
+    static bool lmr_initialized_;
+    static void init_lmr();
 
     TranspositionTable& tt_;
     SearchStatistics stats_{};

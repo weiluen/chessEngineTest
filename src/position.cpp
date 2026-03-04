@@ -708,6 +708,136 @@ std::vector<Move> Position::generate_legal_moves() const {
     return legal;
 }
 
+bool Position::is_repetition(int search_ply) const {
+    const Key current_key = state_stack_[ply_].zobrist;
+    const int limit = state_stack_[ply_].fifty_move_counter;
+    int count = 0;
+    for (int i = 2; i <= limit && i <= ply_; i += 2) {
+        if (state_stack_[ply_ - i].zobrist == current_key) {
+            // In search, twofold is sufficient
+            if (++count >= 1) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+Piece Position::piece_on(Square sq) const {
+    Bitboard mask = bit(sq);
+    for (int c = 0; c < 2; ++c) {
+        for (int p = 0; p < 6; ++p) {
+            if (pieces_[c][p] & mask) {
+                return static_cast<Piece>(p);
+            }
+        }
+    }
+    return Piece::None;
+}
+
+std::vector<Move> Position::generate_captures() const {
+    std::vector<Move> pseudo;
+    pseudo.reserve(32);
+
+    Color us = side_to_move_;
+    Color them = opposite(us);
+    const int us_idx = static_cast<int>(us);
+    const StateInfo& st = state_stack_[ply_];
+    Bitboard occ = occupancy_[0] | occupancy_[1];
+    Bitboard enemy_occ = occupancy_[static_cast<int>(them)];
+
+    // Pawns: captures + promotions
+    Bitboard pawns = pieces_[us_idx][static_cast<int>(Piece::Pawn)];
+    int forward = us == Color::White ? 8 : -8;
+    int promotion_rank = us == Color::White ? 7 : 0;
+    while (pawns) {
+        Square from = pop_lsb(pawns);
+        int from_idx = static_cast<int>(from);
+
+        // Push promotions (quiet but tactically important)
+        int to_idx = from_idx + forward;
+        if (to_idx >= 0 && to_idx < 64) {
+            Square to = static_cast<Square>(to_idx);
+            if (!(occ & bit(to)) && rank_of(to) == promotion_rank) {
+                add_move(pseudo, from, to, Piece::Pawn, Piece::None, Piece::Queen, MoveFlagPromotion);
+                add_move(pseudo, from, to, Piece::Pawn, Piece::None, Piece::Rook, MoveFlagPromotion);
+                add_move(pseudo, from, to, Piece::Pawn, Piece::None, Piece::Bishop, MoveFlagPromotion);
+                add_move(pseudo, from, to, Piece::Pawn, Piece::None, Piece::Knight, MoveFlagPromotion);
+            }
+        }
+
+        // Captures
+        Bitboard attacks = pawn_attacks(us, from);
+        Bitboard capture_targets = attacks & enemy_occ;
+        while (capture_targets) {
+            Square to = pop_lsb(capture_targets);
+            Piece captured = piece_on(them, to);
+            std::uint8_t flags = MoveFlagCapture;
+            if (rank_of(to) == promotion_rank) {
+                flags |= MoveFlagPromotion;
+                add_move(pseudo, from, to, Piece::Pawn, captured, Piece::Queen, flags);
+                add_move(pseudo, from, to, Piece::Pawn, captured, Piece::Rook, flags);
+                add_move(pseudo, from, to, Piece::Pawn, captured, Piece::Bishop, flags);
+                add_move(pseudo, from, to, Piece::Pawn, captured, Piece::Knight, flags);
+            } else {
+                add_move(pseudo, from, to, Piece::Pawn, captured, Piece::None, flags);
+            }
+        }
+
+        // En passant
+        if (st.ep_square != SquareNone) {
+            Bitboard ep_mask = bit(st.ep_square);
+            if (attacks & ep_mask) {
+                add_move(pseudo, from, st.ep_square, Piece::Pawn, Piece::Pawn,
+                         Piece::None, static_cast<std::uint8_t>(MoveFlagEnPassant | MoveFlagCapture));
+            }
+        }
+    }
+
+    // Pieces: captures only
+    auto generate_piece_captures = [&](Piece piece, Bitboard mask, auto attack_fn) {
+        while (mask) {
+            Square from = pop_lsb(mask);
+            Bitboard occ_without_from = occ & ~bit(from);
+            Bitboard attacks = attack_fn(from, occ_without_from);
+            Bitboard captures = attacks & enemy_occ;
+            while (captures) {
+                Square to = pop_lsb(captures);
+                Piece captured = piece_on(them, to);
+                add_move(pseudo, from, to, piece, captured, Piece::None, MoveFlagCapture);
+            }
+        }
+    };
+
+    generate_piece_captures(Piece::Knight, pieces_[us_idx][static_cast<int>(Piece::Knight)],
+                            [](Square sq, Bitboard) { return knight_attacks(sq); });
+    generate_piece_captures(Piece::Bishop, pieces_[us_idx][static_cast<int>(Piece::Bishop)],
+                            [](Square sq, Bitboard occ_bb) { return bishop_attacks(sq, occ_bb); });
+    generate_piece_captures(Piece::Rook, pieces_[us_idx][static_cast<int>(Piece::Rook)],
+                            [](Square sq, Bitboard occ_bb) { return rook_attacks(sq, occ_bb); });
+    generate_piece_captures(Piece::Queen, pieces_[us_idx][static_cast<int>(Piece::Queen)],
+                            [](Square sq, Bitboard occ_bb) { return bishop_attacks(sq, occ_bb) | rook_attacks(sq, occ_bb); });
+    generate_piece_captures(Piece::King, pieces_[us_idx][static_cast<int>(Piece::King)],
+                            [](Square sq, Bitboard) { return king_attacks(sq); });
+
+    // Filter through legality
+    std::vector<Move> legal;
+    legal.reserve(pseudo.size());
+    Position copy = *this;
+    for (const Move& move : pseudo) {
+        if (copy.make_move(move)) {
+            Move legal_move = move;
+            if (copy.in_check(copy.side_to_move())) {
+                legal_move.flags |= MoveFlagCheck;
+            }
+            copy.unmake_move();
+            legal.push_back(legal_move);
+        }
+    }
+
+    return legal;
+}
+
 Key Position::compute_zobrist() const {
     init_zobrist();
     Key key = 0ULL;

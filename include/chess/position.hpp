@@ -43,8 +43,11 @@ public:
     void unmake_null_move();
 
     [[nodiscard]] std::vector<Move> generate_legal_moves() const;
+    [[nodiscard]] std::vector<Move> generate_captures() const;
     [[nodiscard]] bool in_check(Color side) const;
     [[nodiscard]] int material_balance() const;
+    [[nodiscard]] Piece piece_on(Square sq) const;
+    [[nodiscard]] bool is_square_attacked(Color attacker, Square sq) const;
     [[nodiscard]] Bitboard pieces(Color color, Piece piece) const noexcept {
         return pieces_[static_cast<int>(color)][static_cast<int>(piece)];
     }
@@ -57,6 +60,8 @@ public:
     [[nodiscard]] Key zobrist() const noexcept { return state_stack_[ply_].zobrist; }
     [[nodiscard]] const EvalState& eval_state() const noexcept { return state_stack_[ply_].eval; }
     [[nodiscard]] EvalState& eval_state() noexcept { return state_stack_[ply_].eval; }
+    [[nodiscard]] int fifty_move_counter() const noexcept { return state_stack_[ply_].fifty_move_counter; }
+    [[nodiscard]] bool is_repetition(int search_ply) const;
 
 private:
     void clear();
@@ -65,7 +70,6 @@ private:
     void add_piece(Color color, Piece piece, Square sq);
     void remove_piece(Color color, Piece piece, Square sq);
     [[nodiscard]] Piece piece_on(Color color, Square sq) const;
-    [[nodiscard]] bool is_square_attacked(Color attacker, Square sq) const;
     [[nodiscard]] Key compute_zobrist() const;
 
     std::array<Bitboard, 6> pieces_[2]{};

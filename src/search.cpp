@@ -3,6 +3,7 @@
 #include "chess/evaluation.hpp"
 
 #include <algorithm>
+#include <cmath>
 #include <limits>
 
 namespace chess {
@@ -103,7 +104,21 @@ bool TimeManager::soft_stop() const {
     return elapsed_ms >= static_cast<long long>(soft_limit_ms_);
 }
 
+int Search::lmr_table_[64][64]{};
+bool Search::lmr_initialized_ = false;
+
+void Search::init_lmr() {
+    if (lmr_initialized_) return;
+    for (int d = 1; d < 64; ++d) {
+        for (int m = 1; m < 64; ++m) {
+            lmr_table_[d][m] = static_cast<int>(0.5 + std::log(d) * std::log(m) * 0.5);
+        }
+    }
+    lmr_initialized_ = true;
+}
+
 Search::Search(TranspositionTable& tt) : tt_(tt) {
+    init_lmr();
     for (auto& ply : killers_) {
         ply[0] = ply[1] = make_null_move();
     }
@@ -203,49 +218,82 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
         std::stable_sort(ordered.begin(), ordered.end(),
                          [](const auto& lhs, const auto& rhs) { return lhs.first > rhs.first; });
 
-        int alpha = -InfiniteScore;
-        int beta = InfiniteScore;
-        Move best_move = make_null_move();
-        int best_score = -InfiniteScore;
+        // Aspiration windows for depth >= 5
+        int alpha, beta;
+        if (depth >= 5 && result.depth_reached > 0) {
+            alpha = result.score - 25;
+            beta = result.score + 25;
+        } else {
+            alpha = -InfiniteScore;
+            beta = InfiniteScore;
+        }
 
-        for (std::size_t i = 0; i < ordered.size(); ++i) {
-            if (stop_ || time_manager_.should_stop()) {
-                stop_ = true;
-                break;
-            }
+        int aspiration_retries = 0;
+        while (true) {
+            Move best_move = make_null_move();
+            int best_score = -InfiniteScore;
+            int local_alpha = alpha;
 
-            const Move& move = ordered[i].second;
-            if (!pos.make_move(move)) {
-                continue;
+            for (std::size_t i = 0; i < ordered.size(); ++i) {
+                if (stop_ || time_manager_.should_stop()) {
+                    stop_ = true;
+                    break;
+                }
+
+                const Move& move = ordered[i].second;
+                if (!pos.make_move(move)) {
+                    continue;
+                }
+                int score = -negamax(pos, depth - 1, -beta, -local_alpha, 1, true, move);
+                pos.unmake_move();
+
+                if (stop_) {
+                    break;
+                }
+
+                if (score > best_score) {
+                    best_score = score;
+                    best_move = move;
+                }
+                if (score > local_alpha) {
+                    local_alpha = score;
+                }
+                if (local_alpha >= beta) {
+                    break;
+                }
             }
-            int score = -negamax(pos, depth - 1, -beta, -alpha, 1, true, move);
-            pos.unmake_move();
 
             if (stop_) {
                 break;
             }
 
-            if (score > best_score) {
-                best_score = score;
-                best_move = move;
+            // Check for aspiration window failure
+            if (depth >= 5 && result.depth_reached > 0 && aspiration_retries < 2) {
+                if (best_score <= alpha) {
+                    // Fail low: widen alpha
+                    alpha = (aspiration_retries == 0) ? result.score - 100 : -InfiniteScore;
+                    ++aspiration_retries;
+                    continue;
+                }
+                if (best_score >= beta) {
+                    // Fail high: widen beta
+                    beta = (aspiration_retries == 0) ? result.score + 100 : InfiniteScore;
+                    ++aspiration_retries;
+                    continue;
+                }
             }
-            if (score > alpha) {
-                alpha = score;
+
+            if (!best_move.is_null()) {
+                result.best_move = best_move;
+                result.score = best_score;
+                result.depth_reached = depth;
+                pv_table_[0] = best_move;
             }
-            if (alpha >= beta) {
-                break;
-            }
+            break;
         }
 
         if (stop_) {
             break;
-        }
-
-        if (!best_move.is_null()) {
-            result.best_move = best_move;
-            result.score = best_score;
-            result.depth_reached = depth;
-            pv_table_[0] = best_move;
         }
 
         if (limits_.nodes != std::numeric_limits<std::uint64_t>::max() &&
@@ -262,13 +310,106 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
 }
 
 int Search::see(const Position& pos, Move move) const {
-    (void)pos;
-    int victim = PieceOrder[static_cast<int>(move.capture)];
-    int attacker = PieceOrder[static_cast<int>(move.piece)];
-    if (move.flags & MoveFlagPromotion) {
-        attacker = PieceOrder[static_cast<int>(move.promotion)];
+    Square to = static_cast<Square>(move.to);
+    Square from = static_cast<Square>(move.from);
+
+    // Piece values for SEE
+    constexpr int SeeVal[7] = {100, 320, 330, 500, 900, 20000, 0};
+
+    int gain[32];
+    int depth_see = 0;
+
+    Bitboard occ = pos.occupancy();
+    Bitboard from_bb = bit(from);
+
+    // Initial capture value
+    Piece attacker_piece = move.piece;
+    if (move.flags & MoveFlagEnPassant) {
+        gain[0] = SeeVal[static_cast<int>(Piece::Pawn)];
+        // Remove the en-passant captured pawn from occupancy
+        Color them = opposite(pos.side_to_move());
+        int ep_capture_sq = static_cast<int>(to) + (pos.side_to_move() == Color::White ? -8 : 8);
+        occ ^= bit(static_cast<Square>(ep_capture_sq));
+    } else if (move.capture != Piece::None) {
+        gain[0] = SeeVal[static_cast<int>(move.capture)];
+    } else if (move.flags & MoveFlagPromotion) {
+        gain[0] = SeeVal[static_cast<int>(move.promotion)] - SeeVal[static_cast<int>(Piece::Pawn)];
+    } else {
+        gain[0] = 0;
     }
-    return victim - attacker;
+
+    // Remove the moving piece from occupancy, add it to target
+    occ ^= from_bb;
+
+    // Track current attacker value
+    int attacker_val = SeeVal[static_cast<int>(attacker_piece)];
+    Color side = opposite(pos.side_to_move()); // opponent moves next
+
+    // Precompute diagonal and orthogonal sliders
+    Bitboard diag_sliders = (pos.pieces(Color::White, Piece::Bishop) | pos.pieces(Color::Black, Piece::Bishop) |
+                              pos.pieces(Color::White, Piece::Queen)  | pos.pieces(Color::Black, Piece::Queen));
+    Bitboard orth_sliders = (pos.pieces(Color::White, Piece::Rook)   | pos.pieces(Color::Black, Piece::Rook) |
+                              pos.pieces(Color::White, Piece::Queen)  | pos.pieces(Color::Black, Piece::Queen));
+
+    auto get_all_attackers = [&](Square sq, Bitboard occupancy) -> Bitboard {
+        return (pawn_attacks(Color::White, sq) & pos.pieces(Color::Black, Piece::Pawn)) |
+               (pawn_attacks(Color::Black, sq) & pos.pieces(Color::White, Piece::Pawn)) |
+               (knight_attacks(sq) & (pos.pieces(Color::White, Piece::Knight) | pos.pieces(Color::Black, Piece::Knight))) |
+               (bishop_attacks(sq, occupancy) & diag_sliders) |
+               (rook_attacks(sq, occupancy) & orth_sliders) |
+               (king_attacks(sq) & (pos.pieces(Color::White, Piece::King) | pos.pieces(Color::Black, Piece::King)));
+    };
+
+    Bitboard attackers = get_all_attackers(to, occ) & occ;
+
+    while (true) {
+        ++depth_see;
+        gain[depth_see] = attacker_val - gain[depth_see - 1];
+
+        // Pruning: if even capturing for free wouldn't help, stop
+        if (std::max(-gain[depth_see - 1], gain[depth_see]) < 0) {
+            break;
+        }
+
+        // Find least valuable attacker for `side`
+        Bitboard side_attackers = attackers & pos.occupancy(side);
+        if (!side_attackers) break;
+
+        Piece lva = Piece::None;
+        Bitboard lva_bb = 0;
+        for (int p = 0; p < 6; ++p) {
+            Bitboard candidates = side_attackers & pos.pieces(side, static_cast<Piece>(p));
+            if (candidates) {
+                lva = static_cast<Piece>(p);
+                lva_bb = candidates & (~candidates + 1); // isolate LSB
+                break;
+            }
+        }
+        if (lva == Piece::None) break;
+
+        attacker_val = SeeVal[static_cast<int>(lva)];
+        occ ^= lva_bb;
+
+        // X-ray: removing this piece may reveal sliders behind it
+        if (lva == Piece::Pawn || lva == Piece::Bishop || lva == Piece::Queen) {
+            attackers |= bishop_attacks(to, occ) & diag_sliders;
+        }
+        if (lva == Piece::Rook || lva == Piece::Queen) {
+            attackers |= rook_attacks(to, occ) & orth_sliders;
+        }
+        attackers &= occ;
+
+        side = opposite(side);
+
+        if (depth_see >= 31) break;
+    }
+
+    // Walk back the gain array
+    while (--depth_see > 0) {
+        gain[depth_see - 1] = -std::max(-gain[depth_see - 1], gain[depth_see]);
+    }
+
+    return gain[0];
 }
 
 int Search::score_move(const Position& pos, const Move& move, const Move& tt_move, int ply, Color side, Move prev_move) const {
@@ -373,6 +514,16 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
 
     if (in_check) {
         depth += 1;
+    }
+
+    // Repetition detection (twofold) and fifty-move rule
+    if (ply > 0) {
+        if (pos.is_repetition(ply)) {
+            return DrawScore;
+        }
+        if (pos.fifty_move_counter() >= 100) {
+            return DrawScore;
+        }
     }
 
     increment_nodes();
@@ -501,8 +652,11 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
 
         int new_depth = depth - 1;
         int reduction = 0;
-        if (!found_pv && depth >= 3 && is_quiet && !in_check) {
-            reduction = 1 + (move_index >= 6);
+        if (depth >= 3 && move_index >= 3 && !in_check && is_quiet) {
+            int d = std::min(depth, 63);
+            int m = std::min(move_index, 63);
+            reduction = lmr_table_[d][m];
+            reduction = std::max(1, std::min(reduction, depth - 2));
             new_depth = std::max(1, depth - 1 - reduction);
         }
 
@@ -606,11 +760,8 @@ int Search::quiescence(Position& pos, int alpha, int beta, int ply) {
         alpha = stand_pat;
     }
 
-    std::vector<Move> moves = pos.generate_legal_moves();
+    std::vector<Move> moves = pos.generate_captures();
     for (const Move& move : moves) {
-        if (!(move.flags & MoveFlagCapture) && !(move.flags & MoveFlagPromotion)) {
-            continue;
-        }
         int piece_gain = 0;
         if (move.flags & MoveFlagPromotion) {
             piece_gain = PieceOrder[static_cast<int>(move.promotion)];
