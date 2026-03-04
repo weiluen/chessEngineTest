@@ -1,0 +1,72 @@
+/**
+ * Search framework (iterative deepening negamax with transposition support).
+ */
+#pragma once
+
+#include "position.hpp"
+#include "transposition_table.hpp"
+#include "types.hpp"
+
+#include <array>
+#include <atomic>
+#include <chrono>
+
+namespace chess {
+
+struct SearchStatistics {
+    std::uint64_t nodes = 0;
+    std::uint64_t qnodes = 0;
+    std::uint64_t tb_hits = 0;
+    std::uint64_t tt_hits = 0;
+};
+
+struct SearchResult {
+    Move best_move = make_null_move();
+    int score = DrawScore;
+    SearchStatistics stats{};
+    int depth_reached = 0;
+};
+
+class TimeManager {
+public:
+    void start(const SearchLimits& limits, Color side_to_move);
+    [[nodiscard]] bool should_stop() const;
+    [[nodiscard]] bool soft_stop() const;
+
+private:
+    SearchLimits limits_{};
+    std::chrono::steady_clock::time_point start_time_{};
+    std::uint64_t soft_limit_ms_ = 0;
+    std::uint64_t hard_limit_ms_ = 0;
+    Color side_to_move_ = Color::White;
+};
+
+class Search {
+public:
+    explicit Search(TranspositionTable& tt);
+
+    SearchResult iterative_deepening(Position& pos, const SearchLimits& limits);
+
+    void stop();
+
+private:
+    int negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null);
+    int quiescence(Position& pos, int alpha, int beta, int ply);
+    int score_move(const Move& move, const Move& tt_move, int ply, Color side) const;
+    void update_history(Color side, const Move& move, int depth);
+    void update_killers(int ply, const Move& move);
+    void decay_history();
+
+    void increment_nodes() noexcept { ++stats_.nodes; }
+    void increment_qnodes() noexcept { ++stats_.qnodes; }
+
+    TranspositionTable& tt_;
+    SearchStatistics stats_{};
+    TimeManager time_manager_{};
+    std::atomic<bool> stop_{false};
+    SearchLimits limits_{};
+    std::array<std::array<std::array<int, 64>, 64>, 2> history_{};
+    std::array<std::array<Move, 2>, MaxPly> killers_{};
+};
+
+}  // namespace chess
