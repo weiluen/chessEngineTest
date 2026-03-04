@@ -54,8 +54,9 @@ private:
     int quiescence(Position& pos, int alpha, int beta, int ply);
     int see(const Position& pos, Move move) const;
     int score_move(const Position& pos, const Move& move, const Move& tt_move, int ply, Color side, Move prev_move) const;
-    void update_history(Color side, const Move& move, int depth, int delta);
+    void update_history(Color side, const Move& move, int delta);
     void update_killers(int ply, const Move& move);
+    void update_capture_history(Color side, Piece piece, Square to, int delta);
     void decay_history();
 
     void increment_nodes() noexcept { ++stats_.nodes; }
@@ -67,6 +68,7 @@ private:
     std::atomic<bool> stop_{false};
     SearchLimits limits_{};
     std::array<std::array<std::array<int, 64>, 64>, 2> history_{};
+    std::array<std::array<std::array<int, 64>, 6>, 2> capture_history_{};
     std::array<std::array<Move, 64>, 2> counter_moves_{};
     std::array<Move, MaxPly> pv_table_{};
     std::array<std::array<Move, 2>, MaxPly> killers_{};

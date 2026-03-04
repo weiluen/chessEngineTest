@@ -1,4 +1,5 @@
 #include "chess/bitboard.hpp"
+#include "chess/evaluation.hpp"
 #include "chess/position.hpp"
 #include "chess/search.hpp"
 #include "chess/transposition_table.hpp"

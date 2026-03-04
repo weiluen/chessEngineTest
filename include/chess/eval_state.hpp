@@ -23,6 +23,7 @@ struct EvalState {
     Key pawn_key = 0;
     bool pawn_dirty = true;
     bool mobility_dirty = true;
+    bool king_dirty = true;
     int phase = 0;
 };
 

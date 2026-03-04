@@ -149,20 +149,35 @@ constexpr int PieceValueEG[6] = {94, 281, 297, 512, 936, 0};
 constexpr int PiecePhase[6] = {0, 1, 1, 2, 4, 0};
 constexpr int PhaseTotal = 24;
 
-constexpr int DoubledPawnPenaltyMG = 12;
-constexpr int DoubledPawnPenaltyEG = 8;
-constexpr int IsolatedPawnPenaltyMG = 15;
-constexpr int IsolatedPawnPenaltyEG = 12;
-constexpr int BackwardPawnPenaltyMG = 6;
-constexpr int BackwardPawnPenaltyEG = 6;
-constexpr int PawnShieldBonusMG = 8;
-constexpr int PawnStormPenaltyMG = 10;
+struct EvalWeights {
+    int doubled_pawn_mg = 12;
+    int doubled_pawn_eg = 8;
+    int isolated_pawn_mg = 15;
+    int isolated_pawn_eg = 12;
+    int backward_pawn_mg = 6;
+    int backward_pawn_eg = 6;
+    int connected_passed_mg = 12;
+    int connected_passed_eg = 18;
+    int candidate_passed_mg = 6;
+    int candidate_passed_eg = 10;
+    int pawn_shield_bonus = 8;
+    int pawn_storm_penalty = 10;
+    int king_attack_penalty = 12;
+    int missing_shield_penalty = 4;
+    int open_file_king_penalty = 6;
+    int mobility_mg[6] = {0, 4, 5, 2, 1, 0};
+    int mobility_eg[6] = {0, 7, 7, 4, 2, 0};
+};
 
-constexpr int PassedBonusMG[8] = {0, 5, 10, 20, 35, 60, 90, 0};
-constexpr int PassedBonusEG[8] = {0, 10, 20, 35, 60, 90, 140, 0};
+constexpr int PassedBonusMG[8] = {0, 5, 12, 25, 45, 70, 110, 0};
+constexpr int PassedBonusEG[8] = {0, 15, 30, 55, 90, 140, 220, 0};
 
-constexpr int MobilityMG[6] = {0, 4, 5, 2, 1, 0};  // pawn .. king
-constexpr int MobilityEG[6] = {0, 7, 7, 4, 2, 0};
+const EvalWeights Weights{};
+
+inline int mobility_weight(Piece piece, bool endgame) {
+    return endgame ? Weights.mobility_eg[static_cast<int>(piece)]
+                   : Weights.mobility_mg[static_cast<int>(piece)];
+}
 
 inline int mirror_square(int sq) {
     return sq ^ 56;
@@ -402,20 +417,35 @@ void update_pawn_eval(const Position& pos, EvalState& state) {
             int file = file_of(sq);
             int rank = rank_of(sq);
             if (is_doubled(pawns, file)) {
-                mg[c] -= DoubledPawnPenaltyMG;
-                eg[c] -= DoubledPawnPenaltyEG;
+                mg[c] -= Weights.doubled_pawn_mg;
+                eg[c] -= Weights.doubled_pawn_eg;
             }
             if (is_isolated(pawns, file)) {
-                mg[c] -= IsolatedPawnPenaltyMG;
-                eg[c] -= IsolatedPawnPenaltyEG;
+                mg[c] -= Weights.isolated_pawn_mg;
+                eg[c] -= Weights.isolated_pawn_eg;
             } else if (is_backward(color, sq, pawns, enemy_pawns)) {
-                mg[c] -= BackwardPawnPenaltyMG;
-                eg[c] -= BackwardPawnPenaltyEG;
+                mg[c] -= Weights.backward_pawn_mg;
+                eg[c] -= Weights.backward_pawn_eg;
             }
-            if (is_passed(color, sq, enemy_pawns)) {
+            bool passed = is_passed(color, sq, enemy_pawns);
+            if (passed) {
                 int idx = (color == Color::White) ? rank : 7 - rank;
                 mg[c] += PassedBonusMG[idx];
                 eg[c] += PassedBonusEG[idx];
+                Bitboard same_rank_adj = 0;
+                if (file > 0) same_rank_adj |= square_bb(static_cast<Square>(rank * 8 + file - 1));
+                if (file < 7) same_rank_adj |= square_bb(static_cast<Square>(rank * 8 + file + 1));
+                if (same_rank_adj & pawns) {
+                    mg[c] += Weights.connected_passed_mg;
+                    eg[c] += Weights.connected_passed_eg;
+                }
+            } else {
+                Bitboard support = pawns & AdjacentFileMasks[file] & FrontSpans[static_cast<int>(color)][static_cast<int>(sq)];
+                Bitboard enemy_front = enemy_pawns & FrontSpans[static_cast<int>(color)][static_cast<int>(sq)];
+                if (support && popcount(enemy_front) <= popcount(support)) {
+                    mg[c] += Weights.candidate_passed_mg;
+                    eg[c] += Weights.candidate_passed_eg;
+                }
             }
         }
     };
@@ -434,11 +464,13 @@ void update_pawn_eval(const Position& pos, EvalState& state) {
         Bitboard shield_mask = pawn_shield_mask(color, king_sq);
         Bitboard shield_pawns = pawns & shield_mask;
         int shield = popcount(shield_pawns);
-        mg[c] += shield * PawnShieldBonusMG;
+        mg[c] += shield * Weights.pawn_shield_bonus;
+        int missing = popcount(shield_mask & ~pawns);
+        mg[c] -= missing * Weights.missing_shield_penalty;
 
         Bitboard storm_mask = pawn_storm_mask(color, king_sq);
         int storm = popcount(enemy_pawns & storm_mask);
-        mg[c] -= storm * PawnStormPenaltyMG;
+        mg[c] -= storm * Weights.pawn_storm_penalty;
     };
 
     add_king_safety(Color::White);
@@ -460,8 +492,8 @@ void update_mobility(const Position& pos, EvalState& state) {
         Bitboard own_occ = pos.occupancy(color);
         Bitboard moves = attacks & ~own_occ;
         int count = popcount(moves);
-        mg[c] += count * MobilityMG[static_cast<int>(piece)];
-        eg[c] += count * MobilityEG[static_cast<int>(piece)];
+        mg[c] += count * mobility_weight(piece, false);
+        eg[c] += count * mobility_weight(piece, true);
     };
 
     for (int color = 0; color < 2; ++color) {
@@ -502,6 +534,63 @@ void update_mobility(const Position& pos, EvalState& state) {
     state.mobility_dirty = false;
 }
 
+void update_king_safety_terms(const Position& pos, EvalState& state) {
+    std::array<int, 2> mg{};
+    Bitboard occ = pos.occupancy();
+    for (int color = 0; color < 2; ++color) {
+        Color us = static_cast<Color>(color);
+        Bitboard king_bb = pos.pieces(us, Piece::King);
+        if (!king_bb) continue;
+        Square king_sq = static_cast<Square>(lsb(king_bb));
+        Color them = opposite(us);
+
+        Bitboard attacks = 0;
+        Bitboard pieces = pos.pieces(them, Piece::Pawn);
+        Bitboard it = pieces;
+        while (it) {
+            Square sq = pop_lsb(it);
+            attacks |= pawn_attacks(them, sq);
+        }
+        it = pos.pieces(them, Piece::Knight);
+        while (it) {
+            Square sq = pop_lsb(it);
+            attacks |= knight_attacks(sq);
+        }
+        it = pos.pieces(them, Piece::Bishop);
+        while (it) {
+            Square sq = pop_lsb(it);
+            attacks |= bishop_attacks(sq, occ);
+        }
+        it = pos.pieces(them, Piece::Rook);
+        while (it) {
+            Square sq = pop_lsb(it);
+            attacks |= rook_attacks(sq, occ);
+        }
+        it = pos.pieces(them, Piece::Queen);
+        while (it) {
+            Square sq = pop_lsb(it);
+            attacks |= bishop_attacks(sq, occ) | rook_attacks(sq, occ);
+        }
+        it = pos.pieces(them, Piece::King);
+        while (it) {
+            Square sq = pop_lsb(it);
+            attacks |= king_attacks(sq);
+        }
+
+        Bitboard king_zone = king_attacks(king_sq) | square_bb(king_sq);
+        int attack_count = popcount(attacks & king_zone);
+        mg[color] -= attack_count * Weights.king_attack_penalty;
+
+        Bitboard pawns = pos.pieces(us, Piece::Pawn);
+        int file = file_of(king_sq);
+        if ((pawns & FileMasks[file]) == 0) {
+            mg[color] -= Weights.open_file_king_penalty;
+        }
+    }
+    state.king_safety = mg;
+    state.king_dirty = false;
+}
+
 }  // namespace
 
 void init_evaluation() {
@@ -531,13 +620,16 @@ EvalState build_eval_state(const Position& pos) {
     state.phase = std::clamp(state.phase, 0, PhaseTotal);
     state.pawn_dirty = true;
     state.mobility_dirty = true;
+    state.king_dirty = true;
     update_pawn_eval(pos, state);
     update_mobility(pos, state);
+    update_king_safety_terms(pos, state);
     return state;
 }
 
 void eval_on_piece_add(EvalState& state, Color color, Piece piece, Square sq) {
     accumulate_piece(state, color, piece, sq, +1);
+    state.king_dirty = true;
     if (piece == Piece::Pawn) {
         state.pawn_key ^= PawnZobrist[static_cast<int>(color)][static_cast<int>(sq)];
         state.pawn_dirty = true;
@@ -551,6 +643,7 @@ void eval_on_piece_add(EvalState& state, Color color, Piece piece, Square sq) {
 
 void eval_on_piece_remove(EvalState& state, Color color, Piece piece, Square sq) {
     accumulate_piece(state, color, piece, sq, -1);
+    state.king_dirty = true;
     if (piece == Piece::Pawn) {
         state.pawn_key ^= PawnZobrist[static_cast<int>(color)][static_cast<int>(sq)];
         state.pawn_dirty = true;
@@ -569,11 +662,15 @@ int evaluate(const Position& pos, EvalState& state) {
     if (state.mobility_dirty) {
         update_mobility(pos, state);
     }
+    if (state.king_dirty) {
+        update_king_safety_terms(pos, state);
+    }
 
     int mg_score = (state.material_mg[0] - state.material_mg[1]) +
                    (state.psq_mg[0] - state.psq_mg[1]) +
                    (state.pawn_mg[0] - state.pawn_mg[1]) +
-                   (state.mobility_mg[0] - state.mobility_mg[1]);
+                   (state.mobility_mg[0] - state.mobility_mg[1]) +
+                   (state.king_safety[0] - state.king_safety[1]);
 
     int eg_score = (state.material_eg[0] - state.material_eg[1]) +
                    (state.psq_eg[0] - state.psq_eg[1]) +

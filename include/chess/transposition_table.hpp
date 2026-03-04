@@ -6,7 +6,7 @@
 #include "move.hpp"
 #include "types.hpp"
 
-#include <atomic>
+#include <array>
 #include <cstddef>
 #include <vector>
 
@@ -23,6 +23,11 @@ struct TTEntry {
     std::uint8_t generation = 0;
 };
 
+struct TTBucket {
+    static constexpr std::size_t kSize = 4;
+    std::array<TTEntry, kSize> entries{};
+};
+
 class TranspositionTable {
 public:
     explicit TranspositionTable(std::size_t megabytes = 64);
@@ -33,13 +38,25 @@ public:
 
     void store(Key key, int depth, int score, Bound bound, Move move);
     [[nodiscard]] bool probe(Key key, TTEntry& entry) const;
+    void prefetch(Key key) const;
+
+    struct Stats {
+        std::uint64_t lookups = 0;
+        std::uint64_t hits = 0;
+        std::uint64_t stores = 0;
+        std::uint64_t replacements = 0;
+    };
+
+    [[nodiscard]] const Stats& stats() const noexcept { return stats_; }
+    void reset_stats() noexcept { stats_ = {}; }
 
 private:
-    void allocate(std::size_t size);
+    void allocate(std::size_t bucket_count);
 
-    std::vector<TTEntry> table_;
+    std::vector<TTBucket> table_;
     std::size_t mask_ = 0;
     std::uint8_t generation_ = 0;
+    mutable Stats stats_{};
 };
 
 }  // namespace chess

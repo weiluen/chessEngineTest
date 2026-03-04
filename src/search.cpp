@@ -40,6 +40,10 @@ inline bool same_move(const Move& a, const Move& b) {
 constexpr int PieceOrder[7] = {100, 320, 330, 500, 900, 20000, 0};
 
 constexpr std::uint8_t QuietMask = MoveFlagCapture | MoveFlagPromotion | MoveFlagEnPassant;
+constexpr int FutilityMargins[4] = {0, 120, 200, 320};
+constexpr int RazorMargin = 200;
+constexpr int SEE_CAPTURE_THRESHOLD = 0;
+constexpr int DeltaMargin = 90;
 
 }  // namespace
 
@@ -113,6 +117,13 @@ Search::Search(TranspositionTable& tt) : tt_(tt) {
             move = make_null_move();
         }
     }
+    for (auto& color : capture_history_) {
+        for (auto& piece_table : color) {
+            for (auto& entry : piece_table) {
+                entry = 0;
+            }
+        }
+    }
     pv_table_.fill(make_null_move());
 }
 
@@ -130,6 +141,13 @@ void Search::decay_history() {
     for (auto& color : counter_moves_) {
         for (auto& move : color) {
             move = make_null_move();
+        }
+    }
+    for (auto& color : capture_history_) {
+        for (auto& piece_table : color) {
+            for (int& entry : piece_table) {
+                entry /= 2;
+            }
         }
     }
 }
@@ -167,6 +185,7 @@ SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limi
         }
 
         Move tt_move = make_null_move();
+        tt_.prefetch(pos.zobrist());
         TTEntry entry{};
         if (tt_.probe(pos.zobrist(), entry)) {
             ++stats_.tt_hits;
@@ -265,6 +284,8 @@ int Search::score_move(const Position& pos, const Move& move, const Move& tt_mov
         int score = 500'000;
         int see_score = see(pos, move);
         score += std::clamp(see_score, -5000, 5000);
+        int capture_hist = capture_history_[static_cast<int>(side)][static_cast<int>(move.piece)][move.to];
+        score += capture_hist;
         if (is_promo) {
             score += 4'000;
         }
@@ -301,7 +322,7 @@ int Search::score_move(const Position& pos, const Move& move, const Move& tt_mov
     return history;
 }
 
-void Search::update_history(Color side, const Move& move, int depth, int delta) {
+void Search::update_history(Color side, const Move& move, int delta) {
     if (move.flags & QuietMask) {
         return;
     }
@@ -320,6 +341,13 @@ void Search::update_killers(int ply, const Move& move) {
         killers_[ply][1] = killers_[ply][0];
         killers_[ply][0] = move;
     }
+}
+
+void Search::update_capture_history(Color side, Piece piece, Square to, int delta) {
+    int attacker = static_cast<int>(piece);
+    int target = static_cast<int>(to);
+    int& entry = capture_history_[static_cast<int>(side)][attacker][target];
+    entry = std::clamp(entry + delta, -40000, 40000);
 }
 
 int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move) {
@@ -350,6 +378,7 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
     increment_nodes();
 
     Key key = pos.zobrist();
+    tt_.prefetch(key);
     TTEntry entry{};
     Move tt_move = make_null_move();
     if (tt_.probe(key, entry)) {
@@ -376,6 +405,29 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         tt_move = pv_table_[ply];
     }
 
+    if (depth >= 5 && tt_move.is_null()) {
+        int iid_depth = depth - 2;
+        if (iid_depth > 0) {
+            int iid_score = negamax(pos, iid_depth, alpha, beta, ply, false, prev_move);
+            if (stop_) {
+                return alpha;
+            }
+            if (!pv_table_[ply].is_null()) {
+                tt_move = pv_table_[ply];
+            }
+            (void)iid_score;
+        }
+    }
+
+    int static_eval = evaluate(pos, pos.eval_state());
+
+    if (!in_check && depth <= 1 && static_eval + RazorMargin <= alpha) {
+        int q = quiescence(pos, alpha, beta, ply);
+        if (q <= alpha) {
+            return q;
+        }
+    }
+
     Bitboard non_pawn_material = pos.pieces(us, Piece::Knight) |
                                  pos.pieces(us, Piece::Bishop) |
                                  pos.pieces(us, Piece::Rook) |
@@ -388,8 +440,11 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
                 return alpha;
             }
             if (score >= beta) {
-                tt_.store(key, depth, to_tt_score(beta, ply), Bound::Lower, make_null_move());
-                return beta;
+                int verification = -negamax(pos, depth - 1 - 1, -beta, -beta + 1, ply + 1, false, make_null_move());
+                if (verification >= beta) {
+                    tt_.store(key, depth, to_tt_score(beta, ply), Bound::Lower, make_null_move());
+                    return beta;
+                }
             }
         }
     }
@@ -422,18 +477,27 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
         }
 
         Move move = entry_move.second;
-        if (!(move.flags & MoveFlagPromotion)) {
-            if (see(pos, move) < 0) {
-                continue;
-            }
-        }
-        if (!pos.make_move(move)) {
+        bool is_capture = (move.flags & MoveFlagCapture) != 0;
+        bool is_promo = (move.flags & MoveFlagPromotion) != 0;
+        bool gives_check = (move.flags & MoveFlagCheck) != 0;
+        bool is_quiet = !(move.flags & QuietMask);
+
+        if (!is_capture && !is_promo && see(pos, move) < SEE_CAPTURE_THRESHOLD) {
+            ++move_index;
             continue;
         }
 
-        bool is_capture = (move.flags & MoveFlagCapture) != 0;
-        bool is_promo = (move.flags & MoveFlagPromotion) != 0;
-        bool is_quiet = !(move.flags & QuietMask);
+        if (!in_check && is_quiet && depth <= 2 && !gives_check) {
+            if (static_eval + FutilityMargins[depth] <= alpha) {
+                ++move_index;
+                continue;
+            }
+        }
+
+        if (!pos.make_move(move)) {
+            ++move_index;
+            continue;
+        }
 
         int new_depth = depth - 1;
         int reduction = 0;
@@ -465,9 +529,18 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
             if (history_bonus <= 0) history_bonus = 1;
             int penalty = std::max(1, history_bonus / 2);
             if (score > alpha) {
-                update_history(us, move, depth, history_bonus);
+                update_history(us, move, history_bonus);
             } else {
-                update_history(us, move, depth, -penalty);
+                update_history(us, move, -penalty);
+            }
+        }
+
+        if (is_capture) {
+            int capture_bonus = std::max(1, depth * depth);
+            if (score > alpha) {
+                update_capture_history(us, move.piece, static_cast<Square>(move.to), capture_bonus);
+            } else {
+                update_capture_history(us, move.piece, static_cast<Square>(move.to), -std::max(1, capture_bonus / 2));
             }
         }
 
@@ -537,6 +610,20 @@ int Search::quiescence(Position& pos, int alpha, int beta, int ply) {
     for (const Move& move : moves) {
         if (!(move.flags & MoveFlagCapture) && !(move.flags & MoveFlagPromotion)) {
             continue;
+        }
+        int piece_gain = 0;
+        if (move.flags & MoveFlagPromotion) {
+            piece_gain = PieceOrder[static_cast<int>(move.promotion)];
+        } else {
+            piece_gain = PieceOrder[static_cast<int>(move.capture)];
+        }
+        if (!(move.flags & MoveFlagPromotion)) {
+            if (stand_pat + piece_gain + DeltaMargin < alpha) {
+                continue;
+            }
+            if (see(pos, move) < SEE_CAPTURE_THRESHOLD) {
+                continue;
+            }
         }
         if (!pos.make_move(move)) {
             continue;
