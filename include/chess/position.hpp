@@ -4,6 +4,7 @@
 #pragma once
 
 #include "bitboard.hpp"
+#include "eval_state.hpp"
 #include "move.hpp"
 #include "types.hpp"
 
@@ -21,6 +22,7 @@ struct StateInfo {
     int ply_from_null = 0;
     Square ep_square = SquareNone;
     std::uint8_t castling_rights = 0;
+    EvalState eval{};
 };
 
 class Position {
@@ -53,6 +55,8 @@ public:
     [[nodiscard]] std::uint8_t castling_rights() const noexcept { return state_stack_[ply_].castling_rights; }
 
     [[nodiscard]] Key zobrist() const noexcept { return state_stack_[ply_].zobrist; }
+    [[nodiscard]] const EvalState& eval_state() const noexcept { return state_stack_[ply_].eval; }
+    [[nodiscard]] EvalState& eval_state() noexcept { return state_stack_[ply_].eval; }
 
 private:
     void clear();

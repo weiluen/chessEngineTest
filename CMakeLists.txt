@@ -32,8 +32,8 @@ target_compile_options(chess_core
         $<$<CONFIG:RelWithDebInfo>:-O3 -march=native>
         $<$<CONFIG:Debug>:-O0 -g3>
         -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wnon-virtual-dtor
-        -Wold-style-cast -Woverloaded-virtual -Wduplicated-cond -Wduplicated-branches
-        -Wlogical-op -Wnull-dereference
+        -Wold-style-cast -Woverloaded-virtual -Wnull-dereference
+        $<$<CXX_COMPILER_ID:GNU>:-Wduplicated-cond -Wduplicated-branches -Wlogical-op>
 )
 
 if(HYPERCHESS_ENABLE_SANITIZERS AND CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
@@ -46,3 +46,6 @@ target_link_libraries(hyperchess PRIVATE chess_core)
 
 add_executable(perft src/perft.cpp)
 target_link_libraries(perft PRIVATE chess_core)
+
+add_executable(bench src/bench.cpp)
+target_link_libraries(bench PRIVATE chess_core)

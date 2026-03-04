@@ -1,4 +1,5 @@
 #include "chess/position.hpp"
+#include "chess/evaluation.hpp"
 
 #include <cctype>
 #include <sstream>
@@ -122,13 +123,14 @@ void Position::clear() {
     side_to_move_ = Color::White;
     ply_ = 0;
     state_stack_.fill(StateInfo{});
-    state_stack_[0].last_move = make_null_move();
+    state_stack_[0].last_move = chess::make_null_move();
     state_stack_[0].captured = Piece::None;
     state_stack_[0].fifty_move_counter = 0;
     state_stack_[0].ply_from_null = 0;
     state_stack_[0].ep_square = SquareNone;
     state_stack_[0].castling_rights = 0;
     state_stack_[0].zobrist = 0ULL;
+    state_stack_[0].eval = EvalState{};
 }
 
 void Position::push_state() {
@@ -152,6 +154,7 @@ void Position::add_piece(Color color, Piece piece, Square sq) {
     pieces_[c][p] |= mask;
     occupancy_[c] |= mask;
     state_stack_[ply_].zobrist ^= piece_keys[c][p][static_cast<int>(sq)];
+    eval_on_piece_add(state_stack_[ply_].eval, color, piece, sq);
 }
 
 void Position::remove_piece(Color color, Piece piece, Square sq) {
@@ -164,6 +167,7 @@ void Position::remove_piece(Color color, Piece piece, Square sq) {
     pieces_[c][p] &= ~mask;
     occupancy_[c] &= ~mask;
     state_stack_[ply_].zobrist ^= piece_keys[c][p][static_cast<int>(sq)];
+    eval_on_piece_remove(state_stack_[ply_].eval, color, piece, sq);
 }
 
 Piece Position::piece_on(Color color, Square sq) const {
@@ -272,9 +276,10 @@ void Position::set_fen(const std::string& fen) {
     }
 
     state_stack_[ply_].fifty_move_counter = halfmove;
-    state_stack_[ply_].last_move = make_null_move();
+    state_stack_[ply_].last_move = chess::make_null_move();
     state_stack_[ply_].captured = Piece::None;
     state_stack_[ply_].ply_from_null = 0;
+    state_stack_[ply_].eval = build_eval_state(*this);
 }
 
 std::string Position::fen() const {
@@ -345,7 +350,7 @@ bool Position::make_null_move() {
     if (st.ep_square != SquareNone) {
         st.zobrist ^= ep_keys[file_of(st.ep_square)];
     }
-    st.last_move = make_null_move();
+    st.last_move = chess::make_null_move();
     st.captured = Piece::None;
     st.ep_square = SquareNone;
     st.fifty_move_counter += 1;
@@ -364,8 +369,6 @@ bool Position::make_move(Move move) {
     Color us = side_to_move_;
     Color them = opposite(us);
     const int us_idx = static_cast<int>(us);
-    const int them_idx = static_cast<int>(them);
-
     Square from = static_cast<Square>(move.from);
     Square to = static_cast<Square>(move.to);
 

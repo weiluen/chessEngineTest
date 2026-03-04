@@ -13,6 +13,7 @@ int main(int argc, char** argv) {
     using namespace chess;
 
     init_attack_tables();
+    init_evaluation();
 
     bool cli_mode = (argc > 1 && std::string(argv[1]) == "--cli");
 

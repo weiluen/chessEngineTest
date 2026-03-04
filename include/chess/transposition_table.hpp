@@ -3,6 +3,7 @@
  */
 #pragma once
 
+#include "move.hpp"
 #include "types.hpp"
 
 #include <atomic>

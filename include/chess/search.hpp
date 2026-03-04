@@ -50,10 +50,11 @@ public:
     void stop();
 
 private:
-    int negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null);
+    int negamax(Position& pos, int depth, int alpha, int beta, int ply, bool allow_null, Move prev_move);
     int quiescence(Position& pos, int alpha, int beta, int ply);
-    int score_move(const Move& move, const Move& tt_move, int ply, Color side) const;
-    void update_history(Color side, const Move& move, int depth);
+    int see(const Position& pos, Move move) const;
+    int score_move(const Position& pos, const Move& move, const Move& tt_move, int ply, Color side, Move prev_move) const;
+    void update_history(Color side, const Move& move, int depth, int delta);
     void update_killers(int ply, const Move& move);
     void decay_history();
 
@@ -66,6 +67,8 @@ private:
     std::atomic<bool> stop_{false};
     SearchLimits limits_{};
     std::array<std::array<std::array<int, 64>, 64>, 2> history_{};
+    std::array<std::array<Move, 64>, 2> counter_moves_{};
+    std::array<Move, MaxPly> pv_table_{};
     std::array<std::array<Move, 2>, MaxPly> killers_{};
 };
 
