@@ -41,6 +41,12 @@ if(HYPERCHESS_ENABLE_SANITIZERS AND CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
   target_link_options(chess_core PRIVATE $<$<CONFIG:Debug>:-fsanitize=address,undefined>)
 endif()
 
+include(CheckIPOSupported)
+check_ipo_supported(RESULT ipo_supported)
+if(ipo_supported)
+  set_property(TARGET chess_core PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
+endif()
+
 add_executable(hyperchess src/main.cpp)
 target_link_libraries(hyperchess PRIVATE chess_core)
 
@@ -49,3 +55,9 @@ target_link_libraries(perft PRIVATE chess_core)
 
 add_executable(bench src/bench.cpp)
 target_link_libraries(bench PRIVATE chess_core)
+
+if(ipo_supported)
+  set_property(TARGET hyperchess PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
+  set_property(TARGET perft PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
+  set_property(TARGET bench PROPERTY INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
+endif()

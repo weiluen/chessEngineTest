@@ -12,7 +12,8 @@ namespace chess {
 using Bitboard = std::uint64_t;
 using Key = std::uint64_t;
 
-constexpr int MaxPly = 128;
+constexpr int MaxPly = 128;      // Maximum search depth (for search arrays)
+constexpr int MaxGamePly = 1024; // Maximum game + search plies (for Position state stack)
 constexpr int MaxMoves = 256;
 constexpr int InfiniteScore = 32000;
 constexpr int CheckmateScore = 31000;

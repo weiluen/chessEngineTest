@@ -17,6 +17,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/homebrew/share/cmake/Modules/CheckIPOSupported.cmake"
+  "/opt/homebrew/share/cmake/Modules/CheckIPOSupported/CMakeLists-CXX.txt.in"
+  "/opt/homebrew/share/cmake/Modules/CheckIPOSupported/foo.cpp"
+  "/opt/homebrew/share/cmake/Modules/CheckIPOSupported/main.cpp"
   "/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake"
@@ -43,6 +47,9 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt"
+  "CMakeFiles/_CMakeLTOTest-CXX/src/foo.cpp"
+  "CMakeFiles/_CMakeLTOTest-CXX/src/main.cpp"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

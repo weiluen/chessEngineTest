@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/jameshuang/Projects/chessEngineTest/include
 
-CXX_FLAGSarm64 = -O3 -DNDEBUG -std=c++20 -arch arm64 -Ofast -march=native -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wnull-dereference
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=c++20 -flto=thin -arch arm64 -Ofast -march=native -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wnull-dereference
 
-CXX_FLAGS = -O3 -DNDEBUG -std=c++20 -arch arm64 -Ofast -march=native -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wnull-dereference
+CXX_FLAGS = -O3 -DNDEBUG -std=c++20 -flto=thin -arch arm64 -Ofast -march=native -DNDEBUG -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wnull-dereference
 

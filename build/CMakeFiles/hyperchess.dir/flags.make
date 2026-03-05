@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/jameshuang/Projects/chessEngineTest/include
 
-CXX_FLAGSarm64 = -O3 -DNDEBUG -std=c++20 -arch arm64
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=c++20 -flto=thin -arch arm64
 
-CXX_FLAGS = -O3 -DNDEBUG -std=c++20 -arch arm64
+CXX_FLAGS = -O3 -DNDEBUG -std=c++20 -flto=thin -arch arm64
 

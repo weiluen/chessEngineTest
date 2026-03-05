@@ -83,6 +83,8 @@ private:
     std::array<std::array<std::array<int, 64>, 64>, 2> history_{};
     std::array<std::array<std::array<int, 64>, 6>, 2> capture_history_{};
     std::array<std::array<Move, 64>, 2> counter_moves_{};
+    // Countermove history: [prev_piece][prev_to][piece][to]
+    std::array<std::array<std::array<std::array<int, 64>, 6>, 64>, 6> cmh_{};
     std::array<std::array<Move, MaxPly>, MaxPly> pv_table_{};
     std::array<int, MaxPly> pv_length_{};
     std::array<std::array<Move, 2>, MaxPly> killers_{};

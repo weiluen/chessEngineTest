@@ -120,6 +120,8 @@ void Position::clear() {
         color.fill(0ULL);
     }
     occupancy_.fill(0ULL);
+    mailbox_.fill(Piece::None);
+    color_board_.fill(Color::NoColor);
     side_to_move_ = Color::White;
     ply_ = 0;
     state_stack_.fill(StateInfo{});
@@ -134,7 +136,7 @@ void Position::clear() {
 }
 
 void Position::push_state() {
-    if (ply_ + 1 >= MaxPly) {
+    if (ply_ + 1 >= MaxGamePly) {
         return;
     }
     state_stack_[ply_ + 1] = state_stack_[ply_];
@@ -156,6 +158,8 @@ void Position::add_piece(Color color, Piece piece, Square sq) {
     Bitboard mask = bit(sq);
     pieces_[c][p] |= mask;
     occupancy_[c] |= mask;
+    mailbox_[static_cast<int>(sq)] = piece;
+    color_board_[static_cast<int>(sq)] = color;
     state_stack_[ply_].zobrist ^= piece_keys[c][p][static_cast<int>(sq)];
     eval_on_piece_add(state_stack_[ply_].eval, color, piece, sq);
 }
@@ -169,19 +173,14 @@ void Position::remove_piece(Color color, Piece piece, Square sq) {
     Bitboard mask = bit(sq);
     pieces_[c][p] &= ~mask;
     occupancy_[c] &= ~mask;
+    mailbox_[static_cast<int>(sq)] = Piece::None;
+    color_board_[static_cast<int>(sq)] = Color::NoColor;
     state_stack_[ply_].zobrist ^= piece_keys[c][p][static_cast<int>(sq)];
     eval_on_piece_remove(state_stack_[ply_].eval, color, piece, sq);
 }
 
 Piece Position::piece_on(Color color, Square sq) const {
-    const int c = static_cast<int>(color);
-    Bitboard mask = bit(sq);
-    for (int p = 0; p < 6; ++p) {
-        if (pieces_[c][p] & mask) {
-            return static_cast<Piece>(p);
-        }
-    }
-    return Piece::None;
+    return color_board_[static_cast<int>(sq)] == color ? mailbox_[static_cast<int>(sq)] : Piece::None;
 }
 
 bool Position::is_square_attacked(Color attacker, Square sq) const {
@@ -348,7 +347,7 @@ std::string Position::fen() const {
 }
 
 bool Position::make_null_move() {
-    if (ply_ + 1 >= MaxPly) {
+    if (ply_ + 1 >= MaxGamePly) {
         return false;
     }
     push_state();
@@ -372,7 +371,7 @@ void Position::unmake_null_move() {
 }
 
 bool Position::make_move(Move move) {
-    if (ply_ + 1 >= MaxPly) {
+    if (ply_ + 1 >= MaxGamePly) {
         return false;
     }
 
@@ -731,15 +730,7 @@ bool Position::is_repetition(int search_ply) const {
 }
 
 Piece Position::piece_on(Square sq) const {
-    Bitboard mask = bit(sq);
-    for (int c = 0; c < 2; ++c) {
-        for (int p = 0; p < 6; ++p) {
-            if (pieces_[c][p] & mask) {
-                return static_cast<Piece>(p);
-            }
-        }
-    }
-    return Piece::None;
+    return mailbox_[static_cast<int>(sq)];
 }
 
 MoveList Position::generate_captures() {

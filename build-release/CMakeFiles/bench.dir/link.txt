@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -flto=thin -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/bench.dir/src/bench.cpp.o -o bench  libchess_core.a

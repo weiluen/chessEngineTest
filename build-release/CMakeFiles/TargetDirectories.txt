@@ -1,0 +1,6 @@
+/Users/jameshuang/Projects/chessEngineTest/build-release/CMakeFiles/chess_core.dir
+/Users/jameshuang/Projects/chessEngineTest/build-release/CMakeFiles/hyperchess.dir
+/Users/jameshuang/Projects/chessEngineTest/build-release/CMakeFiles/perft.dir
+/Users/jameshuang/Projects/chessEngineTest/build-release/CMakeFiles/bench.dir
+/Users/jameshuang/Projects/chessEngineTest/build-release/CMakeFiles/edit_cache.dir
+/Users/jameshuang/Projects/chessEngineTest/build-release/CMakeFiles/rebuild_cache.dir

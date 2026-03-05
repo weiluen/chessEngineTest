@@ -73,9 +73,11 @@ private:
 
     std::array<Bitboard, 6> pieces_[2]{};
     std::array<Bitboard, 2> occupancy_{};
+    std::array<Piece, 64> mailbox_{};
+    std::array<Color, 64> color_board_{};
     Color side_to_move_ = Color::White;
     int ply_ = 0;
-    std::array<StateInfo, MaxPly> state_stack_{};
+    std::array<StateInfo, MaxGamePly> state_stack_{};
 };
 
 }  // namespace chess

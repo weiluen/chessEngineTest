@@ -192,6 +192,14 @@ void Search::decay_history() {
             }
         }
     }
+    // Clear countermove history each search
+    for (auto& a : cmh_) {
+        for (auto& b : a) {
+            for (auto& c : b) {
+                c.fill(0);
+            }
+        }
+    }
 }
 
 SearchResult Search::iterative_deepening(Position& pos, const SearchLimits& limits) {
@@ -531,6 +539,11 @@ int Search::score_move(const Position& pos, const Move& move, const Move& tt_mov
     }
 
     int history = history_[static_cast<int>(side)][move.from][move.to];
+    // Add countermove history bonus
+    if (!prev_move.is_null() && prev_move.piece != Piece::None) {
+        history += cmh_[static_cast<int>(prev_move.piece)][prev_move.to]
+                       [static_cast<int>(move.piece)][move.to];
+    }
     if (move.flags & MoveFlagCheck) {
         history += 50;
     }
@@ -897,8 +910,25 @@ int Search::negamax(Position& pos, int depth, int alpha, int beta, int ply, bool
             int penalty = std::max(1, history_bonus / 2);
             if (score > alpha) {
                 update_history(us, move, history_bonus);
+                // Update countermove history
+                if (!prev_move.is_null() && prev_move.piece != Piece::None) {
+                    int pp = static_cast<int>(prev_move.piece);
+                    int pt = prev_move.to;
+                    int mp = static_cast<int>(move.piece);
+                    int mt = move.to;
+                    int& cmh_entry = cmh_[pp][pt][mp][mt];
+                    cmh_entry = std::clamp(cmh_entry + history_bonus, -40000, 40000);
+                }
             } else {
                 update_history(us, move, -penalty);
+                if (!prev_move.is_null() && prev_move.piece != Piece::None) {
+                    int pp = static_cast<int>(prev_move.piece);
+                    int pt = prev_move.to;
+                    int mp = static_cast<int>(move.piece);
+                    int mt = move.to;
+                    int& cmh_entry = cmh_[pp][pt][mp][mt];
+                    cmh_entry = std::clamp(cmh_entry - penalty, -40000, 40000);
+                }
             }
         }
 
