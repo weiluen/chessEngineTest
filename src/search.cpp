@@ -71,12 +71,14 @@ void TimeManager::start(const SearchLimits& limits, Color side_to_move) {
 
     soft_limit_ms_ = 0;
     hard_limit_ms_ = 0;
+    max_limit_ms_ = 0;
     prev_score_ = 0;
     prev_score_valid_ = false;
     if (limits_.infinite) {
         return;
     }
 
+    constexpr std::uint64_t move_overhead = 10;
     std::uint64_t move_time = limits_.time_ms;
     const int idx = static_cast<int>(side_to_move_);
 
@@ -86,14 +88,40 @@ void TimeManager::start(const SearchLimits& limits, Color side_to_move) {
         if (time_left > 0) {
             int moves_to_go = limits_.moves_to_go > 0 ? limits_.moves_to_go : 25;
             move_time = time_left / std::max(1, moves_to_go);
-            move_time += inc / 2;
-            std::uint64_t safety = std::max<std::uint64_t>(50, time_left / 50);
-            if (move_time + safety >= time_left) {
-                move_time = (time_left > safety) ? time_left - safety : time_left / 2;
+            move_time += inc * 3 / 4;
+
+            // Never allocate more than 20% of remaining time
+            std::uint64_t max_alloc = time_left / 5;
+            if (move_time > max_alloc) {
+                move_time = max_alloc;
+            }
+
+            // Subtract move overhead for UCI/process latency
+            if (move_time > move_overhead) {
+                move_time -= move_overhead;
+            } else {
+                move_time = 1;
+            }
+
+            // Hard limit: absolute ceiling on this move's time usage
+            // Never use more than 40% of remaining time on a single move
+            max_limit_ms_ = time_left * 2 / 5;
+            if (max_limit_ms_ > move_overhead) {
+                max_limit_ms_ -= move_overhead;
             }
         } else if (inc > 0) {
             move_time = std::max<std::uint64_t>(inc - 5, inc * 3 / 4);
+            if (move_time > move_overhead) {
+                move_time -= move_overhead;
+            }
+            max_limit_ms_ = move_time * 3;
         }
+    } else {
+        // Fixed movetime: subtract overhead
+        if (move_time > move_overhead) {
+            move_time -= move_overhead;
+        }
+        max_limit_ms_ = move_time;
     }
 
     if (move_time == 0) {
@@ -101,7 +129,11 @@ void TimeManager::start(const SearchLimits& limits, Color side_to_move) {
     }
 
     soft_limit_ms_ = move_time;
-    hard_limit_ms_ = move_time * 5 / 2 + 20;
+    hard_limit_ms_ = move_time * 2 + 20;
+    // Cap hard limit to absolute ceiling
+    if (max_limit_ms_ > 0 && hard_limit_ms_ > max_limit_ms_) {
+        hard_limit_ms_ = max_limit_ms_;
+    }
 }
 
 bool TimeManager::should_stop() const {
@@ -125,7 +157,12 @@ bool TimeManager::soft_stop() const {
 void TimeManager::update_score(int score) {
     if (prev_score_valid_ && score < prev_score_ - 50) {
         // Extend soft limit when score drops significantly (panic mode)
-        soft_limit_ms_ = soft_limit_ms_ * 3 / 2;
+        std::uint64_t extended = soft_limit_ms_ * 3 / 2;
+        // Cap panic extension to hard limit
+        if (hard_limit_ms_ > 0 && extended > hard_limit_ms_) {
+            extended = hard_limit_ms_;
+        }
+        soft_limit_ms_ = extended;
     }
     prev_score_ = score;
     prev_score_valid_ = true;

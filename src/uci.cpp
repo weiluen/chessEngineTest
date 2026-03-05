@@ -258,6 +258,20 @@ private:
         launch_search(limits);
     }
 
+    Move validate_bestmove(const Move& move) {
+        MoveList legal = position_.generate_legal_moves();
+        for (int i = 0; i < legal.size(); ++i) {
+            if (moves_equal(legal[i], move)) {
+                return legal[i];
+            }
+        }
+        // Bestmove is not legal (TT collision or bug) — fall back to first legal move
+        if (!legal.empty()) {
+            return legal[0];
+        }
+        return move;
+    }
+
     void launch_search(const SearchLimits& limits) {
         stop_search();
         wait_for_search();
@@ -270,7 +284,8 @@ private:
             auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
             searching_.store(false, std::memory_order_relaxed);
             print_info(result, elapsed_ms);
-            print_bestmove(result.best_move);
+            Move validated = validate_bestmove(result.best_move);
+            print_bestmove(validated);
         });
     }
 

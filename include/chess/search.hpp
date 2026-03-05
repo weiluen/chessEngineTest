@@ -44,6 +44,7 @@ private:
     std::chrono::steady_clock::time_point start_time_{};
     std::uint64_t soft_limit_ms_ = 0;
     std::uint64_t hard_limit_ms_ = 0;
+    std::uint64_t max_limit_ms_ = 0;
     Color side_to_move_ = Color::White;
     int prev_score_ = 0;
     bool prev_score_valid_ = false;
