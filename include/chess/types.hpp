@@ -3,6 +3,7 @@
  */
 #pragma once
 
+#include <array>
 #include <cstdint>
 #include <limits>
 
@@ -52,6 +53,26 @@ struct Move {
     [[nodiscard]] constexpr bool is_null() const noexcept {
         return from == to && piece == Piece::None;
     }
+};
+
+struct MoveList {
+    std::array<Move, MaxMoves> moves;
+    int count = 0;
+
+    void push_back(const Move& m) {
+        if (count < MaxMoves) {
+            moves[static_cast<std::size_t>(count++)] = m;
+        }
+    }
+    Move& operator[](int i) { return moves[static_cast<std::size_t>(i)]; }
+    const Move& operator[](int i) const { return moves[static_cast<std::size_t>(i)]; }
+    int size() const { return count; }
+    bool empty() const { return count == 0; }
+    Move* begin() { return moves.data(); }
+    Move* end() { return moves.data() + count; }
+    const Move* begin() const { return moves.data(); }
+    const Move* end() const { return moves.data() + count; }
+    void clear() { count = 0; }
 };
 
 struct SearchLimits {

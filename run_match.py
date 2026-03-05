@@ -4,6 +4,8 @@ Minimal UCI engine match runner using python-chess.
 Plays N games between two UCI engines, alternating colours, and writes a PGN.
 """
 
+from __future__ import annotations
+
 import argparse
 import chess
 import chess.engine
@@ -11,9 +13,10 @@ import chess.pgn
 import io
 import sys
 import time
+from typing import Optional
 
 
-def parse_tc(tc_str: str) -> tuple[float, float]:
+def parse_tc(tc_str: str) -> tuple:
     """Parse time control string like '5+0.1' into (base_sec, inc_sec)."""
     parts = tc_str.split("+")
     base = float(parts[0])
@@ -26,8 +29,8 @@ def play_game(
     engine2: chess.engine.SimpleEngine,
     name1: str,
     name2: str,
-    tc: str | None,
-    depth: int | None,
+    tc: Optional[str],
+    depth: Optional[int],
     game_num: int,
     white_is_engine1: bool,
 ) -> chess.pgn.Game:

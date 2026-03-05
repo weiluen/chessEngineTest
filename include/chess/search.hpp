@@ -37,6 +37,7 @@ public:
     void start(const SearchLimits& limits, Color side_to_move);
     [[nodiscard]] bool should_stop() const;
     [[nodiscard]] bool soft_stop() const;
+    void update_score(int score);
 
 private:
     SearchLimits limits_{};
@@ -44,6 +45,8 @@ private:
     std::uint64_t soft_limit_ms_ = 0;
     std::uint64_t hard_limit_ms_ = 0;
     Color side_to_move_ = Color::White;
+    int prev_score_ = 0;
+    bool prev_score_valid_ = false;
 };
 
 class Search {

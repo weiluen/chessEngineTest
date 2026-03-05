@@ -10,7 +10,6 @@
 
 #include <array>
 #include <string>
-#include <vector>
 
 namespace chess {
 
@@ -42,8 +41,8 @@ public:
     bool make_null_move();
     void unmake_null_move();
 
-    [[nodiscard]] std::vector<Move> generate_legal_moves() const;
-    [[nodiscard]] std::vector<Move> generate_captures() const;
+    [[nodiscard]] MoveList generate_legal_moves();
+    [[nodiscard]] MoveList generate_captures();
     [[nodiscard]] bool in_check(Color side) const;
     [[nodiscard]] int material_balance() const;
     [[nodiscard]] Piece piece_on(Square sq) const;

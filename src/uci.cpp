@@ -325,7 +325,7 @@ private:
 
     bool apply_move(const std::string& move_str) {
         std::string lower = to_lower(move_str);
-        std::vector<Move> legal = position_.generate_legal_moves();
+        MoveList legal = position_.generate_legal_moves();
         for (Move move : legal) {
             if (to_uci(move) == lower) {
                 return position_.make_move(move);

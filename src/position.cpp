@@ -95,7 +95,7 @@ void init_zobrist() {
     zobrist_ready = true;
 }
 
-void add_move(std::vector<Move>& moves, Square from, Square to, Piece piece,
+void add_move(MoveList& moves, Square from, Square to, Piece piece,
               Piece capture, Piece promotion, std::uint8_t flags) {
     moves.push_back(Move{
         .from = static_cast<std::uint16_t>(from),
@@ -134,6 +134,9 @@ void Position::clear() {
 }
 
 void Position::push_state() {
+    if (ply_ + 1 >= MaxPly) {
+        return;
+    }
     state_stack_[ply_ + 1] = state_stack_[ply_];
     ++ply_;
 }
@@ -345,6 +348,9 @@ std::string Position::fen() const {
 }
 
 bool Position::make_null_move() {
+    if (ply_ + 1 >= MaxPly) {
+        return false;
+    }
     push_state();
     StateInfo& st = state_stack_[ply_];
     if (st.ep_square != SquareNone) {
@@ -366,6 +372,10 @@ void Position::unmake_null_move() {
 }
 
 bool Position::make_move(Move move) {
+    if (ply_ + 1 >= MaxPly) {
+        return false;
+    }
+
     Color us = side_to_move_;
     Color them = opposite(us);
     const int us_idx = static_cast<int>(us);
@@ -559,9 +569,8 @@ int Position::material_balance() const {
     return score;
 }
 
-std::vector<Move> Position::generate_legal_moves() const {
-    std::vector<Move> pseudo;
-    pseudo.reserve(64);
+MoveList Position::generate_legal_moves() {
+    MoveList pseudo;
 
     Color us = side_to_move_;
     Color them = opposite(us);
@@ -691,16 +700,14 @@ std::vector<Move> Position::generate_legal_moves() const {
         }
     }
 
-    std::vector<Move> legal;
-    legal.reserve(pseudo.size());
-    Position copy = *this;
-    for (const Move& move : pseudo) {
-        if (copy.make_move(move)) {
-            Move legal_move = move;
-            if (copy.in_check(copy.side_to_move())) {
+    MoveList legal;
+    for (int i = 0; i < pseudo.size(); ++i) {
+        if (make_move(pseudo[i])) {
+            Move legal_move = pseudo[i];
+            if (in_check(side_to_move())) {
                 legal_move.flags |= MoveFlagCheck;
             }
-            copy.unmake_move();
+            unmake_move();
             legal.push_back(legal_move);
         }
     }
@@ -735,9 +742,8 @@ Piece Position::piece_on(Square sq) const {
     return Piece::None;
 }
 
-std::vector<Move> Position::generate_captures() const {
-    std::vector<Move> pseudo;
-    pseudo.reserve(32);
+MoveList Position::generate_captures() {
+    MoveList pseudo;
 
     Color us = side_to_move_;
     Color them = opposite(us);
@@ -821,16 +827,14 @@ std::vector<Move> Position::generate_captures() const {
                             [](Square sq, Bitboard) { return king_attacks(sq); });
 
     // Filter through legality
-    std::vector<Move> legal;
-    legal.reserve(pseudo.size());
-    Position copy = *this;
-    for (const Move& move : pseudo) {
-        if (copy.make_move(move)) {
-            Move legal_move = move;
-            if (copy.in_check(copy.side_to_move())) {
+    MoveList legal;
+    for (int i = 0; i < pseudo.size(); ++i) {
+        if (make_move(pseudo[i])) {
+            Move legal_move = pseudo[i];
+            if (in_check(side_to_move())) {
                 legal_move.flags |= MoveFlagCheck;
             }
-            copy.unmake_move();
+            unmake_move();
             legal.push_back(legal_move);
         }
     }

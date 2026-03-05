@@ -35,7 +35,7 @@ void TranspositionTable::clear() {
 }
 
 void TranspositionTable::new_search() {
-    ++generation_;
+    generation_ = static_cast<std::uint8_t>((generation_ + 1) & 0x3FU);
 }
 
 void TranspositionTable::prefetch(Key key) const {
@@ -47,26 +47,27 @@ void TranspositionTable::prefetch(Key key) const {
 #endif
 }
 
-void TranspositionTable::store(Key key, int depth, int score, Bound bound, Move move) {
+void TranspositionTable::store(Key key, int depth, int score, Bound bound, const Move& move) {
     TTBucket& bucket = table_[key & mask_];
+    const std::uint32_t key32 = static_cast<std::uint32_t>(key >> 32);
     TTEntry* replace = nullptr;
 
     for (auto& entry : bucket.entries) {
-        if (entry.key == key) {
+        if (entry.key32 == key32) {
             replace = &entry;
             break;
         }
         if (replace == nullptr) {
             replace = &entry;
         } else {
-            bool entry_empty = entry.key == 0;
-            bool replace_empty = replace->key == 0;
+            bool entry_empty = entry.is_empty();
+            bool replace_empty = replace->is_empty();
             if (entry_empty && !replace_empty) {
                 replace = &entry;
             } else if (!entry_empty) {
-                if (entry.generation != generation_ && replace->generation == generation_) {
+                if (entry.generation() != generation_ && replace->generation() == generation_) {
                     replace = &entry;
-                } else if (entry.generation == replace->generation) {
+                } else if (entry.generation() == replace->generation()) {
                     if (entry.depth < replace->depth) {
                         replace = &entry;
                     }
@@ -79,28 +80,28 @@ void TranspositionTable::store(Key key, int depth, int score, Bound bound, Move 
         replace = &bucket.entries.front();
     }
 
-    if (replace->key != 0 && replace->key != key) {
+    if (!replace->is_empty() && replace->key32 != key32) {
         ++stats_.replacements;
     }
 
-    if (replace->key == key && replace->generation == generation_ && replace->depth > depth) {
+    if (replace->key32 == key32 && replace->generation() == generation_ && replace->depth > depth) {
         return;
     }
 
-    replace->key = key;
-    replace->best_move = move;
+    replace->key32 = key32;
+    replace->set_best_move(move);
     replace->score = static_cast<std::int16_t>(std::clamp(score, -InfiniteScore, InfiniteScore));
     replace->depth = static_cast<std::int16_t>(depth);
-    replace->bound = bound;
-    replace->generation = generation_;
+    replace->set_bound_gen(bound, generation_);
     ++stats_.stores;
 }
 
 bool TranspositionTable::probe(Key key, TTEntry& out) const {
     ++stats_.lookups;
+    const std::uint32_t key32 = static_cast<std::uint32_t>(key >> 32);
     const TTBucket& bucket = table_[key & mask_];
     for (const auto& entry : bucket.entries) {
-        if (entry.key == key && entry.bound != Bound::None) {
+        if (entry.key32 == key32 && entry.bound() != Bound::None) {
             out = entry;
             ++stats_.hits;
             return true;

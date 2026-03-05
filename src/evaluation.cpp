@@ -752,8 +752,68 @@ void update_king_safety_terms(const Position& pos, EvalState& state) {
             }
         }
 
-        // Quadratic scaling: danger = weight^2 / 4, capped at 1000
-        int danger = std::min(1000, weight_sum * weight_sum / 4);
+        // Safe checks: squares around the king that are not defended by our pieces
+        Bitboard our_occ = pos.occupancy(us);
+        // Compute squares defended by us (pawns + king)
+        Bitboard our_pawn_attacks = 0;
+        {
+            Bitboard our_pawns = pos.pieces(us, Piece::Pawn);
+            if (us == Color::White) {
+                our_pawn_attacks = ((our_pawns & ~Bitboard(0x0101010101010101ULL)) << 7) |
+                                   ((our_pawns & ~Bitboard(0x8080808080808080ULL)) << 9);
+            } else {
+                our_pawn_attacks = ((our_pawns & ~Bitboard(0x8080808080808080ULL)) >> 7) |
+                                   ((our_pawns & ~Bitboard(0x0101010101010101ULL)) >> 9);
+            }
+        }
+        Bitboard king_defend = king_attacks(king_sq) | our_pawn_attacks;
+        // Safe squares for enemy pieces = not defended by us and not occupied by enemy
+        Bitboard enemy_occ = pos.occupancy(them);
+        Bitboard safe_squares = ~king_defend & ~enemy_occ;
+
+        // Knight safe checks
+        Bitboard king_knight_zone = knight_attacks(king_sq);
+        {
+            Bitboard en = pos.pieces(them, Piece::Knight);
+            while (en) {
+                Square sq = pop_lsb(en);
+                if (knight_attacks(sq) & king_knight_zone & safe_squares)
+                    weight_sum += 3;
+            }
+        }
+        // Bishop safe checks
+        {
+            Bitboard king_bishop_zone = bishop_attacks(king_sq, occ);
+            Bitboard en = pos.pieces(them, Piece::Bishop);
+            while (en) {
+                Square sq = pop_lsb(en);
+                if (bishop_attacks(sq, occ) & king_bishop_zone & safe_squares)
+                    weight_sum += 2;
+            }
+        }
+        // Rook safe checks
+        {
+            Bitboard king_rook_zone = rook_attacks(king_sq, occ);
+            Bitboard en = pos.pieces(them, Piece::Rook);
+            while (en) {
+                Square sq = pop_lsb(en);
+                if (rook_attacks(sq, occ) & king_rook_zone & safe_squares)
+                    weight_sum += 3;
+            }
+        }
+        // Queen safe checks
+        {
+            Bitboard king_queen_zone = bishop_attacks(king_sq, occ) | rook_attacks(king_sq, occ);
+            Bitboard en = pos.pieces(them, Piece::Queen);
+            while (en) {
+                Square sq = pop_lsb(en);
+                if ((bishop_attacks(sq, occ) | rook_attacks(sq, occ)) & king_queen_zone & safe_squares)
+                    weight_sum += 4;
+            }
+        }
+
+        // Quadratic scaling: danger = weight^2 / 2, capped at 1500
+        int danger = std::min(1500, weight_sum * weight_sum / 2);
         mg[color] -= danger;
 
         Bitboard pawns = pos.pieces(us, Piece::Pawn);
@@ -767,6 +827,9 @@ void update_king_safety_terms(const Position& pos, EvalState& state) {
 }
 
 }  // namespace
+
+// Forward declaration for update_passed_extras (defined after build_eval_state)
+static void update_passed_extras(const Position& pos, EvalState& state);
 
 void init_evaluation() {
     if (eval_initialised) {
@@ -796,15 +859,18 @@ EvalState build_eval_state(const Position& pos) {
     state.pawn_dirty = true;
     state.mobility_dirty = true;
     state.king_dirty = true;
+    state.passed_extras_dirty = true;
     update_pawn_eval(pos, state);
     update_mobility(pos, state);
     update_king_safety_terms(pos, state);
+    update_passed_extras(pos, state);
     return state;
 }
 
 void eval_on_piece_add(EvalState& state, Color color, Piece piece, Square sq) {
     accumulate_piece(state, color, piece, sq, +1);
     state.king_dirty = true;
+    state.passed_extras_dirty = true;
     if (piece == Piece::Pawn) {
         state.pawn_key ^= PawnZobrist[static_cast<int>(color)][static_cast<int>(sq)];
         state.pawn_dirty = true;
@@ -819,6 +885,7 @@ void eval_on_piece_add(EvalState& state, Color color, Piece piece, Square sq) {
 void eval_on_piece_remove(EvalState& state, Color color, Piece piece, Square sq) {
     accumulate_piece(state, color, piece, sq, -1);
     state.king_dirty = true;
+    state.passed_extras_dirty = true;
     if (piece == Piece::Pawn) {
         state.pawn_key ^= PawnZobrist[static_cast<int>(color)][static_cast<int>(sq)];
         state.pawn_dirty = true;
@@ -828,6 +895,217 @@ void eval_on_piece_remove(EvalState& state, Color color, Piece piece, Square sq)
     }
     state.mobility_dirty = true;
     state.phase = std::clamp(state.phase, 0, PhaseTotal);
+}
+
+static void update_passed_extras(const Position& pos, EvalState& state) {
+    PassedPawnExtras pp = compute_passed_pawn_extras(pos);
+    state.passed_extras_mg = pp.mg_adj;
+    state.passed_extras_eg = pp.eg_adj;
+    state.passed_extras_dirty = false;
+}
+
+// Compute all pawn attacks for a color
+inline Bitboard all_pawn_attacks(Bitboard pawns, Color color) {
+    if (color == Color::White) {
+        return ((pawns & ~Bitboard(0x0101010101010101ULL)) << 7) |
+               ((pawns & ~Bitboard(0x8080808080808080ULL)) << 9);
+    } else {
+        return ((pawns & ~Bitboard(0x8080808080808080ULL)) >> 7) |
+               ((pawns & ~Bitboard(0x0101010101010101ULL)) >> 9);
+    }
+}
+
+// Compute all attacks for a side (lightweight: pawns + knights + king + sliding pieces)
+inline Bitboard all_attacks(const Position& pos, Color side) {
+    Bitboard occ = pos.occupancy();
+    Bitboard result = 0;
+
+    // Pawn attacks
+    result |= all_pawn_attacks(pos.pieces(side, Piece::Pawn), side);
+
+    // Knight attacks
+    Bitboard knights = pos.pieces(side, Piece::Knight);
+    while (knights) {
+        result |= knight_attacks(pop_lsb(knights));
+    }
+
+    // Bishop attacks
+    Bitboard bishops = pos.pieces(side, Piece::Bishop);
+    while (bishops) {
+        result |= bishop_attacks(pop_lsb(bishops), occ);
+    }
+
+    // Rook attacks
+    Bitboard rooks = pos.pieces(side, Piece::Rook);
+    while (rooks) {
+        result |= rook_attacks(pop_lsb(rooks), occ);
+    }
+
+    // Queen attacks
+    Bitboard queens = pos.pieces(side, Piece::Queen);
+    while (queens) {
+        Square sq = pop_lsb(queens);
+        result |= bishop_attacks(sq, occ) | rook_attacks(sq, occ);
+    }
+
+    // King attacks
+    Bitboard king = pos.pieces(side, Piece::King);
+    if (king) {
+        result |= king_attacks(static_cast<Square>(lsb(king)));
+    }
+
+    return result;
+}
+
+// Threat evaluation: hanging pieces, weak squares, minor behind passed pawn
+void compute_threats(const Position& pos, int& mg_adj, int& eg_adj) {
+    Bitboard white_pawns = pos.pieces(Color::White, Piece::Pawn);
+    Bitboard black_pawns = pos.pieces(Color::Black, Piece::Pawn);
+    Bitboard white_pawn_att = all_pawn_attacks(white_pawns, Color::White);
+    Bitboard black_pawn_att = all_pawn_attacks(black_pawns, Color::Black);
+
+    // We compute full attacks for both sides
+    Bitboard white_attacks = all_attacks(pos, Color::White);
+    Bitboard black_attacks = all_attacks(pos, Color::Black);
+
+    // Hanging pieces: attacked by opponent, not defended by us (non-pawn pieces only)
+    for (int color = 0; color < 2; ++color) {
+        Color us = static_cast<Color>(color);
+        Color them = opposite(us);
+        Bitboard our_attacks_bb = (us == Color::White) ? white_attacks : black_attacks;
+        Bitboard their_attacks_bb = (us == Color::White) ? black_attacks : white_attacks;
+        int sign = (us == Color::White) ? 1 : -1;
+
+        // Our non-pawn pieces that are attacked by opponent but not defended by us
+        Bitboard our_pieces = pos.occupancy(us) & ~pos.pieces(us, Piece::Pawn);
+        Bitboard hanging = our_pieces & their_attacks_bb & ~our_attacks_bb;
+        int hanging_count = popcount(hanging);
+        mg_adj -= sign * hanging_count * 30;
+        eg_adj -= sign * hanging_count * 20;
+    }
+
+    // Weak squares: squares in our half attacked by opponent pawns but not by our pawns (ranks 3-6 relative)
+    // For white: ranks 2-5 (0-indexed), for black: ranks 2-5 (mirrored)
+    constexpr Bitboard Rank3to6_White = 0x0000FFFFFFFF0000ULL; // ranks 2-5 (0-indexed)
+    constexpr Bitboard Rank3to6_Black = 0x0000FFFFFFFF0000ULL; // same mask, symmetric
+
+    // White's weak squares: in white's half (ranks 0-3), attacked by black pawns, not by white pawns
+    // Actually "ranks 3-6 relative" means for white: ranks 2-5 (absolute 0-indexed), for black: ranks 2-5 too
+    {
+        Bitboard weak_white = Rank3to6_White & black_pawn_att & ~white_pawn_att;
+        int count = popcount(weak_white);
+        mg_adj -= count * 3;
+        eg_adj -= count * 2;
+    }
+    {
+        Bitboard weak_black = Rank3to6_Black & white_pawn_att & ~black_pawn_att;
+        int count = popcount(weak_black);
+        mg_adj += count * 3;
+        eg_adj += count * 2;
+    }
+
+    // Minor piece behind passed pawn
+    for (int color = 0; color < 2; ++color) {
+        Color us = static_cast<Color>(color);
+        Color them = opposite(us);
+        Bitboard pawns = pos.pieces(us, Piece::Pawn);
+        Bitboard enemy_pawns = pos.pieces(them, Piece::Pawn);
+        Bitboard minors = pos.pieces(us, Piece::Knight) | pos.pieces(us, Piece::Bishop);
+        int sign = (us == Color::White) ? 1 : -1;
+
+        Bitboard pawns_iter = pawns;
+        while (pawns_iter) {
+            Square sq = pop_lsb(pawns_iter);
+            if (!is_passed(us, sq, enemy_pawns)) continue;
+            // Check if a minor piece is behind this passed pawn
+            int behind_sq = static_cast<int>(sq) + (us == Color::White ? -8 : 8);
+            if (behind_sq >= 0 && behind_sq < 64) {
+                if (minors & (Bitboard(1) << behind_sq)) {
+                    mg_adj += sign * 10;
+                    eg_adj += sign * 15;
+                }
+            }
+        }
+    }
+}
+
+// Space evaluation
+void compute_space(const Position& pos, int phase, int& mg_adj, int& eg_adj) {
+    if (phase <= 12) return; // Only in middlegame
+
+    Bitboard white_pawns = pos.pieces(Color::White, Piece::Pawn);
+    Bitboard black_pawns = pos.pieces(Color::Black, Piece::Pawn);
+    Bitboard white_pawn_att = all_pawn_attacks(white_pawns, Color::White);
+    Bitboard black_pawn_att = all_pawn_attacks(black_pawns, Color::Black);
+    Bitboard white_attacks = all_attacks(pos, Color::White);
+    Bitboard black_attacks = all_attacks(pos, Color::Black);
+
+    // White space: squares in ranks 4-7 (0-indexed) attacked by white but not defended by black pawns
+    constexpr Bitboard EnemyHalf_White = 0xFFFFFFFF00000000ULL; // ranks 4-7
+    constexpr Bitboard EnemyHalf_Black = 0x00000000FFFFFFFFULL; // ranks 0-3
+
+    int white_space = popcount(white_attacks & EnemyHalf_White & ~black_pawn_att);
+    int black_space = popcount(black_attacks & EnemyHalf_Black & ~white_pawn_att);
+    int space_diff = white_space - black_space;
+    mg_adj += space_diff * 1;
+    eg_adj += space_diff * 2;
+}
+
+// Better endgame knowledge for passed pawns
+void compute_endgame_passed(const Position& pos, int phase, int& eg_adj) {
+    Bitboard white_pawns = pos.pieces(Color::White, Piece::Pawn);
+    Bitboard black_pawns = pos.pieces(Color::Black, Piece::Pawn);
+
+    Bitboard wk_bb = pos.pieces(Color::White, Piece::King);
+    Bitboard bk_bb = pos.pieces(Color::Black, Piece::King);
+    if (!wk_bb || !bk_bb) return;
+    Square wk_sq = static_cast<Square>(lsb(wk_bb));
+    Square bk_sq = static_cast<Square>(lsb(bk_bb));
+
+    for (int color = 0; color < 2; ++color) {
+        Color us = static_cast<Color>(color);
+        Color them = opposite(us);
+        Bitboard pawns = (us == Color::White) ? white_pawns : black_pawns;
+        Bitboard enemy_pawns = (us == Color::White) ? black_pawns : white_pawns;
+        Square own_king = (us == Color::White) ? wk_sq : bk_sq;
+        Square enemy_king = (us == Color::White) ? bk_sq : wk_sq;
+        int sign = (us == Color::White) ? 1 : -1;
+
+        // Check if opponent has only king (no pieces besides pawns and king)
+        bool enemy_has_pieces = (pos.pieces(them, Piece::Knight) | pos.pieces(them, Piece::Bishop) |
+                                 pos.pieces(them, Piece::Rook) | pos.pieces(them, Piece::Queen)) != 0;
+
+        Bitboard pawns_iter = pawns;
+        while (pawns_iter) {
+            Square sq = pop_lsb(pawns_iter);
+            if (!is_passed(us, sq, enemy_pawns)) continue;
+
+            int pawn_rank = rank_of(sq);
+            int pawn_file = file_of(sq);
+            // Promotion square
+            int promo_rank = (us == Color::White) ? 7 : 0;
+            Square promo_sq = static_cast<Square>(promo_rank * 8 + pawn_file);
+
+            // Rule of the square: can the enemy king catch this pawn?
+            int dist_to_promo = (us == Color::White) ? (7 - pawn_rank) : pawn_rank;
+            int enemy_king_dist = chebyshev_distance(enemy_king, promo_sq);
+
+            // If it's our turn, the pawn effectively has one less square to go
+            // Simplified: if enemy king distance > pawn distance to promotion, pawn is unstoppable
+            // Only apply when enemy has no pieces that could block
+            if (!enemy_has_pieces && dist_to_promo < enemy_king_dist) {
+                eg_adj += sign * 200;
+            }
+
+            // King support for passed pawn: our king closer to promo square than enemy king
+            if (!enemy_has_pieces) {
+                int own_king_dist = chebyshev_distance(own_king, promo_sq);
+                if (own_king_dist < enemy_king_dist) {
+                    eg_adj += sign * 50;
+                }
+            }
+        }
+    }
 }
 
 int evaluate(const Position& pos, EvalState& state) {
@@ -840,24 +1118,36 @@ int evaluate(const Position& pos, EvalState& state) {
     if (state.king_dirty) {
         update_king_safety_terms(pos, state);
     }
+    if (state.passed_extras_dirty) {
+        update_passed_extras(pos, state);
+    }
 
-    // Passed pawn position-dependent extras (not cached in pawn hash)
-    PassedPawnExtras pp_extras = compute_passed_pawn_extras(pos);
+    int phase = std::clamp(state.phase, 0, PhaseTotal);
+
+    // Compute new terms (not cached, computed fresh)
+    int threat_mg = 0, threat_eg = 0;
+    compute_threats(pos, threat_mg, threat_eg);
+
+    int space_mg = 0, space_eg = 0;
+    compute_space(pos, phase, space_mg, space_eg);
+
+    int endgame_eg = 0;
+    compute_endgame_passed(pos, phase, endgame_eg);
 
     int mg_score = (state.material_mg[0] - state.material_mg[1]) +
                    (state.psq_mg[0] - state.psq_mg[1]) +
                    (state.pawn_mg[0] - state.pawn_mg[1]) +
                    (state.mobility_mg[0] - state.mobility_mg[1]) +
                    (state.king_safety[0] - state.king_safety[1]) +
-                   pp_extras.mg_adj;
+                   state.passed_extras_mg +
+                   threat_mg + space_mg;
 
     int eg_score = (state.material_eg[0] - state.material_eg[1]) +
                    (state.psq_eg[0] - state.psq_eg[1]) +
                    (state.pawn_eg[0] - state.pawn_eg[1]) +
                    (state.mobility_eg[0] - state.mobility_eg[1]) +
-                   pp_extras.eg_adj;
-
-    int phase = std::clamp(state.phase, 0, PhaseTotal);
+                   state.passed_extras_eg +
+                   threat_eg + space_eg + endgame_eg;
     int blended = (mg_score * phase + eg_score * (PhaseTotal - phase)) / PhaseTotal;
 
     constexpr int Tempo = 10;

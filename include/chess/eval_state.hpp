@@ -20,10 +20,13 @@ struct EvalState {
     std::array<int, 2> mobility_mg{0, 0};
     std::array<int, 2> mobility_eg{0, 0};
     std::array<int, 2> king_safety{0, 0};  // reserved
+    int passed_extras_mg = 0;
+    int passed_extras_eg = 0;
     Key pawn_key = 0;
     bool pawn_dirty = true;
     bool mobility_dirty = true;
     bool king_dirty = true;
+    bool passed_extras_dirty = true;
     int phase = 0;
 };
 

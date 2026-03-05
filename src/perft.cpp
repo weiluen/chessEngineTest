@@ -11,7 +11,7 @@ std::uint64_t perft(Position& pos, int depth) {
     if (depth == 0) {
         return 1ULL;
     }
-    std::vector<Move> moves = pos.generate_legal_moves();
+    MoveList moves = pos.generate_legal_moves();
     if (depth == 1) {
         return static_cast<std::uint64_t>(moves.size());
     }
